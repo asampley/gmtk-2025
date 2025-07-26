@@ -5,6 +5,11 @@ A project for the GMTK 2025 Game Jam
 
 You will need [Godot 4.4.1].
 
+These plugins are part of the repo, and are not required to be installed. More details can be found
+through `View files` and their git project.
+- [Godot Resource Groups](https://godotengine.org/asset-library/asset/2348)
+- [Edit Resources as Table](https://godotengine.org/asset-library/asset/1479)
+
 ### Style
 
 We follow the [godot style] except for the following exceptions:
