@@ -16,7 +16,6 @@ func process_input(event: InputEvent) -> State:
 
 func process_frame(delta: float) -> State:
 	var base_node_as_rigidbody := base_node as RigidBody2D
-	print_debug(base_node.linear_velocity.length())
 	if base_node.linear_velocity.length() <= 10:
 		return stopped_state
 	return null
