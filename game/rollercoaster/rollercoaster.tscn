@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=9 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Script" uid="uid://c03h3xluod86s" path="res://game/state_machine/state_machine.gd" id="3_nmpxg"]
 [ext_resource type="Script" uid="uid://cgxc1m8epbsvj" path="res://game/rollercoaster/states/stopped_state.gd" id="4_8bbrx"]
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_state.gd" id="5_1ove5"]
+[ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
@@ -44,3 +45,9 @@ moving_state = NodePath("../MovingState")
 [node name="MovingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("stopped_state")]
 script = ExtResource("5_1ove5")
 stopped_state = NodePath("../StoppedState")
+
+[node name="PlayerController" type="Node2D" parent="."]
+script = ExtResource("6_pce4i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
