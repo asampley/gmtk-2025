@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3kdff65tnyxu"]
+
+[ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
+[ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dtscj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmpxg"]
+size = Vector2(128, 128)
+
+[node name="Rollercoaster" type="RigidBody2D"]
+collision_layer = 2
+script = ExtResource("1_fpfh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fpfh7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nmpxg")
