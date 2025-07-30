@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var speed = 4000
+@export var speed := 4000
 var inputDirection: Vector2
 
 func _process(delta: float) -> void:

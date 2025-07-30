@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RollercoasterTemplate" load_steps=3 format=3 uid="uid://c5lprq1lpedur"]
+
+[ext_resource type="PackedScene" uid="uid://c3kdff65tnyxu" path="res://game/rollercoaster/rollercoaster.tscn" id="1_76sf7"]
+[ext_resource type="Script" uid="uid://q4xm1msgpepn" path="res://game/rollercoaster/rollercoaster_template.gd" id="1_etysq"]
+
+[resource]
+script = ExtResource("1_etysq")
+prefab = ExtResource("1_76sf7")
+initial_velocity = 100.0
+metadata/_custom_type_script = "uid://q4xm1msgpepn"
