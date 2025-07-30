@@ -52,7 +52,7 @@ auto_rebuild=true
 [layer_names]
 
 2d_physics/layer_1="Rails"
-2d_physics/layer_2="Coaster"
+2d_physics/layer_2="Rollercoaster"
 
 [rendering]
 

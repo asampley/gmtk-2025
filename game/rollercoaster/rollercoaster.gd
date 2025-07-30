@@ -9,6 +9,19 @@ var stats: RollercoasterStats
 func _ready() -> void:
 	state_machine.initialize(self)
 
+func _input(event: InputEvent) -> void:
+	if state_machine:
+		state_machine.process_input(event)
+
+func _process(delta: float) -> void:
+	if state_machine:
+		state_machine.process_frame(delta)
+
+func _physics_process(delta: float) -> void:
+	if state_machine:
+		state_machine.process_physics(delta)
+
+
 func set_stats(stats_in: RollercoasterStats) -> void:
 	stats = stats_in
 
