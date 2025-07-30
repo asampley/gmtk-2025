@@ -1,76 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=4 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
-[ext_resource type="Texture2D" uid="uid://dtjx7i75cwfmc" path="res://assets/spritesheet.png" id="1_l1rk1"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vasa2"]
-texture = ExtResource("1_l1rk1")
-texture_region_size = Vector2i(64, 64)
-7:0/0 = 0
-8:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, 32, -2, 32, 32, -2, 32, 3)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -2, 2, 32, -3, 32, -32, 3)
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.9298, -1.97975, -1.5, -2, 32, -2, 32, 1, -32.5, 1)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -2, -2, -32, 3, -32, -32, 3)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 3, 32, -2, 2, -32, -3, -32)
-
-[sub_resource type="TileSet" id="TileSet_h7iqs"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_vasa2")
+[ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="3_h7iqs"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent")]
 script = ExtResource("1_h7iqs")
@@ -78,6 +10,7 @@ rollercoaster_template = ExtResource("2_h7iqs")
 rollercoaster_parent = NodePath("RollercoasterParent")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_h7iqs")
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAACAAEAAAABAAAAAAACAAAAAAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAAAAAADAAEAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAFAAEAAAAAAAEAAAAFAAAAAAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAAAAAEAAAADAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("3_h7iqs")
 
 [node name="RollercoasterParent" type="Node2D" parent="."]
