@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=6 format=3 uid="uid://byjcihm70y4mn"]
 
+[ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Texture2D" uid="uid://dtjx7i75cwfmc" path="res://assets/spritesheet.png" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://c3kdff65tnyxu" path="res://game/rollercoaster/rollercoaster.tscn" id="2_vasa2"]
 
@@ -69,8 +70,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_vasa2")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_h7iqs")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
 tile_set = SubResource("TileSet_h7iqs")
 
 [node name="Rollercoaster" parent="." instance=ExtResource("2_vasa2")]
+
+[node name="RollercoasterParent" type="Node2D" parent="."]

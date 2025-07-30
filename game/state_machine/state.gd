@@ -2,16 +2,16 @@ class_name State
 extends Node2D
 
 
-@export var animationName: String = "default"
+@export var animation_name: String = "default"
 
 
-var baseNode: Unit
+var base_node: Node2D
 
-func initialize(baseNodeIn: Unit):
-	baseNode = baseNodeIn
+func initialize(base_node_in: Node2D) -> void:
+	base_node = base_node_in
 
 func enter() -> void:
-	baseNode.set_animation(animationName)
+	base_node.set_animation(animation_name)
 	pass
 
 func exit() -> void:

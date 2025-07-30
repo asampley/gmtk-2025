@@ -24,8 +24,15 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="gmtk-2025"
+run/main_scene="uid://byjcihm70y4mn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://game/core/event_bus.gd"
+Globals="*res://game/core/globals.gd"
+DataHandler="*res://game/core/data_handler.gd"
 
 [debug]
 

@@ -1,32 +1,32 @@
 class_name StateMachine
 extends Node
 
-@export var startingState: State
+@export var starting_state: State
 
-var currentState: State
+var current_state: State
 
-func initialize(baseNodeIn: Node2D) -> void:
+func initialize(base_node_in: Node2D) -> void:
 	for child in get_children():
-		child.initialize(baseNodeIn)
-	change_state(startingState)
+		child.initialize(base_node_in)
+	change_state(starting_state)
 
-func change_state(newState: State) -> void:
-	if currentState:
-		currentState.exit()
-	currentState = newState
-	currentState.enter()
+func change_state(new_state: State) -> void:
+	if current_state:
+		current_state.exit()
+	current_state = new_state
+	current_state.enter()
 
 func process_physics(delta: float) -> void:
-	var newState = currentState.process_physics(delta)
-	if newState:
-		change_state(newState)
+	var new_state := current_state.process_physics(delta)
+	if new_state:
+		change_state(new_state)
 
 func process_input(event: InputEvent) -> void:
-	var newState = currentState.process_input(event)
-	if newState:
-		change_state(newState)
+	var new_state := current_state.process_input(event)
+	if new_state:
+		change_state(new_state)
 
 func process_frame(delta: float) -> void:
-	var newState = currentState.process_frame(delta)
-	if newState:
-		change_state(newState)
+	var new_state := current_state.process_frame(delta)
+	if new_state:
+		change_state(new_state)
