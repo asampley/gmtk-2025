@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_nmpxg")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_nmpxg")
-starting_state = NodePath("StoppedState")
+starting_state = NodePath("MovingState")
 
 [node name="StoppedState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_state")]
 script = ExtResource("4_8bbrx")
