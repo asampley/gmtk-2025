@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://v82r4nbs7pes"]
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://ut1p12mh33ab"]
 
 [ext_resource type="Script" uid="uid://dg5r62h7b7et" path="res://addons/godot_resource_groups/resource_group.gd" id="1_rm4ck"]
 
