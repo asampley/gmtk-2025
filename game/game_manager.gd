@@ -4,6 +4,7 @@ extends Node2D
 @export var rollercoaster_parent: Node2D
 
 var current_rollercoaster_stats: RollercoasterStats
+var upgrade_dict: Dictionary[UpgradeTemplate, bool] # bool is if the upgrade has been purchased
 
 func _ready() -> void:
 	spawn_rollercoaster()
@@ -17,3 +18,11 @@ func spawn_rollercoaster() -> void:
 	rollercoaster.set_stats(current_rollercoaster_stats)
 	var initial_impulse_direction := Vector2.RIGHT
 	rollercoaster.velocity += initial_impulse_direction * rollercoaster.stats.initial_velocity
+
+func generate_upgrade_dict() -> void:
+	for upgrade_template: UpgradeTemplate in DataHandler.upgrade_resources:
+		upgrade_dict[upgrade_template] = false
+
+func on_purchase_upgrade(upgrade_template: UpgradeTemplate) -> void:
+	upgrade_dict[upgrade_template] = true
+	current_rollercoaster_stats.apply_upgrade(upgrade_template)

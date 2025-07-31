@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://cih8bo0mff7tt"]
+
+[ext_resource type="Script" uid="uid://dg5r62h7b7et" path="res://addons/godot_resource_groups/resource_group.gd" id="1_vaq2c"]
+
+[resource]
+script = ExtResource("1_vaq2c")
+base_folder = "res://game/template/upgrades"
+includes = Array[String](["*.tres"])
+excludes = Array[String]([])
+paths = Array[String](["res://game/template/upgrades/speed_1.tres"])
+metadata/_custom_type_script = "uid://dg5r62h7b7et"
