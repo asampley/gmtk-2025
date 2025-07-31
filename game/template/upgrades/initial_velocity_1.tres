@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=2 format=3 uid="uid://den0hucjdw2pm"]
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=3 format=3 uid="uid://den0hucjdw2pm"]
 
+[ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_cju7f"]
 [ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_nkpgb"]
 
 [resource]
 script = ExtResource("1_nkpgb")
 upgrade_name = "Speed Increase 1"
 description = "Increases the initial launch speed"
-cost = 0.0
+purchase_icon = ExtResource("1_cju7f")
+cost = 100
 add_initial_velocity = 100.0
 add_jump_force = 0.0
 metadata/_custom_type_script = "uid://b6ea637edsxpb"

@@ -2,9 +2,13 @@ class_name UpgradeSelector
 extends PanelContainer
 
 var template: UpgradeTemplate
+@onready var icon: TextureRect = %Icon
+@onready var cost: Label = %Cost
 
 func initialize(template_in: UpgradeTemplate) -> void:
 	template = template_in
+	icon.texture = template.purchase_icon
+	cost.text = str(template.cost)
 
 
 func _on_gui_input(event: InputEvent) -> void:
