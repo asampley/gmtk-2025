@@ -5,7 +5,7 @@ extends Node2D
 @export var animation_name: String = "default"
 
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
-var base_node: CharacterBody2D
+var base_node: Rollercoaster
 
 func initialize(base_node_in: CharacterBody2D) -> void:
 	base_node = base_node_in

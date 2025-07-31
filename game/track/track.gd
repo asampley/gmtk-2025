@@ -16,9 +16,15 @@ func pixel_to_tile_coord(pixel: Vector2i) -> Vector2i:
 # Direction is a unit Vector2i.
 func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
 	var array: Array[Vector2i] = []
-	
+
 	var signs := self._sign_string(in_direction.x) + self._sign_string(in_direction.y)
-	for data: Vector2i  in get_cell_tile_data(tile).get_custom_data("conn" + signs):
+
+	var tile_data := get_cell_tile_data(tile)
+	if tile_data == null: return array
+
+	var custom_data : Array = tile_data.get_custom_data("conn" + signs)
+
+	for data: Vector2i in custom_data:
 		array.append(data)
 	return array
 

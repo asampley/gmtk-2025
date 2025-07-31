@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=12 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
-[ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Script" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
@@ -23,7 +23,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmpxg"]
 size = Vector2(26, 26)
 
-[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations")]
+[sub_resource type="Curve2D" id="Curve2D_hr1qv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 99, 101, -1, 0, 0, 0, 200, 100)
+}
+point_count = 3
+
+[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "pathFollow")]
 collision_layer = 2
 slide_on_ceiling = false
 floor_stop_on_slope = false
@@ -35,6 +41,8 @@ platform_wall_layers = 1
 script = ExtResource("1_fpfh7")
 state_machine = NodePath("StateMachine")
 animations = NodePath("AnimatedSprite2D")
+path = NodePath("AnimatePath")
+pathFollow = NodePath("AnimatePath/AnimatePathFollow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -71,3 +79,12 @@ script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="AnimatePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_hr1qv")
+
+[node name="AnimatePathFollow" type="PathFollow2D" parent="AnimatePath"]
+position = Vector2(34.9969, 35.7039)
+rotation = 0.795398
+progress = 50.0
+loop = false
