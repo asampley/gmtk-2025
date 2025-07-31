@@ -1,9 +1,6 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cwijggy17ykii"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cwijggy17ykii"]
 
 [ext_resource type="Texture2D" uid="uid://dtjx7i75cwfmc" path="res://assets/spritesheet.png" id="1_q3rpu"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q3rpu"]
-friction = 0.16
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vasa2"]
 texture = ExtResource("1_q3rpu")
@@ -110,7 +107,6 @@ texture_region_size = Vector2i(64, 64)
 [resource]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_q3rpu")
 custom_data_layer_0/name = "conn0-"
 custom_data_layer_0/type = 28
 custom_data_layer_1/name = "conn+-"

@@ -1,3 +1,4 @@
+class_name Track
 extends TileMapLayer
 
 # Convert a pixel coordinate to a tile in the tilemap
@@ -14,9 +15,12 @@ func pixel_to_tile_coord(pixel: Vector2i) -> Vector2i:
 #
 # Direction is a unit Vector2i.
 func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
+	var array: Array[Vector2i] = []
+	
 	var signs := self._sign_string(in_direction.x) + self._sign_string(in_direction.y)
-
-	return self.get_cell_tile_data(tile).get_custom_data("conn" + signs)
+	for data: Vector2i  in get_cell_tile_data(tile).get_custom_data("conn" + signs):
+		array.append(data)
+	return array
 
 func _sign_string(x: int) -> String:
 	if x == 0:

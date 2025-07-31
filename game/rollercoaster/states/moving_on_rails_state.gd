@@ -6,6 +6,7 @@ extends State
 @export var stopped_state: State
 
 var last_position: Vector2
+var available_directions: Array[Vector2i] = []
 
 func enter() -> void:
 	super()
@@ -14,11 +15,13 @@ func enter() -> void:
 		var collision := base_node.get_last_slide_collision()
 		var collider := collision.get_collider()
 		if collider is TileMapLayer:
-			var tile_map := collider as TileMapLayer
+			var tile_map := collider as Track
 			var global_pos := collision.get_position()
 			var tile_pos: = tile_map.local_to_map(tile_map.to_local(global_pos))
-			print(tile_pos)
-			print(tile_map.get_cell_tile_data(tile_pos).has_custom_data("conn+0"))
+			var direction := get_direction(base_node.velocity)
+			available_directions = tile_map.connections(tile_pos, direction)
+			#for direction2 in available_directions:
+				#print(direction2)
 
 func exit() -> void:
 	super()
@@ -36,6 +39,9 @@ func process_physics(delta: float) -> State:
 		return falling_state
 	if base_node.velocity.length() <= 10:
 		return stopped_state
-	base_node.velocity.y += gravity * delta	
-
+	base_node.velocity.y += gravity * delta
+	base_node.move_and_slide()
 	return null
+
+func get_direction(vector_in: Vector2) -> Vector2i:
+	return (Vector2i(-vector_in) / 32).clampi(-1,1)
