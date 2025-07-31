@@ -41,6 +41,11 @@ gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_call_argument=2
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor]
 
 movie_writer/movie_file="/home/asampley/Projects/gmtk-2025/recording/clip.avi"
