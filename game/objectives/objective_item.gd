@@ -23,4 +23,5 @@ func _on_claim_pressed() -> void:
 
 func _on_bookmark_pressed() -> void:
 	Globals.bookmarked_objective = objective
+	EventBus.bookmarked_objective_changed.emit()
 	EventBus.objective_menu_requested.emit()

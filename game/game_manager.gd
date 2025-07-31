@@ -7,7 +7,6 @@ var current_rollercoaster_stats: RollercoasterStats
 var upgrade_dict: Dictionary[UpgradeTemplate, bool] = {} # bool is if the upgrade has been purchased
 
 
-
 func _ready() -> void:
 	connect_events()
 	generate_upgrade_dict()
