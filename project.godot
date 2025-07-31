@@ -41,6 +41,10 @@ gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1
 gdscript/warnings/unsafe_call_argument=2
 
+[editor]
+
+movie_writer/movie_file="/home/asampley/Projects/gmtk-2025/recording/clip.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
