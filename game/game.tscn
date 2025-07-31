@@ -107,9 +107,11 @@ text = "FPS"
 script = ExtResource("6_dakft")
 
 [node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_u5opy")]
+visible = false
 offset_left = -400.0
 offset_top = -250.0
 offset_right = 400.0
 offset_bottom = 250.0
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
+visible = false

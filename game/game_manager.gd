@@ -27,12 +27,12 @@ func spawn_rollercoaster() -> void:
 
 func generate_upgrade_dict() -> void:
 	for upgrade_template: UpgradeTemplate in DataHandler.upgrade_resources:
-		print(upgrade_template is UpgradeTemplate)
 		upgrade_dict[upgrade_template] = false
 
 func on_upgrade_purchased(upgrade_template: UpgradeTemplate) -> void:
 	upgrade_dict[upgrade_template] = true
 	current_rollercoaster_stats.apply_upgrade(upgrade_template)
+	
 
 func open_upgrade_menu() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrade_dict)

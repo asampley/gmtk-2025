@@ -8,7 +8,8 @@ func initialize(template_in: UpgradeTemplate) -> void:
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	EventBus.upgrade_purchased.emit(template)
+	if event.is_action_released("left_click"):
+		EventBus.upgrade_purchased.emit(template)
 
 func _on_mouse_entered() -> void:
 	EventBus.tooltip_requested.emit(template.description, get_global_mouse_position())
