@@ -49,9 +49,11 @@ func process_physics(delta: float) -> State:
 	base_node.velocity.y += gravity * delta
 	base_node.move_and_slide()
 
-	var new_tile_pos := track.local_to_map(track.to_local(self.global_position))
+	var new_progress := base_node.pathFollow.progress + base_node.velocity.length() * delta
 
-	if new_tile_pos != tile_pos:
+	if new_progress > base_node.path.curve.get_baked_length():
+		new_progress -= base_node.path.curve.get_baked_length()
+
 		print("Leaving tile %s from %s" % [tile_pos, out_direction])
 		tile_pos += out_direction
 		print("Entering tile %s from %s" % [tile_pos, -out_direction])
@@ -62,6 +64,8 @@ func process_physics(delta: float) -> State:
 		if available_directions.size() != 0:
 			out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
 			update_path()
+
+	base_node.pathFollow.progress = new_progress
 
 	if available_directions.size() == 0:
 		return falling_state
