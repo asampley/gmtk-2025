@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d13n3k3ld307x"]
+
+[ext_resource type="Script" uid="uid://dnm0yto8gxd2d" path="res://game/upgrade/tooltip.gd" id="1_ahqtw"]
+
+[node name="Tooltip" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ahqtw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Description" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "This is a tooltip."

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://duxcyga38wgsi"]
+
+[ext_resource type="Script" uid="uid://dj6afu3tdxkyp" path="res://game/upgrade/upgrade_selector.gd" id="1_5hy0p"]
+[ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dvsfp"]
+
+[node name="UpgradeSelector" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_5hy0p")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_dvsfp")
+expand_mode = 5
+stretch_mode = 4
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
