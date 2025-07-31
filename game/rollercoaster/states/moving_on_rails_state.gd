@@ -10,6 +10,15 @@ var last_position: Vector2
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.WHITE)
+	if base_node.get_last_slide_collision() != null:
+		var collision := base_node.get_last_slide_collision()
+		var collider := collision.get_collider()
+		if collider is TileMapLayer:
+			var tile_map := collider as TileMapLayer
+			var global_pos := collision.get_position()
+			var tile_pos: = tile_map.local_to_map(tile_map.to_local(global_pos))
+			print(tile_pos)
+			print(tile_map.get_cell_tile_data(tile_pos).has_custom_data("conn+0"))
 
 func exit() -> void:
 	super()
@@ -23,12 +32,10 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	var base_node_as_characterbody := base_node as CharacterBody2D
-	if !base_node_as_characterbody.is_on_floor():
+	if !base_node.is_on_floor():
 		return falling_state
-	if base_node_as_characterbody.velocity.length() <= 10:
+	if base_node.velocity.length() <= 10:
 		return stopped_state
-	base_node_as_characterbody.velocity.y += gravity * delta
-	print(base_node_as_characterbody.velocity)
-	base_node_as_characterbody.move_and_slide()
+	base_node.velocity.y += gravity * delta	
+
 	return null

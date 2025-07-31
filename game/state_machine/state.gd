@@ -5,9 +5,9 @@ extends Node2D
 @export var animation_name: String = "default"
 
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
-var base_node: Node2D
+var base_node: CharacterBody2D
 
-func initialize(base_node_in: Node2D) -> void:
+func initialize(base_node_in: CharacterBody2D) -> void:
 	base_node = base_node_in
 
 func enter() -> void:
