@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d0ptlkrsu1w80"]
+
+[ext_resource type="Texture2D" uid="uid://r5ku473n1hrw" path="res://assets/backgroundspritesheet.png" id="1_7m32x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqxps"]
+texture = ExtResource("1_7m32x")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+12:0/size_in_atlas = Vector2i(4, 4)
+12:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_pqxps")
