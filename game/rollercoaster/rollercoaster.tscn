@@ -81,6 +81,7 @@ script = ExtResource("6_pce4i")
 position_smoothing_enabled = true
 
 [node name="AnimatePath" type="Path2D" parent="."]
+top_level = true
 curve = SubResource("Curve2D_hr1qv")
 
 [node name="AnimatePathFollow" type="PathFollow2D" parent="AnimatePath"]

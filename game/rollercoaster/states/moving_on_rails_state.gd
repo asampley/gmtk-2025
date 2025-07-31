@@ -33,12 +33,22 @@ func exit() -> void:
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
-	if event.is_action_pressed("MoveUp") || event.is_action_pressed("MoveDown"):
-		out_direction = calc_direction(Input.is_action_pressed("MoveUp"), Input.is_action_pressed("MoveDown"))
+	if event.is_action_pressed("move_up") || event.is_action_pressed("move_down"):
+		out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
 		update_path()
 	return null
 
 func process_frame(delta: float) -> State:
+	return null
+
+func process_physics(delta: float) -> State:
+	if !base_node.is_on_floor():
+		return falling_state
+	if base_node.velocity.length() <= 10:
+		return stopped_state
+	base_node.velocity.y += gravity * delta
+	base_node.move_and_slide()
+
 	var new_tile_pos := track.local_to_map(track.to_local(self.global_position))
 
 	if new_tile_pos != tile_pos:
@@ -50,22 +60,13 @@ func process_frame(delta: float) -> State:
 		available_directions = track.connections(tile_pos, in_direction)
 
 		if available_directions.size() != 0:
-			out_direction = calc_direction(Input.is_action_pressed("MoveUp"), Input.is_action_pressed("MoveDown"))
+			out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
 			update_path()
 
 	if available_directions.size() == 0:
 		return falling_state
 	else:
 		return null
-
-func process_physics(delta: float) -> State:
-	if !base_node.is_on_floor():
-		return falling_state
-	if base_node.velocity.length() <= 10:
-		return stopped_state
-	base_node.velocity.y += gravity * delta
-	base_node.move_and_slide()
-	return null
 
 func get_direction(vector_in: Vector2) -> Vector2i:
 	return (Vector2i(-vector_in) / 32).clampi(-1,1)
@@ -79,9 +80,11 @@ func calc_direction(up: bool, down: bool) -> Vector2i:
 		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
 
 func update_path() -> void:
+	assert(base_node.path.top_level)
+
 	var curve := base_node.path.curve
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
-	curve.set_point_position(0, self.to_local(tile_as_global + in_direction * track.tile_set.tile_size * 0.5))
-	curve.set_point_position(1, self.to_local(tile_as_global))
-	curve.set_point_position(2, self.to_local(tile_as_global + out_direction * track.tile_set.tile_size * 0.5))
+	curve.set_point_position(0, tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
+	curve.set_point_position(1, tile_as_global)
+	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
