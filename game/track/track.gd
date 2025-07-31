@@ -13,8 +13,8 @@ func pixel_to_tile_coord(pixel: Vector2i) -> Vector2i:
 # Returns the possible output directions given an input direction.
 #
 # Direction is a unit Vector2i.
-func connections(tile: Vector2i, direction: Vector2i) -> Array[Vector2i]:
-	var signs := self._sign_string(direction.x) + self._sign_string(direction.y)
+func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
+	var signs := self._sign_string(in_direction.x) + self._sign_string(in_direction.y)
 
 	return self.get_cell_tile_data(tile).get_custom_data("conn" + signs)
 
