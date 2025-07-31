@@ -74,9 +74,9 @@ func calc_direction(up: bool, down: bool) -> Vector2i:
 	if up == down:
 		return available_directions[0]
 	elif up:
-		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
-	else:
 		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y > acc.y else v)
+	else:
+		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
 
 func update_path() -> void:
 	var curve := base_node.path.curve

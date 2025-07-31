@@ -26,6 +26,7 @@ func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
 
 	for data: Vector2i in custom_data:
 		array.append(data)
+
 	return array
 
 func _sign_string(x: int) -> String:
