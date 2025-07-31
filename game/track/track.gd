@@ -14,31 +14,14 @@ func pixel_to_tile_coord(pixel: Vector2i) -> Vector2i:
 #
 # Direction is a unit Vector2i.
 func connections(tile: Vector2i, direction: Vector2i) -> Array[Vector2i]:
-	match direction:
-		Vector2i.UP:
-			return connections_up(tile)
-		Vector2i.DOWN:
-			return connections_down(tile)
-		Vector2i.LEFT:
-			return connections_left(tile)
-		Vector2i.RIGHT:
-			return connections_right(tile)
-		_:
-			# TODO should this error, or is an empty array catastrophic enough?
-			return []
+	var signs := self._sign_string(direction.x) + self._sign_string(direction.y)
 
-# Returns the possible output directions entering from the top
-func connections_up(tile: Vector2i) -> Array[Vector2i]:
-	return self.get_cell_tile_data(tile).get_custom_data("conn_up")
+	return self.get_cell_tile_data(tile).get_custom_data("conn" + signs)
 
-# Returns the possible output directions entering from the bottom
-func connections_down(tile: Vector2i) -> Array[Vector2i]:
-	return self.get_cell_tile_data(tile).get_custom_data("conn_down")
-
-# Returns the possible output directions entering from the bottom
-func connections_left(tile: Vector2i) -> Array[Vector2i]:
-	return self.get_cell_tile_data(tile).get_custom_data("conn_left")
-
-# Returns the possible output directions entering from the bottom
-func connections_right(tile: Vector2i) -> Array[Vector2i]:
-	return self.get_cell_tile_data(tile).get_custom_data("conn_right")
+func _sign_string(x: int) -> String:
+	if x == 0:
+		return "0"
+	elif x < 0:
+		return "-"
+	else:
+		return "+"
