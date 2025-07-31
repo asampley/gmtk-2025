@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("1_etysq")
 prefab = ExtResource("1_76sf7")
-initial_velocity = 100.0
+initial_velocity = 30.0
+jump_force = 500.0
 metadata/_custom_type_script = "uid://q4xm1msgpepn"

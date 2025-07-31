@@ -23,7 +23,7 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	var base_node_as_rigidbody := base_node as CharacterBody2D
+	var base_node_as_characterbody := base_node as CharacterBody2D
 	if base_node.velocity.length() > 10:
 		return moving_on_rails_state
 	var time_stopped_in_seconds := (Time.get_ticks_msec()  - entered_stopped_state) / 1000

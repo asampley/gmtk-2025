@@ -4,14 +4,10 @@ extends State
 @export var moving_on_rails_state: State
 @export var stopped_state: State
 
-var entered_stopped_state: float
-var gravity : int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.YELLOW)
-	entered_stopped_state = Time.get_ticks_msec()
 
 func exit() -> void:
 	super()

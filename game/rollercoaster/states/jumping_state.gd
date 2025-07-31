@@ -5,8 +5,6 @@ extends State
 @export var falling_state: State
 
 
-var last_position: Vector2
-
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.GREEN)
@@ -23,6 +21,8 @@ func process_frame(delta: float) -> State:
 
 func process_physics(delta: float) -> State:
 	var base_node_as_characterbody := base_node as CharacterBody2D
+	base_node_as_characterbody.velocity.y += gravity * delta
 	if base_node_as_characterbody.velocity.y > 0:
 		return falling_state
+	base_node_as_characterbody.move_and_slide()
 	return null

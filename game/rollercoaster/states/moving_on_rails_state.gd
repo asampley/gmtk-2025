@@ -28,5 +28,7 @@ func process_physics(delta: float) -> State:
 		return falling_state
 	if base_node_as_characterbody.velocity.length() <= 10:
 		return stopped_state
+	base_node_as_characterbody.velocity.y += gravity * delta
+	print(base_node_as_characterbody.velocity)
 	base_node_as_characterbody.move_and_slide()
 	return null
