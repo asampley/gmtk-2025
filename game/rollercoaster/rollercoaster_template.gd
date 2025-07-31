@@ -4,3 +4,4 @@ extends Resource
 
 @export var prefab: PackedScene
 @export var initial_velocity: float
+@export var jump_force: float
