@@ -28,6 +28,9 @@ tile_set = ExtResource("5_dxrkv")
 
 [node name="RollercoasterParent" type="Node2D" parent="."]
 
+[node name="ObjectiveManager" type="Node" parent="."]
+script = ExtResource("9_l8g03")
+
 [node name="Signs" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -116,6 +119,3 @@ offset_bottom = 250.0
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
-
-[node name="ObjectiveManager" type="Node" parent="."]
-script = ExtResource("9_l8g03")
