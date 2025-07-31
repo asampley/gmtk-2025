@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_213xj"]
 
 [node name="ObjectivesMenu" type="PanelContainer" node_paths=PackedStringArray("objective_item_parent")]
-offset_right = 293.0
-offset_bottom = 167.0
+offset_right = 682.0
+offset_bottom = 409.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_idrao")

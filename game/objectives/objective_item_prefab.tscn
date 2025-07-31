@@ -29,4 +29,11 @@ layout_mode = 2
 texture_normal = ExtResource("1_eic5i")
 texture_disabled = ExtResource("3_43r72")
 
+[node name="Bookmark" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("1_eic5i")
+texture_disabled = ExtResource("3_43r72")
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Claim" to="." method="_on_claim_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Bookmark" to="." method="_on_bookmark_pressed"]
