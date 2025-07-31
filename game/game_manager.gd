@@ -12,7 +12,6 @@ func _ready() -> void:
 	connect_events()
 	generate_upgrade_dict()
 	spawn_rollercoaster()
-	open_upgrade_menu()
 
 func connect_events() -> void:
 	EventBus.upgrade_purchased.connect(on_upgrade_purchased)
