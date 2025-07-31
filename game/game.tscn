@@ -16,3 +16,66 @@ tile_set = ExtResource("3_h7iqs")
 script = ExtResource("4_4fuuu")
 
 [node name="RollercoasterParent" type="Node2D" parent="."]
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+anchors_preset = -1
+offset_left = 384.0
+offset_top = 105.0
+offset_right = 538.0
+offset_bottom = 179.0
+text = "Survive returning to the start to unlock it
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+anchors_preset = -1
+offset_left = 627.0
+offset_top = 105.0
+offset_right = 739.0
+offset_bottom = 179.0
+text = "This is an upgrade
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 1168.0
+offset_top = -234.0
+offset_right = 1291.0
+offset_bottom = -150.0
+text = "Do tricks!
+Get something!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+anchors_preset = -1
+offset_left = 638.0
+offset_top = -82.0
+offset_right = 792.0
+offset_bottom = -8.0
+text = "If you run out of speed, you go back to the start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+anchors_preset = -1
+offset_left = 293.0
+offset_top = -75.0
+offset_right = 447.0
+offset_bottom = -1.0
+text = "Use W or S to change tracks
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 71.0
+offset_top = -71.0
+offset_right = 180.0
+offset_bottom = -10.0
+text = "Welcome to
+NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
