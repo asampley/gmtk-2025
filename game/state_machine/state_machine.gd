@@ -14,6 +14,7 @@ func change_state(new_state: State) -> void:
 	if current_state:
 		current_state.exit()
 	current_state = new_state
+	print("Entered state %s" % current_state)
 	current_state.enter()
 
 func process_physics(delta: float) -> void:

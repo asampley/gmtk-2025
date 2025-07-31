@@ -1,6 +1,17 @@
 class_name Track
 extends TileMapLayer
 
+const DIRECTIONS: Array[Vector2i] = [
+	Vector2i( 0, -1),
+	Vector2i( 1, -1),
+	Vector2i( 1,  0),
+	Vector2i( 1,  1),
+	Vector2i( 0,  1),
+	Vector2i(-1,  1),
+	Vector2i(-1,  0),
+	Vector2i(-1, -1),
+]
+
 # Returns the possible output directions given an input direction.
 #
 # Direction is a unit Vector2i.
