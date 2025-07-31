@@ -46,8 +46,8 @@ func process_physics(delta: float) -> State:
 		return falling_state
 	if base_node.velocity.length() <= 10:
 		return stopped_state
-	base_node.velocity.y += gravity * delta
-	base_node.move_and_slide()
+	#base_node.velocity.y += gravity * delta
+	#base_node.move_and_slide()
 
 	var new_progress := base_node.pathFollow.progress + base_node.velocity.length() * delta
 
@@ -66,6 +66,8 @@ func process_physics(delta: float) -> State:
 			update_path()
 
 	base_node.pathFollow.progress = new_progress
+	base_node.transform = base_node.pathFollow.transform
+	
 
 	if available_directions.size() == 0:
 		return falling_state
