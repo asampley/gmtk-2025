@@ -31,9 +31,18 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
 	if event.is_action_pressed("move_up") || event.is_action_pressed("move_down"):
-		var state := update_path()
-		if state != null:
-			return state
+		var follow := base_node.path_follow
+		var curve := base_node.path.curve
+
+		var near := curve.sample_baked(follow.progress + 0.05)
+
+		print(near - follow.global_position, " . ", curve.get_point_position(1) - follow.global_position, " = ", (near - follow.global_position).dot(curve.get_point_position(1) - follow.global_position))
+
+		# If we are before the branch, update out_direction
+		if (follow.global_position - near).dot(follow.global_position - curve.get_point_position(1)) > 0:
+			var state := update_path()
+			if state != null:
+				return state
 	return null
 
 func process_frame(delta: float) -> State:
@@ -47,7 +56,7 @@ func process_physics(delta: float) -> State:
 	var follow := base_node.path_follow
 
 	# if velocity is against the path, we should update it
-	var progress_direction := (curve.sample_baked(follow.progress_ratio + 0.05) - (curve.sample_baked(follow.progress_ratio - 0.05))).normalized()
+	var progress_direction := (curve.sample_baked(follow.progress + 0.05) - (curve.sample_baked(follow.progress - 0.05))).normalized()
 	if base_node.velocity.dot(progress_direction) < 0:
 		flip()
 
@@ -106,6 +115,8 @@ func calc_direction(available_directions: Array[Vector2i], up: bool, down: bool)
 func update_path() -> State:
 	assert(base_node.path.top_level)
 
+	var curve := base_node.path.curve
+
 	var available_directions := track.connections(tile_pos, in_direction)
 
 	if available_directions.size() == 0:
@@ -113,10 +124,10 @@ func update_path() -> State:
 
 	out_direction = calc_direction(available_directions, Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
 
-	var curve := base_node.path.curve
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
 	curve.set_point_position(0, tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
 	curve.set_point_position(1, tile_as_global)
 	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
+
 	return null
