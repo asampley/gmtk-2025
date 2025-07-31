@@ -92,6 +92,3 @@ func update_path() -> State:
 	curve.set_point_position(1, tile_as_global)
 	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
 	return null
-
-
-
