@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var state_machine: StateMachine
 @export var animations: AnimatedSprite2D
 @export var path: Path2D
-@export var pathFollow: PathFollow2D
+@export var path_follow: PathFollow2D
 
 var stats: RollercoasterStats
 

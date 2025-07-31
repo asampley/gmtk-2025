@@ -8,7 +8,6 @@ extends State
 var tile_pos: Vector2i
 var in_direction: Vector2i
 var out_direction: Vector2i
-var available_directions: Array[Vector2i] = []
 
 var track: Track
 
@@ -32,8 +31,9 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
 	if event.is_action_pressed("move_up") || event.is_action_pressed("move_down"):
-		out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
-		update_path()
+		var state := update_path()
+		if state != null:
+			return state
 	return null
 
 func process_frame(delta: float) -> State:
@@ -47,7 +47,7 @@ func process_physics(delta: float) -> State:
 	#base_node.velocity.y += gravity * delta
 	#base_node.move_and_slide()
 
-	var new_progress := base_node.pathFollow.progress + base_node.velocity.length() * delta
+	var new_progress := base_node.path_follow.progress + base_node.velocity.length() * delta
 
 	if new_progress > base_node.path.curve.get_baked_length():
 		new_progress -= base_node.path.curve.get_baked_length()
@@ -60,14 +60,14 @@ func process_physics(delta: float) -> State:
 		var state:=  update_path()
 		if state != null:
 			return state
-	base_node.pathFollow.progress = new_progress
-	base_node.transform = base_node.pathFollow.transform
+	base_node.path_follow.progress = new_progress
+	base_node.transform = base_node.path_follow.transform
 	return null
-	
+
 func get_direction(vector_in: Vector2) -> Vector2i:
 	return (Vector2i(-vector_in) / 32).clampi(-1,1)
 
-func calc_direction(up: bool, down: bool) -> Vector2i:
+func calc_direction(available_directions: Array[Vector2i], up: bool, down: bool) -> Vector2i:
 	if up == down:
 		return available_directions[0]
 	elif up:
@@ -77,14 +77,14 @@ func calc_direction(up: bool, down: bool) -> Vector2i:
 
 func update_path() -> State:
 	assert(base_node.path.top_level)
-	
-	available_directions = track.connections(tile_pos, in_direction)
-	
+
+	var available_directions := track.connections(tile_pos, in_direction)
+
 	if available_directions.size() == 0:
 		return falling_state
-	
-	out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
-	
+
+	out_direction = calc_direction(available_directions, Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
+
 	var curve := base_node.path.curve
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
@@ -92,6 +92,6 @@ func update_path() -> State:
 	curve.set_point_position(1, tile_as_global)
 	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
 	return null
-	
 
-		
+
+
