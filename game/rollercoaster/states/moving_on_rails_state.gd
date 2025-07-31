@@ -21,8 +21,16 @@ func enter() -> void:
 			track = collider as Track
 			var global_pos := collision.get_position()
 			tile_pos = track.local_to_map(track.to_local(global_pos))
-			in_direction = get_direction(base_node.velocity)
-			update_path()
+			var in_dir := -base_node.velocity
+			in_direction = Track.DIRECTIONS.reduce(func(acc: Vector2i, d: Vector2i) -> Vector2:
+				var available_directions := track.connections(tile_pos, d)
+				if available_directions.size() > 0 && (Vector2i.ZERO == acc || abs(in_dir.angle_to(d)) < abs(in_dir.angle_to(acc))):
+					return d
+				else:
+					return acc
+			, Vector2i.ZERO)
+			print("tile: %s, in direction: %s, selected: %s" % [ tile_pos, in_dir, in_direction ])
+			update_path(true)
 
 func exit() -> void:
 	super()
@@ -36,11 +44,9 @@ func process_input(event: InputEvent) -> State:
 
 		var near := curve.sample_baked(follow.progress + 0.05)
 
-		print(near - follow.global_position, " . ", curve.get_point_position(1) - follow.global_position, " = ", (near - follow.global_position).dot(curve.get_point_position(1) - follow.global_position))
-
 		# If we are before the branch, update out_direction
 		if (follow.global_position - near).dot(follow.global_position - curve.get_point_position(1)) > 0:
-			var state := update_path()
+			var state := update_path(false)
 			if state != null:
 				return state
 	return null
@@ -49,14 +55,11 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	if !base_node.is_on_floor():
-		return falling_state
-
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
 
 	# if velocity is against the path, we should update it
-	var progress_direction := (curve.sample_baked(follow.progress + 0.05) - (curve.sample_baked(follow.progress - 0.05))).normalized()
+	var progress_direction := (curve.sample_baked(follow.progress + 1) - curve.sample_baked(follow.progress - 1)).normalized()
 	if base_node.velocity.dot(progress_direction) < 0:
 		flip()
 
@@ -70,7 +73,7 @@ func process_physics(delta: float) -> State:
 		print("Entering tile %s from %s" % [tile_pos, -out_direction])
 
 		in_direction = -out_direction
-		var state := update_path()
+		var state := update_path(false)
 		if state != null:
 			return state
 
@@ -84,10 +87,6 @@ func process_physics(delta: float) -> State:
 	var dv := (self.gravity * Vector2i.DOWN).project(direction) * delta
 	base_node.velocity = base_node.velocity.length() * direction + dv
 
-	# if velocity is against the path, we should update it
-	if base_node.velocity.dot(direction) < 0:
-		flip()
-
 	if base_node.velocity.length() <= 10 && dv.length_squared() <= 1 * delta:
 		return stopped_state
 
@@ -98,7 +97,7 @@ func flip() -> void:
 	in_direction = out_direction
 	out_direction = temp
 	base_node.path_follow.progress_ratio = 1 - base_node.path_follow.progress_ratio
-	update_path()
+	update_path(false)
 
 
 func get_direction(vector_in: Vector2) -> Vector2i:
@@ -112,7 +111,8 @@ func calc_direction(available_directions: Array[Vector2i], up: bool, down: bool)
 	else:
 		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
 
-func update_path() -> State:
+# estimate_progress assigns the progress as well, based on the current location
+func update_path(estimate_progress: bool) -> State:
 	assert(base_node.path.top_level)
 
 	var curve := base_node.path.curve
@@ -129,5 +129,9 @@ func update_path() -> State:
 	curve.set_point_position(0, tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
 	curve.set_point_position(1, tile_as_global)
 	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
+
+	if estimate_progress:
+		print("Attaching with progress %s" % curve.get_closest_offset(self.global_position))
+		base_node.path_follow.progress = curve.get_closest_offset(self.global_position)
 
 	return null

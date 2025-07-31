@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
-[ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Script" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
@@ -45,8 +45,8 @@ platform_wall_layers = 1
 script = ExtResource("1_fpfh7")
 state_machine = NodePath("StateMachine")
 animations = NodePath("AnimatedSprite2D")
-path = NodePath("AnimatePath")
-path_follow = NodePath("AnimatePath/AnimatePathFollow")
+path = NodePath("StateMachine/MovingOnRailsState/AnimatePath")
+path_follow = NodePath("StateMachine/MovingOnRailsState/AnimatePath/AnimatePathFollow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fpfh7")
@@ -56,13 +56,23 @@ shape = SubResource("RectangleShape2D_nmpxg")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_nmpxg")
-starting_state = NodePath("MovingOnRailsState")
+starting_state = NodePath("FallingState")
 
 [node name="MovingOnRailsState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "stopped_state")]
 script = ExtResource("5_1ove5")
 jumping_state = NodePath("../JumpingState")
 falling_state = NodePath("../FallingState")
 stopped_state = NodePath("../StoppedState")
+
+[node name="AnimatePath" type="Path2D" parent="StateMachine/MovingOnRailsState"]
+top_level = true
+curve = SubResource("Curve2D_hr1qv")
+
+[node name="AnimatePathFollow" type="PathFollow2D" parent="StateMachine/MovingOnRailsState/AnimatePath"]
+position = Vector2(34.9969, 35.7039)
+rotation = 0.795398
+progress = 50.0
+loop = false
 
 [node name="JumpingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_on_rails_state", "falling_state")]
 script = ExtResource("5_j853t")
@@ -82,13 +92,3 @@ script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
-
-[node name="AnimatePath" type="Path2D" parent="."]
-top_level = true
-curve = SubResource("Curve2D_hr1qv")
-
-[node name="AnimatePathFollow" type="PathFollow2D" parent="AnimatePath"]
-position = Vector2(34.9969, 35.7039)
-rotation = 0.795398
-progress = 50.0
-loop = false
