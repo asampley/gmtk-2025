@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObjectiveTemplate" load_steps=2 format=3 uid="uid://40wop3wbm8rh"]
+
+[ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_cft6d"]
+
+[resource]
+script = ExtResource("1_cft6d")
+title = "Finished White Line"
+reward = 100
+number_of_tasks = 1
+metadata/_custom_type_script = "uid://gbab211mk4fl"

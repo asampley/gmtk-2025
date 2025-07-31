@@ -9,6 +9,8 @@ func load_objectives() -> void:
 		var objective := Objective.new()
 		objective.initialize(template)
 		Globals.objectives[template.title] = objective
+	Globals.bookmarked_objective = Globals.objectives["Finished White Line"]
+	EventBus.bookmarked_objective_changed.emit()
 
 func on_objective_task_completed(objective_title: String) -> void:
 	if Globals.objectives.has(objective_title):

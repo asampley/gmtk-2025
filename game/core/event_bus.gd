@@ -11,3 +11,4 @@ signal tooltip_hidden()
 #Objectives
 signal objective_menu_requested()
 signal bookmarked_objective_changed()
+signal objective_task_completed(objective_title: String)

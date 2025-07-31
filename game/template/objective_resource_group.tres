@@ -7,5 +7,5 @@ script = ExtResource("1_oo51g")
 base_folder = "res://game/template/objectives"
 includes = Array[String](["*.tres"])
 excludes = Array[String]([])
-paths = Array[String](["res://game/template/objectives/do_a_barrel_roll.tres"])
+paths = Array[String](["res://game/template/objectives/do_a_barrel_roll.tres", "res://game/template/objectives/finished_white_line.tres"])
 metadata/_custom_type_script = "uid://dg5r62h7b7et"

@@ -17,6 +17,54 @@ script = ExtResource("1_h7iqs")
 rollercoaster_template = ExtResource("2_h7iqs")
 rollercoaster_parent = NodePath("RollercoasterParent")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPSCounter" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS"
+script = ExtResource("6_dakft")
+
+[node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_u5opy")]
+visible = false
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 250.0
+
+[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
+visible = false
+
+[node name="ObjectivesMenu" parent="CanvasLayer" instance=ExtResource("10_j8tme")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -333.0
+offset_top = -158.0
+offset_right = 333.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -82.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
 [node name="TrackMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(1, -16)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAD//wAAAAAAAAIAAAD+/wAAAAAAAAIAAAAFAAAAAAAAAAAAAAAIAAAAAAADAAEAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAEAAEAAAAJAAEAAAACAAAAAAAKAAEAAAABAAAAAAAMAAAAAAAAAAAAAAANAAAAAAADAAEAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAAAOAAEAAAACAAIAAAAPAAIAAAABAAIAAAAOAAMAAAABAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAABAAAAAAAAAAIAAAD8/wEAAAADAAQAAAAQAP//AAABAAIAAAARAP7/AAABAAIAAAACAAAAAAADAAEAAAADAAAAAAABAAEAAAAEAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAADAAEAAAACAAUAAAADAAIAAAACAAMAAAADAAMAAAADAAMAAAADAAQAAAACAAMAAAADAAUAAAADAAQAAAAEAAYAAAACAAAAAAAFAAYAAAABAAAAAAAGAAQAAAAEAAUAAAAGAAUAAAAEAAQAAAAEAAMAAAAAAAAAAQACAAMAAAAAAAMAAAABAAMAAAAAAAMAAAAFAAMAAAADAAAAAAAEAP//AAABAAIAAAAFAP7/AAABAAIAAAAHAP//AAABAAIAAAAIAP7/AAABAAIAAAAQAAEAAAABAAIAAAA=")
@@ -103,51 +151,3 @@ text = "Welcome to
 NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="FPSCounter" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "FPS"
-script = ExtResource("6_dakft")
-
-[node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_u5opy")]
-visible = false
-offset_left = -400.0
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
-
-[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
-visible = false
-
-[node name="ObjectivesMenu" parent="CanvasLayer" instance=ExtResource("10_j8tme")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -333.0
-offset_top = -158.0
-offset_right = 333.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -267.0
-offset_top = -82.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 8
-size_flags_vertical = 8
