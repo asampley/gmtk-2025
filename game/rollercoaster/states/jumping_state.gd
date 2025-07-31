@@ -20,8 +20,6 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
-	base_node.velocity.y += gravity * delta
 	if base_node.velocity.y > 0:
 		return falling_state
-	base_node.move_and_slide()
 	return null

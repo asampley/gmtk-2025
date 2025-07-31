@@ -27,7 +27,7 @@ func exit() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
-	if event.is_action_pressed("Jump"):
+	if event.is_action_pressed("jump"):
 		return jumping_state
 	return null
 

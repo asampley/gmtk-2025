@@ -4,15 +4,31 @@ extends State
 @export var moving_on_rails_state: State
 @export var stopped_state: State
 
+enum ComboButtons { LEFT, RIGHT, UP, DOWN }
+var combo_sequence: Array[ComboButtons]
 
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.YELLOW)
+	combo_sequence = []
 
 func exit() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
+	if event.is_action_released("stunt_key_1"):
+		combo_sequence.append(ComboButtons.LEFT)
+		print("left")
+	if event.is_action_released("stunt_key_2"):
+		combo_sequence.append(ComboButtons.RIGHT)
+	if event.is_action_released("stunt_key_3"):
+		combo_sequence.append(ComboButtons.UP)
+	if event.is_action_released("stunt_key_4"):
+		combo_sequence.append(ComboButtons.DOWN)
+	for combo: ComboTemplate in DataHandler.combo_resources:
+		print(combo.Sequence)
+		if combo_sequence == combo.Sequence:
+			print("combod")
 	return null
 
 func process_frame(delta: float) -> State:
