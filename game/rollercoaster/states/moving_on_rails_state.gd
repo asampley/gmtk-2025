@@ -23,8 +23,6 @@ func enter() -> void:
 			var global_pos := collision.get_position()
 			tile_pos = track.local_to_map(track.to_local(global_pos))
 			in_direction = get_direction(base_node.velocity)
-			available_directions = track.connections(tile_pos, in_direction)
-			out_direction = calc_direction(false, false)
 			update_path()
 
 func exit() -> void:
@@ -59,21 +57,13 @@ func process_physics(delta: float) -> State:
 		print("Entering tile %s from %s" % [tile_pos, -out_direction])
 
 		in_direction = -out_direction
-		available_directions = track.connections(tile_pos, in_direction)
-
-		if available_directions.size() != 0:
-			out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
-			update_path()
-
+		var state:=  update_path()
+		if state != null:
+			return state
 	base_node.pathFollow.progress = new_progress
 	base_node.transform = base_node.pathFollow.transform
+	return null
 	
-
-	if available_directions.size() == 0:
-		return falling_state
-	else:
-		return null
-
 func get_direction(vector_in: Vector2) -> Vector2i:
 	return (Vector2i(-vector_in) / 32).clampi(-1,1)
 
@@ -85,12 +75,23 @@ func calc_direction(up: bool, down: bool) -> Vector2i:
 	else:
 		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
 
-func update_path() -> void:
+func update_path() -> State:
 	assert(base_node.path.top_level)
-
+	
+	available_directions = track.connections(tile_pos, in_direction)
+	
+	if available_directions.size() == 0:
+		return falling_state
+	
+	out_direction = calc_direction(Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
+	
 	var curve := base_node.path.curve
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
 	curve.set_point_position(0, tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
 	curve.set_point_position(1, tile_as_global)
 	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
+	return null
+	
+
+		
