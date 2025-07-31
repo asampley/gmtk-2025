@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObjectiveTemplate" load_steps=2 format=3 uid="uid://brkf735dq6vce"]
+
+[ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_ibxbc"]
+
+[resource]
+script = ExtResource("1_ibxbc")
+title = "Do a Barrel Roll"
+reward = 100
+number_of_tasks = 1
+metadata/_custom_type_script = "uid://gbab211mk4fl"
