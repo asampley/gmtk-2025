@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=9 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -7,8 +7,7 @@
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="5_dxrkv"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
-[ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
-[ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
+[ext_resource type="PackedScene" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent")]
 script = ExtResource("1_h7iqs")
@@ -116,6 +115,3 @@ offset_bottom = 250.0
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
-
-[node name="ObjectiveManager" type="Node" parent="."]
-script = ExtResource("9_l8g03")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ComboTemplate" load_steps=2 format=3 uid="uid://jyr3a7oucii2"]
+
+[ext_resource type="Script" uid="uid://dyays6ei4o082" path="res://game/stunts/combo_template.gd" id="1_ne3w7"]
+
+[resource]
+script = ExtResource("1_ne3w7")
+ComboName = ""
+Sequence = Array[int]([])
+metadata/_custom_type_script = "uid://dyays6ei4o082"
