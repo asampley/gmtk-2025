@@ -1,5 +1,6 @@
 extends Node
 
 
-var STOPPED_TIME_UNTIL_CONSIDERED_STUCK: float = 5.0
-var MONEY: int = 0
+var stopped_time_until_considered_stuck: float = 5.0
+var money: int = 0
+var objectives: Dictionary[String, Objective] ={}

@@ -26,6 +26,6 @@ func process_physics(delta: float) -> State:
 	if base_node.velocity.length() > 10:
 		return moving_on_rails_state
 	var time_stopped_in_seconds := (Time.get_ticks_msec()  - entered_stopped_state) / 1000
-	if time_stopped_in_seconds > Globals.STOPPED_TIME_UNTIL_CONSIDERED_STUCK:
+	if time_stopped_in_seconds > Globals.stopped_time_until_considered_stuck:
 		print_debug("Stuck")
 	return null

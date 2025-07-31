@@ -14,7 +14,7 @@ func initialize(template_in: UpgradeTemplate) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_released("left_click"):
-		if Globals.MONEY >= template.cost:
+		if Globals.money >= template.cost:
 			EventBus.upgrade_purchased.emit(template)
 		else:
 			print_debug("Not enough money")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpia522rnokua"]
+
+[ext_resource type="Script" uid="uid://c6rnbafmqgamo" path="res://game/objectives/objectives_menu.gd" id="1_idrao"]
+[ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_213xj"]
+
+[node name="ObjectivesMenu" type="PanelContainer" node_paths=PackedStringArray("objective_item_parent")]
+offset_right = 293.0
+offset_bottom = 167.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_idrao")
+objective_item_prefab = ExtResource("2_213xj")
+objective_item_parent = NodePath("MarginContainer/ScrollContainer/ObjectiveItemParent")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ObjectiveItemParent" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

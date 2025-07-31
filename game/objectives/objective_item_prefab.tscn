@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://djsroa7s51myg"]
+
+[ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
+[ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_eic5i"]
+[ext_resource type="Texture2D" uid="uid://bh6aqck1m6glj" path="res://assets/railcar_1.png" id="3_43r72"]
+
+[node name="ObjectiveItem" type="PanelContainer"]
+script = ExtResource("1_28l77")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Test"
+
+[node name="Claim" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("1_eic5i")
+texture_disabled = ExtResource("3_43r72")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Claim" to="." method="_on_claim_pressed"]
