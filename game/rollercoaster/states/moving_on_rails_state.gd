@@ -60,8 +60,16 @@ func process_physics(delta: float) -> State:
 		var state:=  update_path()
 		if state != null:
 			return state
+
+	var old_pos := self.global_position
+
 	base_node.path_follow.progress = new_progress
 	base_node.transform = base_node.path_follow.transform
+
+	var direction := (self.global_position - old_pos).normalized()
+	base_node.velocity = base_node.velocity.length() * direction \
+		+ (self.gravity * Vector2i.DOWN).project(direction) * delta
+
 	return null
 
 func get_direction(vector_in: Vector2) -> Vector2i:
