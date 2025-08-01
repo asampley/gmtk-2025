@@ -16,4 +16,3 @@ func on_objective_menu_requested() -> void:
 			var objective_item := objective_item_prefab.instantiate()
 			objective_item_parent.add_child(objective_item)
 			objective_item.initialize(objective)
-	show()

@@ -7,5 +7,5 @@ script = ExtResource("1_rm4ck")
 base_folder = "res://game/template/combos"
 includes = Array[String]([])
 excludes = Array[String]([])
-paths = Array[String](["res://game/template/combos/barrel_roll.tres", "res://game/template/combos/backflip.tres", "res://game/template/combos/frontflip.tres", "res://game/template/combos/verticalflatspin.tres", "res://game/template/combos/yawroll.tres"])
+paths = Array[String](["res://game/template/combos/backflip.tres", "res://game/template/combos/barrel_roll.tres", "res://game/template/combos/frontflip.tres", "res://game/template/combos/verticalflatspin.tres", "res://game/template/combos/yawroll.tres"])
 metadata/_custom_type_script = "uid://dg5r62h7b7et"

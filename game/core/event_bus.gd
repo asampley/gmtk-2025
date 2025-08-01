@@ -7,13 +7,14 @@ signal upgrade_menu_opened(upgrade_dict: Dictionary[UpgradeTemplate, bool])
 signal upgrade_purchased(upgrade_template: UpgradeTemplate)
 signal tooltip_requested(description: String, spawn_position: Vector2)
 signal tooltip_hidden()
+signal shop_menu_closed()
 
 #Objectives
 signal objective_menu_requested()
 signal bookmarked_objective_changed()
 signal objective_task_completed(objective_title: String)
 
-#doing tricks
+#Doing tricks
 signal combo_completed(combo_name: String)
 
 # Coaster events

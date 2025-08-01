@@ -72,10 +72,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
+[node name="Finished" type="Button" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2
 text = "Finished"
 
 [node name="Control2" type="Control" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer3/HBoxContainer2/Finished" to="." method="_on_finished_pressed"]

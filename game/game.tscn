@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=16 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
 [ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="3_h7iqs"]
 [ext_resource type="Script" uid="uid://dtxe8wlxj1r3r" path="res://game/track/track.gd" id="4_4fuuu"]
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="5_dxrkv"]
+[ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="Script" uid="uid://r810u20yeut7" path="res://game/combo_banner.gd" id="8_qf6n1"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
-[ext_resource type="PackedScene" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
-[ext_resource type="PackedScene" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
+[ext_resource type="PackedScene" uid="uid://dpia522rnokua" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
+[ext_resource type="PackedScene" uid="uid://cyuerdakeu2tu" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsp63"]
@@ -23,35 +24,6 @@ rollercoaster_template = ExtResource("2_h7iqs")
 rollercoaster_parent = NodePath("RollercoasterParent")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="FPSCounter" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "FPS"
-script = ExtResource("6_dakft")
-
-[node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_u5opy")]
-visible = false
-offset_left = -621.0
-offset_top = -260.0
-offset_right = 179.0
-offset_bottom = 240.0
-
-[node name="ObjectivesMenu" parent="CanvasLayer" instance=ExtResource("10_j8tme")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 210.0
-offset_top = -260.0
-offset_right = 610.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
 
 [node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
 anchors_preset = 3
@@ -81,6 +53,53 @@ script = ExtResource("8_qf6n1")
 visible = false
 offset_right = 141.0
 offset_bottom = 43.0
+
+[node name="MenusParent" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_b686c")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MenusParent"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(31.9668, 17.8102)
+
+[node name="UpgradeMenu" parent="CanvasLayer/MenusParent" instance=ExtResource("7_u5opy")]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 80.0
+offset_right = 799.0
+offset_bottom = 580.0
+
+[node name="ObjectivesMenu" parent="CanvasLayer/MenusParent" instance=ExtResource("10_j8tme")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 830.0
+offset_top = 80.0
+offset_right = 1230.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="FPSCounter" type="Label" parent="CanvasLayer/MenusParent"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS"
+script = ExtResource("6_dakft")
 
 [node name="TrackMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)

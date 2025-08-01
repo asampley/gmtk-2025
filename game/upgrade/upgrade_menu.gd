@@ -15,4 +15,6 @@ func on_upgrade_menu_opened(upgrade_dict: Dictionary[UpgradeTemplate, bool]) -> 
 			var upgrade_selector: UpgradeSelector = upgrade_selector_prefab.instantiate()
 			upgrade_selector_parent.add_child(upgrade_selector)
 			upgrade_selector.initialize(upgrade_template)
-	show()
+
+func _on_finished_pressed() -> void:
+	EventBus.shop_menu_closed.emit()
