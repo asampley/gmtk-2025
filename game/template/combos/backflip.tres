@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_reg08")
-ComboName = ""
-Sequence = Array[int]([2, 2, 0, 0])
+combo_name = "backflip"
+sequence = Array[int]([])
 metadata/_custom_type_script = "uid://dyays6ei4o082"

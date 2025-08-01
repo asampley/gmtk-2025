@@ -6,28 +6,44 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1oq12"]
 
-[node name="BookmarkedObjectiveUI" type="PanelContainer"]
-material = SubResource("ShaderMaterial_1oq12")
+[node name="PanelContainer" type="ColorRect"]
+material = ExtResource("3_d47ul")
 offset_right = 139.0
 offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="BookmarkedObjectiveUI" type="PanelContainer" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_1oq12")
+layout_mode = 2
 script = ExtResource("1_xlycx")
 objective_item_prefab = ExtResource("2_fc7ko")
 
-[node name="PanelContainer" type="ColorRect" parent="."]
-material = ExtResource("3_d47ul")
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BookmarkedObjectiveUI"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -36,10 +52,10 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TasksCompleted" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="TasksCompleted" type="Label" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
