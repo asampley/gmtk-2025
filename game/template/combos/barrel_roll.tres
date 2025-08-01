@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ComboTemplate" load_steps=2 format=3 uid="uid://crt6lhikkbby6"]
+[gd_resource type="Resource" script_class="ComboTemplate" load_steps=2 format=3 uid="uid://bhhgdjxq3kx3d"]
 
 [ext_resource type="Script" uid="uid://dyays6ei4o082" path="res://game/stunts/combo_template.gd" id="1_j776x"]
 
 [resource]
 script = ExtResource("1_j776x")
-ComboName = "Barrel Roll"
-Sequence = Array[int]([0, 1, 2, 3])
+combo_name = "Barrel roll"
+sequence = Array[int]([2, 2, 0, 0])
 metadata/_custom_type_script = "uid://dyays6ei4o082"
