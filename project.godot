@@ -118,6 +118,7 @@ left_click={
 2d_physics/layer_1="Rails"
 2d_physics/layer_2="Rollercoaster"
 2d_physics/layer_3="Station"
+2d_physics/layer_4="pickups"
 
 [rendering]
 
