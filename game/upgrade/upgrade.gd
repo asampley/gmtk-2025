@@ -21,10 +21,9 @@ func initialize(template: UpgradeTemplate) -> void:
 func load_save_data(save_data: String) -> void:
 	var data_split := save_data.split(",")
 	upgrade_name = data_split[0]
-	purchased = data_split[1] as bool
+	purchased = data_split[1] as int
 	description = data_split[2]
-	print_debug(purchase_icon.resource_path)
-	#purchase_icon = data_split[3] as Texture
+	purchase_icon = load(data_split[3]) 
 	cost = data_split[4] as int
 	add_initial_velocity = data_split[5] as float
 	add_jump_force = data_split[6] as float
@@ -38,7 +37,7 @@ func save() -> String:
 	save_string += ","
 	save_string += description
 	save_string += ","
-	save_string += purchase_icon.resource_name
+	save_string += purchase_icon.resource_path
 	save_string += ","
 	save_string += str(cost)
 	save_string += ","
