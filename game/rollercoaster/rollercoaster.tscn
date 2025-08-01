@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=20 format=3 uid="uid://c3kdff65tnyxu"]
 
-[ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
-[ext_resource type="Texture2D" uid="uid://bh6aqck1m6glj" path="res://assets/railcar_1.png" id="2_hr1qv"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
 [ext_resource type="Script" uid="uid://c03h3xluod86s" path="res://game/state_machine/state_machine.gd" id="3_nmpxg"]
+[ext_resource type="Texture2D" uid="uid://dymfq5h55luqx" path="res://assets/railcarsprites.png" id="3_rsh2y"]
 [ext_resource type="Script" uid="uid://cgxc1m8epbsvj" path="res://game/rollercoaster/states/stopped_state.gd" id="4_8bbrx"]
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
@@ -18,14 +17,43 @@ shader_parameter/deformation = Vector2(0, 0)
 shader_parameter/sidewaysDeformationFactor = 5.0
 shader_parameter/knockbackFactor = 0.4
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8uoc"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cxb7"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b70cr"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw4u4"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wprvx"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_hr1qv")
+"texture": SubResource("AtlasTexture_y8uoc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_dtscj")
+"texture": SubResource("AtlasTexture_0cxb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b70cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw4u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wprvx")
 }],
 "loop": true,
 "name": &"default",
