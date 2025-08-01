@@ -5,7 +5,7 @@ signal requested_save_data_reset()
 
 #Upgrade Purchasing
 signal upgrade_menu_opened(upgrade: Array[Upgrade])
-signal upgrade_purchased(upgrade_template: Upgrade)
+signal upgrade_purchased(upgrade: Upgrade)
 signal tooltip_requested(description: String, spawn_position: Vector2)
 signal tooltip_hidden()
 signal shop_menu_closed()
