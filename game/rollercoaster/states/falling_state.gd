@@ -32,7 +32,7 @@ func process_input(event: InputEvent) -> State:
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		var mismatch := false
 		if combo_sequence == combo.sequence:
-			EventBus.generated_fly_in_text.emit(base_node.global_position, combo.combo_name)
+			spawn_fly_in_text(combo.combo_name)
 			combo_sequence.clear()
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
@@ -40,7 +40,7 @@ func process_input(event: InputEvent) -> State:
 				break
 	if missed_combos >= DataHandler.combo_resources.size():
 		combo_sequence.clear()
-		EventBus.generated_fly_in_text.emit(base_node.global_position, "Combo Failed")
+		spawn_fly_in_text("Combo Failed!")
 	return null
 
 func process_frame(delta: float) -> State:
@@ -52,3 +52,8 @@ func process_physics(delta: float) -> State:
 	if base_node.is_on_floor():
 		return moving_on_rails_state
 	return null
+
+func spawn_fly_in_text(text: String) -> void:
+	var screen_transform := get_global_transform_with_canvas().get_origin()
+	var vector := base_node.velocity.normalized()
+	EventBus.generated_fly_in_text.emit(text, screen_transform, -vector)
