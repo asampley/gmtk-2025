@@ -30,6 +30,15 @@ func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
 
 	return array
 
+# Return an approximate normal for orienting the coaster
+func normal(tile: Vector2i) -> Vector2i:
+	var tile_data := get_cell_tile_data(tile)
+
+	if tile_data == null:
+		return Vector2i.ZERO
+
+	return tile_data.get_custom_data("normal")
+
 func _sign_string(x: int) -> String:
 	if x == 0:
 		return "0"
