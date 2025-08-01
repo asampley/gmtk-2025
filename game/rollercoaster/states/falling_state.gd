@@ -4,12 +4,10 @@ extends State
 @export var moving_on_rails_state: State
 @export var stopped_state: State
 
-enum ComboButtons { LEFT, RIGHT, UP, DOWN }
-var combo_sequence: Array[ComboButtons]
+var combo_sequence: Array[Globals.ComboButtons]
 
 func enter() -> void:
 	super()
-	base_node.set_colour(Color.YELLOW)
 	combo_sequence = []
 
 func exit() -> void:
@@ -17,29 +15,33 @@ func exit() -> void:
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_1"):
-		combo_sequence.append(ComboButtons.LEFT)
-		print("left")
-	if event.is_action_released("stunt_key_2"):
-		combo_sequence.append(ComboButtons.RIGHT)
-		print("right")
-	if event.is_action_released("stunt_key_3"):
-		combo_sequence.append(ComboButtons.UP)
-		print("up")
-	if event.is_action_released("stunt_key_4"):
-		combo_sequence.append(ComboButtons.DOWN)
-		print("down")
+		combo_sequence.append(Globals.ComboButtons.LEFT)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.LEFT)
+	elif event.is_action_released("stunt_key_2"):
+		combo_sequence.append(Globals.ComboButtons.RIGHT)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.RIGHT)
+	elif event.is_action_released("stunt_key_3"):
+		combo_sequence.append(Globals.ComboButtons.UP)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP)
+	elif event.is_action_released("stunt_key_4"):
+		combo_sequence.append(Globals.ComboButtons.DOWN)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.DOWN)
+	else:
+		return
 	var missed_combos: int = 0
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		var mismatch := false
 		if combo_sequence == combo.sequence:
 			spawn_fly_in_text(combo.combo_name)
 			combo_sequence.clear()
+			EventBus.combo_reset.emit()
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
 				missed_combos += 1
 				break
 	if missed_combos >= DataHandler.combo_resources.size():
 		combo_sequence.clear()
+		EventBus.combo_reset.emit()
 		spawn_fly_in_text("Combo Failed!")
 	return null
 

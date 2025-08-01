@@ -34,7 +34,3 @@ func set_animation(animation_name: String) -> void:
 
 func on_shop_menu_closed() -> void:
 	queue_free()
-
-#Currently used for debugging
-func set_colour(colour: Color) -> void:
-	animations.modulate = colour

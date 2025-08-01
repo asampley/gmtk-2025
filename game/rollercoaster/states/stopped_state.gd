@@ -10,7 +10,6 @@ var entered_stopped_state: float
 
 func enter() -> void:
 	super()
-	base_node.set_colour(Color.RED)
 	entered_stopped_state = Time.get_ticks_msec()
 
 func exit() -> void:

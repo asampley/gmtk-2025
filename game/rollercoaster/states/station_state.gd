@@ -8,14 +8,9 @@ var track: Track
 
 func enter() -> void:
 	super()
-
 	assert(station)
-
 	EventBus.station_stop.emit()
-
-	base_node.set_colour(Color.GRAY)
 	base_node.velocity = Vector2.ZERO
-
 	update_path()
 
 func exit() -> void:

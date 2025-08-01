@@ -7,7 +7,6 @@ extends State
 
 func enter() -> void:
 	super()
-	base_node.set_colour(Color.GREEN)
 	base_node.velocity.y += -base_node.stats.jump_force
 
 func exit() -> void:
