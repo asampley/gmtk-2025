@@ -34,7 +34,6 @@ func process_input(event: InputEvent) -> State:
 		if combo_sequence == combo.sequence:
 			EventBus.combo_completed.emit(combo.combo_name)
 			combo_sequence.clear()
-			print("combod")
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
 				missed_combos += 1

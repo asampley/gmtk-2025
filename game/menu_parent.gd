@@ -2,7 +2,6 @@ extends Control
 
 
 func _ready() -> void:
-	
 	EventBus.station_stop.connect(on_station_stop)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 

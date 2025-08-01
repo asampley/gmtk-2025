@@ -40,7 +40,6 @@ func on_upgrade_purchased(upgrade_template: UpgradeTemplate) -> void:
 func open_menus() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrade_dict)
 
-
 func on_station_stop() -> void:
 	open_menus()
 
@@ -48,4 +47,4 @@ func on_station_exit() -> void:
 	pass
 
 func on_shop_menu_closed() -> void:
-	pass
+	spawn_rollercoaster()

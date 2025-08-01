@@ -11,6 +11,7 @@ var stats: RollercoasterStats
 
 func _ready() -> void:
 	state_machine.initialize(self)
+	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 
 func _input(event: InputEvent) -> void:
 	if state_machine:
@@ -31,7 +32,8 @@ func set_stats(stats_in: RollercoasterStats) -> void:
 func set_animation(animation_name: String) -> void:
 	animations.animation = animation_name
 
-
+func on_shop_menu_closed() -> void:
+	queue_free()
 
 #Currently used for debugging
 func set_colour(colour: Color) -> void:
