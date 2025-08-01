@@ -21,13 +21,17 @@ func process_input(event: InputEvent) -> State:
 		print("left")
 	if event.is_action_released("stunt_key_2"):
 		combo_sequence.append(ComboButtons.RIGHT)
+		print("right")
 	if event.is_action_released("stunt_key_3"):
 		combo_sequence.append(ComboButtons.UP)
+		print("up")
 	if event.is_action_released("stunt_key_4"):
 		combo_sequence.append(ComboButtons.DOWN)
+		print("down")
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		print(combo.Sequence)
 		if combo_sequence == combo.Sequence:
+			EventBus.combo_completed.emit(combo.ComboName)
 			print("combod")
 	return null
 
