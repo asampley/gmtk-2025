@@ -37,8 +37,6 @@ func on_objective_task_completed(objective_title: String) -> void:
 
 func check_save_file_exists() -> bool:
 	var dir := DirAccess.open(OBJECTIVES_SAVE_FOLDER)
-	print_debug(OS.get_data_dir())
-	print_debug(OS.get_user_data_dir())
 	return dir != null
 
 func save_data() -> void:
