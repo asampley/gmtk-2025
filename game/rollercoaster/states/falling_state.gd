@@ -32,7 +32,7 @@ func process_input(event: InputEvent) -> State:
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		var mismatch := false
 		if combo_sequence == combo.sequence:
-			EventBus.combo_completed.emit(combo.combo_name)
+			EventBus.generated_fly_in_text.emit(base_node.global_position, combo.combo_name)
 			combo_sequence.clear()
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
@@ -40,7 +40,7 @@ func process_input(event: InputEvent) -> State:
 				break
 	if missed_combos >= DataHandler.combo_resources.size():
 		combo_sequence.clear()
-		print("Combo Failed")
+		EventBus.generated_fly_in_text.emit(base_node.global_position, "Combo Failed")
 	return null
 
 func process_frame(delta: float) -> State:

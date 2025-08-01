@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 var stats: RollercoasterStats
 
+
 func _ready() -> void:
 	state_machine.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
@@ -24,7 +25,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if state_machine:
 		state_machine.process_physics(delta)
-
 
 func set_stats(stats_in: RollercoasterStats) -> void:
 	stats = stats_in

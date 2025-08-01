@@ -8,15 +8,13 @@
 [ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
-[ext_resource type="Script" uid="uid://r810u20yeut7" path="res://game/combo_banner.gd" id="8_qf6n1"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
 [ext_resource type="PackedScene" uid="uid://dpia522rnokua" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
 [ext_resource type="PackedScene" uid="uid://cyuerdakeu2tu" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vsp63"]
-font_size = 42
+[ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
+[ext_resource type="PackedScene" uid="uid://baigi8431vl47" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent")]
 script = ExtResource("1_h7iqs")
@@ -39,15 +37,6 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-
-[node name="ComboBanner" type="Label" parent="CanvasLayer"]
-offset_left = 570.0
-offset_top = 273.0
-offset_right = 708.0
-offset_bottom = 331.0
-text = "combo"
-label_settings = SubResource("LabelSettings_vsp63")
-script = ExtResource("8_qf6n1")
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
@@ -95,11 +84,18 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="FPSCounter" type="Label" parent="CanvasLayer/MenusParent"]
+[node name="FPSCounter" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS"
 script = ExtResource("6_dakft")
+
+[node name="FlyInTextParent" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TrackMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)
@@ -194,3 +190,8 @@ text = "Welcome to
 NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FlyInTextManager" type="Node" parent="." node_paths=PackedStringArray("fly_in_text_parent")]
+script = ExtResource("14_hb504")
+fly_in_text_prefab = ExtResource("15_ee6o4")
+fly_in_text_parent = NodePath("../CanvasLayer/FlyInTextParent")

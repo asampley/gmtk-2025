@@ -15,6 +15,7 @@ signal bookmarked_objective_changed()
 signal objective_task_completed(objective_title: String)
 
 #Doing tricks
+signal generated_fly_in_text(position: Vector2, text: String)
 signal combo_completed(combo_name: String)
 
 # Coaster events
