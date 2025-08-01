@@ -13,6 +13,8 @@ var transition: State
 
 var track: Track
 
+var stopped_time: float = 0
+
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.WHITE)
@@ -58,6 +60,11 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	var effect := track.effect(tile_pos)
+
+	if effect:
+		effect.effect(base_node, delta)
+
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
 
@@ -90,8 +97,12 @@ func process_physics(delta: float) -> State:
 	var dv := (self.gravity * Vector2i.DOWN).project(direction) * delta
 	base_node.velocity = base_node.velocity.length() * direction + dv
 
-	if base_node.velocity.length() <= 10 && dv.length_squared() <= 1 * delta:
-		return stopped_state
+	if base_node.velocity.length() <= 10:
+		stopped_time += delta
+		if stopped_time > 5:
+			return stopped_state
+	else:
+		stopped_time = 0
 
 	return null
 
