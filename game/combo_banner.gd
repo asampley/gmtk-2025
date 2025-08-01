@@ -10,11 +10,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if display_timer > 0:
 		display_timer -= delta
-
-	if display_timer <= 0:
-			visible = false
+		if display_timer <= 0:
+				visible = false
 
 func display_text(combo_name: String) -> void:
+	print("combo caught")
 	visible = true
 	text = "Sweet %s !" % combo_name
 	display_timer = display_duration
