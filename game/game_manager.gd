@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func connect_events() -> void:
 	EventBus.upgrade_purchased.connect(on_upgrade_purchased)
+	EventBus.station_stop.connect(on_station_stop)
+	EventBus.station_exit.connect(on_station_exit)
 
 func spawn_rollercoaster() -> void:
 	var rollercoaster: CharacterBody2D = rollercoaster_template.prefab.instantiate()
@@ -36,3 +38,9 @@ func on_upgrade_purchased(upgrade_template: UpgradeTemplate) -> void:
 
 func open_upgrade_menu() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrade_dict)
+
+func on_station_stop() -> void:
+	open_upgrade_menu()
+
+func on_station_exit() -> void:
+	pass
