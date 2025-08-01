@@ -12,6 +12,7 @@ func on_objective_menu_requested() -> void:
 	for child: Node in objective_item_parent.get_children():
 		child.queue_free()
 	for objective: Objective in Globals.objectives.values():
+		show()
 		if !objective.claimed:
 			var objective_item := objective_item_prefab.instantiate()
 			objective_item_parent.add_child(objective_item)

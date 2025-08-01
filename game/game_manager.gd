@@ -36,11 +36,13 @@ func on_upgrade_purchased(upgrade_template: UpgradeTemplate) -> void:
 	current_rollercoaster_stats.apply_upgrade(upgrade_template)
 	EventBus.upgrade_menu_opened.emit(upgrade_dict)
 
-func open_upgrade_menu() -> void:
+func open_menus() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrade_dict)
+	EventBus.objective_menu_requested.emit()
 
 func on_station_stop() -> void:
-	open_upgrade_menu()
+	open_menus()
+	
 
 func on_station_exit() -> void:
 	pass
