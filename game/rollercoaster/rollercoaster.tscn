@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=16 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Texture2D" uid="uid://bh6aqck1m6glj" path="res://assets/railcar_1.png" id="2_hr1qv"]
+[ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
 [ext_resource type="Script" uid="uid://c03h3xluod86s" path="res://game/state_machine/state_machine.gd" id="3_nmpxg"]
 [ext_resource type="Script" uid="uid://cgxc1m8epbsvj" path="res://game/rollercoaster/states/stopped_state.gd" id="4_8bbrx"]
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
@@ -10,6 +11,12 @@
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
 [ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cxb7"]
+shader = ExtResource("2_y8uoc")
+shader_parameter/deformation = Vector2(0, 0)
+shader_parameter/sidewaysDeformationFactor = 5.0
+shader_parameter/knockbackFactor = 0.4
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
@@ -51,6 +58,7 @@ path = NodePath("AnimatePath")
 path_follow = NodePath("AnimatePath/AnimatePathFollow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0cxb7")
 sprite_frames = SubResource("SpriteFrames_fpfh7")
 offset = Vector2(0, -8)
 

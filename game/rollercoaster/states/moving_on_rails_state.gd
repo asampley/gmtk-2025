@@ -17,6 +17,7 @@ var stopped_time: float = 0
 
 func enter() -> void:
 	super()
+	base_node.deform()
 
 	if base_node.get_last_slide_collision() != null:
 		var collision := base_node.get_last_slide_collision()

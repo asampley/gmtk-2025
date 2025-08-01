@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var animations: AnimatedSprite2D
 @export var path: Path2D
 @export var path_follow: PathFollow2D
+@export var deformation_limit: float = 4
+@export var deformation_duration: float = 0.1
 
 var stats: RollercoasterStats
 
@@ -31,6 +33,16 @@ func set_stats(stats_in: RollercoasterStats) -> void:
 
 func set_animation(animation_name: String) -> void:
 	animations.animation = animation_name
+
+func deform() -> void:
+	var deformation_strength: float = clamp(velocity.length(), 1, deformation_limit)
+	var deformation_direction := velocity.normalized()
+	var deformation_scale := deformation_direction * deformation_strength
+	var tween := create_tween()
+	tween.stop()
+	tween.tween_property(animations.material, "shader_parameter/deformation", deformation_scale, deformation_duration)
+	tween.tween_property(animations.material, "shader_parameter/deformation", Vector2.ZERO, deformation_duration * 2)
+	tween.play()
 
 func on_shop_menu_closed() -> void:
 	queue_free()
