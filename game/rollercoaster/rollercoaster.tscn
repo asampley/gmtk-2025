@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=28 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
@@ -17,6 +17,10 @@ shader_parameter/deformation = Vector2(0, 0)
 shader_parameter/sidewaysDeformationFactor = 5.0
 shader_parameter/knockbackFactor = 0.4
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsh2y"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8uoc"]
 atlas = ExtResource("3_rsh2y")
 region = Rect2(0, 64, 64, 64)
@@ -27,25 +31,67 @@ region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b70cr"]
 atlas = ExtResource("3_rsh2y")
-region = Rect2(0, 128, 64, 64)
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw4u4"]
 atlas = ExtResource("3_rsh2y")
-region = Rect2(64, 128, 64, 64)
+region = Rect2(0, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wprvx"]
 atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v57q"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2xsc"]
+atlas = ExtResource("3_rsh2y")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsxgt"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33xk4"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i0yg"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x10rd"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1pdu"]
+atlas = ExtResource("3_rsh2y")
+region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rsh2y")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y8uoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsh2y")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0cxb7")
 }, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsh2y")
+}],
+"loop": true,
+"name": &"Barrel roll",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b70cr")
 }, {
@@ -54,6 +100,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wprvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v57q")
+}],
+"loop": true,
+"name": &"Flat spin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2xsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsxgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33xk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i0yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x10rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1pdu")
 }],
 "loop": true,
 "name": &"default",
@@ -88,6 +160,7 @@ path_follow = NodePath("AnimatePath/AnimatePathFollow")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0cxb7")
 sprite_frames = SubResource("SpriteFrames_fpfh7")
+animation = &"Barrel roll"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
