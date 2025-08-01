@@ -32,7 +32,7 @@ func process_input(event: InputEvent) -> State:
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		print(combo.sequence)
 		if combo_sequence == combo.sequence:
-			EventBus.combo_completed.emit(combo.ComboName)
+			EventBus.combo_completed.emit(combo.combo_name)
 			print("combod")
 	return null
 
