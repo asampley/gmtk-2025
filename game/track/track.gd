@@ -12,6 +12,26 @@ const DIRECTIONS: Array[Vector2i] = [
 	Vector2i(-1, -1),
 ]
 
+func transform_vector2(tile: Vector2i, v: Vector2) -> Vector2:
+	if is_cell_transposed(tile):
+		var tmp := v.x
+		v.x = v.y
+		v.y = tmp
+	if is_cell_flipped_h(tile): v *= Vector2(-1, 1)
+	if is_cell_flipped_v(tile): v *= Vector2(1, -1)
+
+	return v
+
+func transform_inverse_vector2(tile: Vector2i, v: Vector2) -> Vector2:
+	if is_cell_flipped_h(tile): v *= Vector2(-1, 1)
+	if is_cell_flipped_v(tile): v *= Vector2(1, -1)
+	if is_cell_transposed(tile):
+		var tmp := v.x
+		v.x = v.y
+		v.y = tmp
+
+	return v
+
 func transform_vector2i(tile: Vector2i, v: Vector2i) -> Vector2i:
 	if is_cell_transposed(tile):
 		var tmp := v.x
@@ -49,6 +69,8 @@ func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
 
 	for data: Vector2i in custom_data:
 		array.append(transform_vector2i(tile, data))
+
+	print("d:%s c:%s a:%s" % [ in_direction, custom_data, array ])
 
 	return array
 

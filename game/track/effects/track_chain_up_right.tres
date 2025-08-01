@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TrackEffectBoost" load_steps=2 format=3 uid="uid://d1vffulncuj5v"]
+
+[ext_resource type="Script" uid="uid://bda2qm4k5poqm" path="res://game/track/effects/track_boost.gd" id="1_0r3ln"]
+
+[resource]
+script = ExtResource("1_0r3ln")
+acceleration = Vector2(1000, -1000)
+stop_at_goal = true
+goal_velocity = Vector2(250, -250)
+metadata/_custom_type_script = "uid://bda2qm4k5poqm"

@@ -5,7 +5,7 @@ extends State
 @export var stopped_state: State
 @export var station_state: State
 
-var tile_pos: Vector2i
+var tile_pos: Vector2i = Vector2i.MAX
 var in_direction: Vector2i
 var out_direction: Vector2i
 
@@ -15,30 +15,33 @@ var track: Track
 
 var stopped_time: float = 0
 
+func prepare_state(collision_track: Track, collision_point: Vector2) -> void:
+	track = collision_track
+	tile_pos = track.local_to_map(track.to_local(collision_point))
+
 func enter() -> void:
 	super()
 	base_node.deform()
 
-	if base_node.get_last_slide_collision() != null:
-		var collision := base_node.get_last_slide_collision()
-		var collider := collision.get_collider()
-		if collider is Track:
-			track = collider as Track
-			var global_pos := collision.get_position()
-			tile_pos = track.local_to_map(track.to_local(global_pos))
-			var in_dir := -base_node.velocity
-			in_direction = Track.DIRECTIONS.reduce(func(acc: Vector2i, d: Vector2i) -> Vector2:
-				var available_directions := track.connections(tile_pos, d)
-				if available_directions.size() > 0 && (Vector2i.ZERO == acc || abs(in_dir.angle_to(d)) < abs(in_dir.angle_to(acc))):
-					return d
-				else:
-					return acc
-			, Vector2i.ZERO)
-			print("tile: %s, in direction: %s, selected: %s" % [ tile_pos, in_dir, in_direction ])
-			update_path(true)
+	assert(track)
+	assert(tile_pos != Vector2i.MAX)
+
+	var in_dir := -base_node.velocity
+	in_direction = Track.DIRECTIONS.reduce(func(acc: Vector2i, d: Vector2i) -> Vector2:
+		var available_directions := track.connections(tile_pos, d)
+		if available_directions.size() > 0 && (Vector2i.ZERO == acc || abs(in_dir.angle_to(d)) < abs(in_dir.angle_to(acc))):
+			return d
+		else:
+			return acc
+	, Vector2i.ZERO)
+	print("tile: %s, in direction: %s, selected: %s" % [ tile_pos, in_dir, in_direction ])
+	update_path(true)
 
 func exit() -> void:
 	super()
+
+	track = null
+	tile_pos = Vector2i.MAX
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
@@ -90,12 +93,16 @@ func process_physics(delta: float) -> State:
 	var old_pos := base_node.global_position
 
 	base_node.path_follow.progress = new_progress
+	var gt := base_node.path_follow.global_transform
 	base_node.global_transform = base_node.path_follow.global_transform
 
 	# If we're upside down
 	if (Vector2.UP.rotated(base_node.rotation)).dot(track.normal(tile_pos)) < 0:
-		base_node.rotation += PI
-		base_node.scale *= Vector2(-1, 1)
+		gt = gt * Transform2D.IDENTITY.rotated(PI).scaled(Vector2(-1, 1))
+		#base_node.rotation += PI
+		#base_node.scale *= Vector2(-1, 1)
+
+	base_node.global_transform = gt
 
 	var direction := (base_node.global_position - old_pos).normalized()
 
