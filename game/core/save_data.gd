@@ -7,9 +7,9 @@ func _ready() -> void:
 	if check_save_file_exists():
 		load_save()
 
-func save(data_key: String, data_value: String) -> void:
+func save(data_key: String, data_value: Variant) -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	file.store_string(data_key + "," + data_value + ";")
+	file.store_string(data_key + "," + str(data_value) + ";")
 	file.close()
 
 func load_save() -> void:
@@ -18,6 +18,9 @@ func load_save() -> void:
 	for data: String in save_data_array:
 		var key_pair := data.split(",")
 		data_dictionary[save_data_array[0]] = save_data_array[1]
+
+func reset() -> void:
+	DirAccess.remove_absolute(SAVE_PATH)
 
 func check_save_file_exists() -> bool:
 	return FileAccess.file_exists(SAVE_PATH)

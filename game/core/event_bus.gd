@@ -1,10 +1,11 @@
 extends Node
 
 signal debug_collision_position(position: Vector2)
+signal requested_save_data_reset()
 
 #Upgrade Purchasing
-signal upgrade_menu_opened(upgrade_dict: Dictionary[UpgradeTemplate, bool])
-signal upgrade_purchased(upgrade_template: UpgradeTemplate)
+signal upgrade_menu_opened(upgrade: Array[Upgrade])
+signal upgrade_purchased(upgrade_template: Upgrade)
 signal tooltip_requested(description: String, spawn_position: Vector2)
 signal tooltip_hidden()
 signal shop_menu_closed()

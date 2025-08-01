@@ -8,7 +8,7 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	initial_velocity = rollercoaster_template.initial_velocity
 	jump_force = rollercoaster_template.jump_force
 
-func apply_upgrade(upgrade_template: UpgradeTemplate) -> void:
-	initial_velocity += upgrade_template.add_initial_velocity
-	jump_force += upgrade_template.add_jump_force
+func apply_upgrade(upgrade: Upgrade) -> void:
+	initial_velocity += upgrade.add_initial_velocity
+	jump_force += upgrade.add_jump_force
 		
