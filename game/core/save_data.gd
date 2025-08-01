@@ -9,10 +9,9 @@ func _ready() -> void:
 
 func save(data_key: String, data_value: Variant) -> void:
 	data_dictionary[data_key] = str(data_value)
-	var file :=FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(str(data_dictionary))
 	file.close()
-
 
 func load_save() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)

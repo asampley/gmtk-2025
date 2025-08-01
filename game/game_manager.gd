@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var rollercoaster_template: RollercoasterTemplate
 @export var rollercoaster_parent: Node2D
 
@@ -20,7 +21,6 @@ func _ready() -> void:
 func connect_events() -> void:
 	EventBus.upgrade_purchased.connect(on_upgrade_purchased)
 	EventBus.station_stop.connect(on_station_stop)
-	EventBus.station_exit.connect(on_station_exit)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
 
@@ -44,9 +44,7 @@ func open_menus() -> void:
 
 func on_station_stop() -> void:
 	open_menus()
-
-func on_station_exit() -> void:
-	pass
+	save_data()
 
 func on_shop_menu_closed() -> void:
 	save_data()

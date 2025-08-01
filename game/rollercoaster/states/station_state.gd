@@ -15,9 +15,7 @@ func enter() -> void:
 
 func exit() -> void:
 	super()
-
 	station = null
-
 	EventBus.station_exit.emit()
 
 func process_input(event: InputEvent) -> State:

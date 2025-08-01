@@ -1,17 +1,26 @@
 extends Node
 
 
-var combo_resource_group: ResourceGroup = preload("res://game/template/combo_resource_group.tres")
-var upgrade_resource_group: ResourceGroup = preload("res://game/template/upgrade_resource_group.tres")
-var objective_resource_group: ResourceGroup = preload("res://game/template/objective_resource_group.tres")
-
 var combo_resources: Array[Resource] = []
 var upgrade_resources: Array[Resource] = []
 var objective_resources: Array[Resource] = []
 
+var combo_resource_folder := "res://game/template/combos/"
+var upgrade_resource_folder := "res://game/template/upgrades/"
+var objective_resource_folder := "res://game/template/objectives/"
 
 
 func _ready() -> void:
-	combo_resource_group.load_all_into(combo_resources)
-	upgrade_resource_group.load_all_into(upgrade_resources)
-	objective_resource_group.load_all_into(objective_resources)
+	for path: String in get_resource_paths(combo_resource_folder):
+		combo_resources.append(ResourceLoader.load(path))
+	for path: String in get_resource_paths(upgrade_resource_folder):
+		upgrade_resources.append(ResourceLoader.load(path))
+	for path: String in get_resource_paths(objective_resource_folder):
+		objective_resources.append(ResourceLoader.load(path))
+	
+
+func get_resource_paths(path: String) -> PackedStringArray:
+	var paths: PackedStringArray = []
+	for resource_name: String in DirAccess.get_files_at(path):
+		paths.append(path + resource_name)
+	return paths

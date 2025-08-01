@@ -10,8 +10,16 @@ func _ready() -> void:
 	else:
 		load_data_from_resources()
 	EventBus.station_stop.connect(save_data)
-	EventBus.station_exit.connect(save_data)
+	EventBus.shop_menu_closed.connect(save_data)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
+
+func load_data_from_resources() -> void:
+	for template: ObjectiveTemplate in DataHandler.objective_resources:
+		var objective := Objective.new()
+		objective.initialize(template)
+		Globals.objectives[objective.title] = objective
+	Globals.bookmarked_objective = Globals.objectives["Finished White Line"]
+	EventBus.bookmarked_objective_changed.emit()
 
 func load_data_from_save() -> void:
 	var objectives_save_dir := DirAccess.open(OBJECTIVES_SAVE_FOLDER)
@@ -25,15 +33,6 @@ func load_data_from_save() -> void:
 	var bookmarked_objective_title: String = SaveData.data_dictionary["bookmarked_objective_title"]
 	Globals.bookmarked_objective = Globals.objectives[bookmarked_objective_title]
 	EventBus.bookmarked_objective_changed.emit()
-
-func load_data_from_resources() -> void:
-	for template: ObjectiveTemplate in DataHandler.objective_resources:
-		var objective := Objective.new()
-		objective.initialize(template)
-		Globals.objectives[objective.title] = objective
-	Globals.bookmarked_objective = Globals.objectives["Finished White Line"]
-	EventBus.bookmarked_objective_changed.emit()
-
 
 func on_objective_task_completed(objective_title: String) -> void:
 	if Globals.objectives.has(objective_title):

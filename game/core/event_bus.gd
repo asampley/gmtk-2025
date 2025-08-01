@@ -1,5 +1,8 @@
 extends Node
 
+signal debug(text: String)
+
+
 signal debug_collision_position(position: Vector2)
 signal requested_save_data_reset()
 
