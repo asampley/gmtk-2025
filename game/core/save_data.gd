@@ -8,17 +8,22 @@ func _ready() -> void:
 		load_save()
 
 func save(data_key: String, data_value: Variant) -> void:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	file.store_string(data_key + "," + str(data_value) + ";")
+	data_dictionary[data_key] = str(data_value)
+	var file :=FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	file.store_string(str(data_dictionary))
 	file.close()
+
 
 func load_save() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	var save_data_array: PackedStringArray = file.get_as_text().split(";")
+	var save_data_array: PackedStringArray = file.get_as_text().split(", ")
 	for data: String in save_data_array:
 		if data != "":
-			var key_pair := data.split(",")
-			data_dictionary[key_pair[0]] = key_pair[1]
+			var regex := RegEx.new()
+			regex.compile("[^a-zA-Z:_\\s+]")
+			data = regex.sub(data, "", true)
+			var key_pair := data.split(": ")
+			data_dictionary[key_pair[0].strip_edges()] = key_pair[1].strip_edges()
 
 func reset() -> void:
 	DirAccess.remove_absolute(SAVE_PATH)
