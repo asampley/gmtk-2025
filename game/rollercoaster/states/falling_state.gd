@@ -49,9 +49,11 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	print("velocity = ", base_node.velocity)
 	base_node.velocity.y += gravity * delta
-	base_node.move_and_slide()
-	if base_node.is_on_floor():
+	var collision := base_node.move_and_collide(base_node.velocity * delta)
+	if collision && collision.get_collider() is Track:
+		moving_on_rails_state.prepare_state(collision.get_collider(), collision.get_position())
 		return moving_on_rails_state
 	return null
 

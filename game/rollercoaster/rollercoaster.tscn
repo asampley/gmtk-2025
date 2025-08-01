@@ -133,7 +133,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmpxg"]
-size = Vector2(26, 26)
+size = Vector2(26, 9)
 
 [sub_resource type="Curve2D" id="Curve2D_hr1qv"]
 _data = {
@@ -148,6 +148,7 @@ slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
 floor_max_angle = 3.14159
+floor_snap_length = 0.0
 platform_on_leave = 2
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
@@ -164,7 +165,7 @@ frame_progress = 0.244253
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_nmpxg")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
@@ -199,7 +200,6 @@ falling_state = NodePath("../FallingState")
 script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 
 [node name="AnimatePath" type="Path2D" parent="."]
