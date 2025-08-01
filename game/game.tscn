@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=21 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
 [ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
+[ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
 [ext_resource type="PackedScene" uid="uid://baigi8431vl47" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hb504"]
@@ -127,6 +128,16 @@ offset_top = -90.0
 offset_right = 10.0
 offset_bottom = -30.0
 grow_vertical = 0
+
+[node name="ResetSaveData" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "Reset Save Data"
+script = ExtResource("14_pxxsx")
 
 [node name="BackgroundMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
