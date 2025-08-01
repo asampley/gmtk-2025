@@ -38,7 +38,10 @@ func _sign_string(x: int) -> String:
 	else:
 		return "+"
 
-#Returns true if no tile present
-func has_tile(tile: Vector2i, in_direction: Vector2i) -> bool:
+func effect(tile: Vector2i) -> TrackEffect:
 	var tile_data := get_cell_tile_data(tile)
-	return tile_data == null
+
+	if tile_data == null:
+		return null
+
+	return tile_data.get_custom_data("effect")
