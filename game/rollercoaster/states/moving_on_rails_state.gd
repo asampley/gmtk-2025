@@ -93,7 +93,6 @@ func process_physics(delta: float) -> State:
 	base_node.global_transform = base_node.path_follow.global_transform
 
 	# If we're upside down
-	print(track.normal(tile_pos), Vector2.UP.rotated(base_node.rotation))
 	if (Vector2.UP.rotated(base_node.rotation)).dot(track.normal(tile_pos)) < 0:
 		base_node.rotation += PI
 		base_node.scale *= Vector2(-1, 1)
