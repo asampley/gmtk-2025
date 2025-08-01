@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpe3tu0yg8wlh"]
+
+[ext_resource type="Script" uid="uid://ddd4fu3chanqn" path="res://game/station/station.gd" id="1_a7llc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbp1"]
+size = Vector2(64, 64)
+
+[node name="Station" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_a7llc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6xbp1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

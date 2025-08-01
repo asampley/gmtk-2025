@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=14 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dtscj"]
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
 [ext_resource type="Script" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpfh7"]
 animations = [{
@@ -35,6 +36,7 @@ point_count = 3
 
 [node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow")]
 collision_layer = 2
+collision_mask = 5
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
@@ -45,8 +47,8 @@ platform_wall_layers = 1
 script = ExtResource("1_fpfh7")
 state_machine = NodePath("StateMachine")
 animations = NodePath("AnimatedSprite2D")
-path = NodePath("StateMachine/MovingOnRailsState/AnimatePath")
-path_follow = NodePath("StateMachine/MovingOnRailsState/AnimatePath/AnimatePathFollow")
+path = NodePath("AnimatePath")
+path_follow = NodePath("AnimatePath/AnimatePathFollow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fpfh7")
@@ -58,21 +60,12 @@ shape = SubResource("RectangleShape2D_nmpxg")
 script = ExtResource("3_nmpxg")
 starting_state = NodePath("FallingState")
 
-[node name="MovingOnRailsState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "stopped_state")]
+[node name="MovingOnRailsState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "stopped_state", "station_state")]
 script = ExtResource("5_1ove5")
 jumping_state = NodePath("../JumpingState")
 falling_state = NodePath("../FallingState")
 stopped_state = NodePath("../StoppedState")
-
-[node name="AnimatePath" type="Path2D" parent="StateMachine/MovingOnRailsState"]
-top_level = true
-curve = SubResource("Curve2D_hr1qv")
-
-[node name="AnimatePathFollow" type="PathFollow2D" parent="StateMachine/MovingOnRailsState/AnimatePath"]
-position = Vector2(34.9969, 35.7039)
-rotation = 0.795398
-progress = 50.0
-loop = false
+station_state = NodePath("../StationState")
 
 [node name="JumpingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_on_rails_state", "falling_state")]
 script = ExtResource("5_j853t")
@@ -87,8 +80,22 @@ stopped_state = NodePath("../StoppedState")
 [node name="StoppedState" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_8bbrx")
 
+[node name="StationState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("falling_state")]
+script = ExtResource("9_rsh2y")
+falling_state = NodePath("../FallingState")
+
 [node name="PlayerController" type="Node2D" parent="."]
 script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="AnimatePath" type="Path2D" parent="."]
+top_level = true
+curve = SubResource("Curve2D_hr1qv")
+
+[node name="AnimatePathFollow" type="PathFollow2D" parent="AnimatePath"]
+position = Vector2(34.9969, 35.7039)
+rotation = 0.795398
+progress = 50.0
+loop = false

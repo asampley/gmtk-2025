@@ -185,4 +185,6 @@ custom_data_layer_6/name = "conn-0"
 custom_data_layer_6/type = 28
 custom_data_layer_7/name = "conn--"
 custom_data_layer_7/type = 28
+custom_data_layer_8/name = "tile_data"
+custom_data_layer_8/type = 0
 sources/0 = SubResource("TileSetAtlasSource_vasa2")
