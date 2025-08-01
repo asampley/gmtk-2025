@@ -32,6 +32,7 @@ func process_input(event: InputEvent) -> State:
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		var mismatch := false
 		if combo_sequence == combo.sequence:
+			base_node.set_animation(combo.animation_name)
 			spawn_fly_in_text(combo.combo_name)
 			combo_sequence.clear()
 			EventBus.combo_reset.emit()
