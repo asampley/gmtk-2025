@@ -16,8 +16,9 @@ func load_save() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
 	var save_data_array: PackedStringArray = file.get_as_text().split(";")
 	for data: String in save_data_array:
-		var key_pair := data.split(",")
-		data_dictionary[save_data_array[0]] = save_data_array[1]
+		if data != "":
+			var key_pair := data.split(",")
+			data_dictionary[key_pair[0]] = key_pair[1]
 
 func reset() -> void:
 	DirAccess.remove_absolute(SAVE_PATH)

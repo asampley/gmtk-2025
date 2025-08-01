@@ -6,7 +6,7 @@ extends Node2D
 var current_rollercoaster_stats: RollercoasterStats
 var upgrades: Array[Upgrade] = []
 
-const UPGRADES_SAVE_FOLDER: String = "user://upgrades"
+const UPGRADES_SAVE_FOLDER: String = "user://upgrades/"
 
 
 func _ready() -> void:
@@ -60,7 +60,7 @@ func load_data_from_resources() -> void:
 		upgrades.append(upgrade)
 
 func load_data_from_save() -> void:
-	Globals.money = SaveData.data_dictionary["money"] as int
+	Globals.money = int(SaveData.data_dictionary["money"])
 	var upgrades_save_dir := DirAccess.open(UPGRADES_SAVE_FOLDER)
 	for resource_file: String in upgrades_save_dir.get_files():
 		var loaded_file := FileAccess.open(UPGRADES_SAVE_FOLDER + resource_file, FileAccess.READ)
