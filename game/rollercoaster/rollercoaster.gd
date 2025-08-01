@@ -13,7 +13,6 @@ var stats: RollercoasterStats
 
 
 func _ready() -> void:
-	animations.animation = "flat_roll"
 	state_machine.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 
