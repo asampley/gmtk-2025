@@ -15,3 +15,7 @@ signal objective_task_completed(objective_title: String)
 
 #doing tricks
 signal combo_completed(combo_name: String)
+
+# Coaster events
+signal station_stop()
+signal station_exit()

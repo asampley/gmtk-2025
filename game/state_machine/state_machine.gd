@@ -18,16 +18,18 @@ func change_state(new_state: State) -> void:
 	current_state.enter()
 
 func process_physics(delta: float) -> void:
-	var new_state := current_state.process_physics(delta)
-	if new_state:
-		change_state(new_state)
+	try_change_state(current_state.process_physics(delta))
 
 func process_input(event: InputEvent) -> void:
-	var new_state := current_state.process_input(event)
-	if new_state:
-		change_state(new_state)
+	try_change_state(current_state.process_input(event))
 
 func process_frame(delta: float) -> void:
-	var new_state := current_state.process_frame(delta)
-	if new_state:
-		change_state(new_state)
+	try_change_state(current_state.process_frame(delta))
+
+# Call when a station is entered
+func entered_station(station: Station) -> void:
+	try_change_state(current_state.entered_station(station))
+
+func try_change_state(state: State) -> void:
+	if state:
+		change_state(state)

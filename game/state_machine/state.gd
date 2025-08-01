@@ -25,3 +25,6 @@ func process_frame(_delta: float) -> State:
 
 func process_physics(_delta: float) -> State:
 	return null
+
+func entered_station(_station: Station) -> State:
+	return null

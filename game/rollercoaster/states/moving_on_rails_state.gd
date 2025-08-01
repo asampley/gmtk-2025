@@ -1,19 +1,22 @@
 extends State
 
-
 @export var jumping_state: State
 @export var falling_state: State
 @export var stopped_state: State
+@export var station_state: State
 
 var tile_pos: Vector2i
 var in_direction: Vector2i
 var out_direction: Vector2i
+
+var transition: State
 
 var track: Track
 
 func enter() -> void:
 	super()
 	base_node.set_colour(Color.WHITE)
+
 	if base_node.get_last_slide_collision() != null:
 		var collision := base_node.get_last_slide_collision()
 		var collider := collision.get_collider()
@@ -126,12 +129,19 @@ func update_path(estimate_progress: bool) -> State:
 
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
-	curve.set_point_position(0, tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
-	curve.set_point_position(1, tile_as_global)
-	curve.set_point_position(2, tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
+	curve.clear_points()
+	curve.add_point(tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
+	curve.add_point(tile_as_global)
+	curve.add_point(tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
 
 	if estimate_progress:
 		print("Attaching with progress %s" % curve.get_closest_offset(self.global_position))
 		base_node.path_follow.progress = curve.get_closest_offset(self.global_position)
 
 	return null
+
+func entered_station(station: Station) -> State:
+	print("Entered station: %s" % station)
+
+	station_state.station = station
+	return station_state
