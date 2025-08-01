@@ -28,11 +28,20 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_4"):
 		combo_sequence.append(ComboButtons.DOWN)
 		print("down")
+	var missed_combos: int = 0
 	for combo: ComboTemplate in DataHandler.combo_resources:
-		print(combo_sequence)
+		var mismatch := false
 		if combo_sequence == combo.sequence:
 			EventBus.combo_completed.emit(combo.combo_name)
+			combo_sequence.clear()
 			print("combod")
+		for i in combo_sequence.size():
+			if combo_sequence[i] != combo.sequence[i]:
+				missed_combos += 1
+				break
+	if missed_combos >= DataHandler.combo_resources.size():
+		combo_sequence.clear()
+		print("Combo Failed")
 	return null
 
 func process_frame(delta: float) -> State:
