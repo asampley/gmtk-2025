@@ -7,7 +7,7 @@
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="5_dxrkv"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
-[ext_resource type="Script" path="res://game/combo_banner.gd" id="8_qf6n1"]
+[ext_resource type="Script" uid="uid://r810u20yeut7" path="res://game/combo_banner.gd" id="8_qf6n1"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
 [ext_resource type="PackedScene" uid="uid://dpia522rnokua" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
@@ -28,14 +28,10 @@ text = "FPS"
 script = ExtResource("6_dakft")
 
 [node name="UpgradeMenu" parent="CanvasLayer" instance=ExtResource("7_u5opy")]
-visible = false
-offset_left = -400.0
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
-
-[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
-visible = false
+offset_left = -621.0
+offset_top = -260.0
+offset_right = 179.0
+offset_bottom = 240.0
 
 [node name="ObjectivesMenu" parent="CanvasLayer" instance=ExtResource("10_j8tme")]
 anchors_preset = 8
@@ -43,10 +39,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -333.0
-offset_top = -158.0
-offset_right = 333.0
-offset_bottom = 150.0
+offset_left = 210.0
+offset_top = -260.0
+offset_right = 610.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -73,6 +69,11 @@ offset_top = -45.0
 offset_right = 20.0
 offset_bottom = -22.0
 script = ExtResource("8_qf6n1")
+
+[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
+visible = false
+offset_right = 141.0
+offset_bottom = 43.0
 
 [node name="TrackMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAIAAAD//wAAAAAAAAIAAAD+/wAAAAAAAAIAAAAFAAAAAAAAAAAAAAAIAAAAAAADAAEAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAEAAEAAAAJAAEAAAACAAAAAAAKAAEAAAABAAAAAAAMAAAAAAAAAAAAAAANAAAAAAADAAEAAAAOAAAAAAAAAAAAAAAPAAAAAAABAAAAAAAOAAEAAAACAAIAAAAPAAIAAAABAAIAAAAOAAMAAAABAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAABAAAAAAAAAAIAAAD8/wEAAAADAAQAAAAQAP//AAABAAIAAAARAP7/AAABAAIAAAACAAAAAAADAAEAAAADAAAAAAABAAEAAAAEAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAADAAEAAAACAAUAAAADAAIAAAACAAMAAAADAAMAAAADAAMAAAADAAQAAAACAAMAAAADAAUAAAADAAQAAAAEAAYAAAACAAAAAAAFAAYAAAABAAAAAAAGAAQAAAAEAAUAAAAGAAUAAAAEAAQAAAAEAAMAAAAAAAAAAQACAAMAAAAAAAMAAAABAAMAAAAAAAMAAAAFAAMAAAADAAAAAAAEAP//AAABAAIAAAAFAP7/AAABAAIAAAAHAP//AAABAAIAAAAIAP7/AAABAAIAAAAQAAEAAAABAAIAAAA=")
