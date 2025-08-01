@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dp04t3ero8lug"]
+
+[ext_resource type="Shader" uid="uid://clqdijer17tit" path="res://game/shaders/objective_completed_outline.gdshader" id="1_lbbgf"]
+
+[resource]
+shader = ExtResource("1_lbbgf")
+shader_parameter/DonutMaskCenter = Vector2(0.5, 0.5)
+shader_parameter/DonutMaskSize = 0.5
+shader_parameter/DonutMaskThickness = 0.15
+shader_parameter/OutlineWidth = 3.0
+shader_parameter/OutlinePixelSize = 1.0
+shader_parameter/UseRainbowColorOutline = true
+shader_parameter/RainbowColorLightOffset = 0.5
+shader_parameter/RainbowColorSinFrequency = 0.1
+shader_parameter/OutlineUseNoise = true
+shader_parameter/NoiseBlockSize = 5.0
+shader_parameter/NoiseMaxLineWidth = 25.1
+shader_parameter/NoiseMinLineWidth = 5.0
+shader_parameter/NoiseFreq = 1.0
+shader_parameter/BackgroundColor = Color(0.95, 0.95, 0.95, 1)

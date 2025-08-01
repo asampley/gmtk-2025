@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpia522rnokua"]
+[gd_scene load_steps=7 format=3 uid="uid://dpia522rnokua"]
 
 [ext_resource type="Script" uid="uid://c6rnbafmqgamo" path="res://game/objectives/objectives_menu.gd" id="1_idrao"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_213xj"]
+[ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="2_781a8"]
+[ext_resource type="Shader" uid="uid://dewx6bnmpd5jc" path="res://game/shaders/circling_edge_highlight_cycle.gdshader" id="3_213xj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_213xj"]
+shader = ExtResource("3_213xj")
+shader_parameter/tex = ExtResource("2_781a8")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 20.0
+shader_parameter/color = Color(0.145098, 0, 1, 1)
+shader_parameter/thickness = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_781a8"]
 
 [node name="ObjectivesMenu" type="PanelContainer" node_paths=PackedStringArray("objective_item_parent")]
+material = SubResource("ShaderMaterial_213xj")
 offset_right = 682.0
 offset_bottom = 409.0
 size_flags_horizontal = 3
@@ -11,6 +24,10 @@ size_flags_vertical = 3
 script = ExtResource("1_idrao")
 objective_item_prefab = ExtResource("2_213xj")
 objective_item_parent = NodePath("MarginContainer/ScrollContainer/ObjectiveItemParent")
+
+[node name="ShaderParent" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_781a8")
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

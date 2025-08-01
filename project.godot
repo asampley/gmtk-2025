@@ -58,6 +58,10 @@ enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res:
 
 auto_rebuild=true
 
+[gui]
+
+theme/custom="uid://cqy65buqed56w"
+
 [input]
 
 move_down={

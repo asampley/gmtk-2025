@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyuerdakeu2tu"]
+[gd_scene load_steps=5 format=3 uid="uid://cyuerdakeu2tu"]
 
 [ext_resource type="Script" uid="uid://bj53oijhvhgcc" path="res://game/objectives/bookmarked_objective_ui.gd" id="1_xlycx"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_fc7ko"]
+[ext_resource type="Material" uid="uid://dp04t3ero8lug" path="res://game/theme/objective_completed_materioal.tres" id="3_d47ul"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1oq12"]
 
 [node name="BookmarkedObjectiveUI" type="PanelContainer"]
-offset_right = 40.0
+material = SubResource("ShaderMaterial_1oq12")
+offset_right = 139.0
 offset_bottom = 40.0
 script = ExtResource("1_xlycx")
 objective_item_prefab = ExtResource("2_fc7ko")
+
+[node name="PanelContainer" type="ColorRect" parent="."]
+material = ExtResource("3_d47ul")
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
