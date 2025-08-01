@@ -3,8 +3,8 @@ extends TrackEffect
 
 @export var acceleration: Vector2
 
-func effect(coaster: Rollercoaster, delta: float) -> void:
+func effect(track: Track, tile: Vector2i, coaster: Rollercoaster, delta: float) -> void:
 	print("Acceleration time!")
 	print(coaster.velocity)
-	coaster.velocity += acceleration * delta
+	coaster.velocity += track.transform_vector2i(tile, acceleration) * delta
 	print(coaster.velocity)

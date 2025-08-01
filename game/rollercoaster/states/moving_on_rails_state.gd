@@ -63,7 +63,7 @@ func process_physics(delta: float) -> State:
 	var effect := track.effect(tile_pos)
 
 	if effect:
-		effect.effect(base_node, delta)
+		effect.effect(track, tile_pos, base_node, delta)
 
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
