@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bki3tklhq664b"]
+[gd_scene load_steps=4 format=3 uid="uid://bki3tklhq664b"]
 
 [ext_resource type="Script" uid="uid://b617qa1py6pcj" path="res://game/ui/reset_data_popup.gd" id="1_kib8y"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="2_jig22"]
+[ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="3_jig22"]
 
 [node name="ResetDataPopup" type="PanelContainer"]
 anchors_preset = 15
@@ -53,6 +55,9 @@ layout_mode = 2
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 70
 text = "YES"
+script = ExtResource("2_jig22")
+sound = ExtResource("3_jig22")
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
 [node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -63,6 +68,9 @@ layout_mode = 2
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 70
 text = "NO"
+script = ExtResource("2_jig22")
+sound = ExtResource("3_jig22")
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
 [node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

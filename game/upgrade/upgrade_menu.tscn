@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://k7r4k1p52ytx"]
+[gd_scene load_steps=5 format=3 uid="uid://k7r4k1p52ytx"]
 
 [ext_resource type="Script" uid="uid://bw0pcemwc0jns" path="res://game/upgrade/upgrade_menu.gd" id="1_g7qji"]
 [ext_resource type="PackedScene" uid="uid://duxcyga38wgsi" path="res://game/upgrade/upgrade_selector.tscn" id="2_pd3uc"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="3_fkfn1"]
+[ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="4_a0w04"]
 
 [node name="UpgradeMenu" type="PanelContainer"]
 anchors_preset = 8
@@ -76,6 +78,9 @@ size_flags_horizontal = 3
 [node name="Finished" type="Button" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2
 text = "Finished"
+script = ExtResource("3_fkfn1")
+sound = ExtResource("4_a0w04")
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
 [node name="Control2" type="Control" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2

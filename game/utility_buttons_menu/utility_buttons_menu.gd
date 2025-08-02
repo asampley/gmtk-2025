@@ -1,7 +1,6 @@
 extends HBoxContainer
 
 
-
 func _on_reset_save_pressed() -> void:
 	EventBus.requested_reset_data_popup.emit()
 
