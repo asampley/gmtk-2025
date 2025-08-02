@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvdgn5uuf5t4w"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cvdgn5uuf5t4w"]
 
 [ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="1_ju1rf"]
 [ext_resource type="Texture2D" uid="uid://7q0x7mi1han4" path="res://game/theme/blue_button10.png" id="2_gqbws"]
@@ -24,6 +24,12 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ejh2t"]
+color = Color(1, 1, 1, 1)
+grow_begin = -25.0
+grow_end = -25.0
+vertical = true
+
 [resource]
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 12
@@ -41,3 +47,4 @@ LabelTitle/constants/outline_size = 15
 LabelTitle/font_sizes/font_size = 40
 LabelTitle/fonts/font = ExtResource("3_eo17r")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_pbm55")
+VSeparator/styles/separator = SubResource("StyleBoxLine_ejh2t")

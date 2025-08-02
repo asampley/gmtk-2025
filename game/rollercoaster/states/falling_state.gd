@@ -23,21 +23,20 @@ func exit() -> void:
 	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
 	airtime = 0
 	EventBus.airtime_changed.emit(airtime)
-	
 
 func process_input(event: InputEvent) -> State:
-	if event.is_action_released("stunt_key_1"):
+	if event.is_action_pressed("stunt_key_1"):
 		combo_sequence.append(Globals.ComboButtons.LEFT)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.LEFT)
-	elif event.is_action_released("stunt_key_2"):
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.LEFT, combo_sequence.size())
+	elif event.is_action_pressed("stunt_key_2"):
 		combo_sequence.append(Globals.ComboButtons.RIGHT)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.RIGHT)
-	elif event.is_action_released("stunt_key_3"):
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.RIGHT, combo_sequence.size())
+	elif event.is_action_pressed("stunt_key_3"):
 		combo_sequence.append(Globals.ComboButtons.UP)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP)
-	elif event.is_action_released("stunt_key_4"):
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
+	elif event.is_action_pressed("stunt_key_4"):
 		combo_sequence.append(Globals.ComboButtons.DOWN)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.DOWN)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.DOWN, combo_sequence.size())
 	else:
 		return
 	var missed_combos: int = 0
@@ -47,7 +46,7 @@ func process_input(event: InputEvent) -> State:
 			base_node.set_animation(combo.animation_name)
 			spawn_fly_in_text(combo.combo_name)
 			combo_sequence.clear()
-			EventBus.combo_reset.emit()
+			EventBus.combo_completed.emit()
 			Globals.money += 100
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
@@ -55,7 +54,7 @@ func process_input(event: InputEvent) -> State:
 				break
 	if missed_combos >= DataHandler.combo_resources.size():
 		combo_sequence.clear()
-		EventBus.combo_reset.emit()
+		EventBus.combo_failed.emit()
 		spawn_fly_in_text("Combo Failed!")
 	return null
 
@@ -76,4 +75,4 @@ func process_physics(delta: float) -> State:
 func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
 	var vector := base_node.velocity.normalized()
-	EventBus.generated_fly_in_text.emit(text, screen_transform, -vector)
+	EventBus.generated_fly_in_text.emit(text, screen_transform + Vector2(0, -20), -vector)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=38 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -26,6 +26,16 @@
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
 [ext_resource type="Script" uid="uid://bujie8kmetx3i" path="res://game/sound_manager.gd" id="22_mhvfb"]
 [ext_resource type="AudioStream" uid="uid://dhyqbcxbya402" path="res://game/the-return-of-the-8-bit-era-301292.mp3" id="25_8bboj"]
+[ext_resource type="Script" uid="uid://brarsc1dbm8ww" path="res://game/audio/combo_sounds/combo_sounds.gd" id="27_jucfl"]
+[ext_resource type="AudioStream" uid="uid://ghljfmhhup4c" path="res://game/audio/combo_sounds/success.mp3" id="28_5ywmu"]
+[ext_resource type="AudioStream" uid="uid://u5fykwa8unj8" path="res://game/audio/combo_sounds/failure.mp3" id="29_mhp6k"]
+[ext_resource type="AudioStream" uid="uid://c725b8mtpgyuv" path="res://game/audio/combo_sounds/pickupCoin (1).wav" id="30_vkvnp"]
+[ext_resource type="AudioStream" uid="uid://bgn0sq4egopko" path="res://game/audio/combo_sounds/pickupCoin (2).wav" id="31_urpib"]
+[ext_resource type="AudioStream" uid="uid://fnb3g8pvjlr8" path="res://game/audio/combo_sounds/pickupCoin (3).wav" id="32_cieqw"]
+[ext_resource type="AudioStream" uid="uid://dp5orkhg8uwjv" path="res://game/audio/combo_sounds/pickupCoin (4).wav" id="33_ta815"]
+[ext_resource type="AudioStream" uid="uid://cm7bhh3a2psuc" path="res://game/audio/combo_sounds/pickupCoin (5).wav" id="34_64wtb"]
+[ext_resource type="AudioStream" uid="uid://bjoswqv0esvf2" path="res://game/audio/combo_sounds/pickupCoin (6).wav" id="35_0rekh"]
+[ext_resource type="AudioStream" uid="uid://ccbrh74ch6g34" path="res://game/audio/combo_sounds/pickupCoin (7).wav" id="36_281ou"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hb504"]
 shader = ExtResource("9_ee6o4")
@@ -73,10 +83,10 @@ pickup = ExtResource("10_dxwpq")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1044.0
-offset_top = 357.0
+offset_left = 1033.0
+offset_top = 384.0
 offset_right = 1273.0
-offset_bottom = 555.0
+offset_bottom = 552.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1, 1)
@@ -263,14 +273,30 @@ fly_in_text_prefab = ExtResource("15_ee6o4")
 fly_in_text_parent = NodePath("../CanvasLayer/FlyTextParent")
 text_speed = 30.0
 
-[node name="AudioManager" type="AudioStreamPlayer" parent="."]
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AudioManager" type="AudioStreamPlayer" parent="AudioPlayers"]
 volume_db = -10.0
 script = ExtResource("22_mhvfb")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("25_8bboj")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
+
+[node name="ComboSounds" type="AudioStreamPlayer" parent="AudioPlayers"]
+volume_db = 24.0
+bus = &"SFX"
+script = ExtResource("27_jucfl")
+success_sound = ExtResource("28_5ywmu")
+failure_sound = ExtResource("29_mhp6k")
+one_button = ExtResource("30_vkvnp")
+two_buttons = ExtResource("31_urpib")
+three_buttons = ExtResource("32_cieqw")
+four_buttons = ExtResource("33_ta815")
+five_buttons = ExtResource("34_64wtb")
+six_buttons = ExtResource("35_0rekh")
+seven_buttons = ExtResource("36_281ou")
 
 [connection signal="pressed" from="CanvasLayer/ResetSaveData" to="CanvasLayer/ResetSaveData" method="_on_pressed"]

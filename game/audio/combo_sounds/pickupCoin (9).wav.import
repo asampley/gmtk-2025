@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://botye0xeux5i7"
+path="res://.godot/imported/pickupCoin (9).wav-241e4f1bb0d34609ac894fc09b08f703.sample"
+
+[deps]
+
+source_file="res://game/audio/combo_sounds/pickupCoin (9).wav"
+dest_files=["res://.godot/imported/pickupCoin (9).wav-241e4f1bb0d34609ac894fc09b08f703.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

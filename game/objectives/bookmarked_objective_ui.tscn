@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyuerdakeu2tu"]
+[gd_scene load_steps=6 format=3 uid="uid://cyuerdakeu2tu"]
 
 [ext_resource type="Script" uid="uid://bj53oijhvhgcc" path="res://game/objectives/bookmarked_objective_ui.gd" id="1_xlycx"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_fc7ko"]
 [ext_resource type="Material" uid="uid://dp04t3ero8lug" path="res://game/theme/objective_completed_materioal.tres" id="3_d47ul"]
+[ext_resource type="Texture2D" uid="uid://giwhrtqgj805" path="res://game/objectives/shadedLight46.png" id="4_1oq12"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1oq12"]
 
@@ -62,8 +63,16 @@ layout_mode = 2
 
 [node name="TasksCompleted" type="Label" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0/1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CompletedIcon" type="TextureRect" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_1oq12")
+expand_mode = 3
+stretch_mode = 4
