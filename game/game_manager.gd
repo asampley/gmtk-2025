@@ -7,7 +7,7 @@ extends Node2D
 var current_rollercoaster_stats: RollercoasterStats
 var upgrades: Array[Upgrade] = []
 
-const UPGRADES_SAVE_FOLDER: String = "user://upgrades/"
+const UPGRADES_SAVE_FOLDER: String = "user://upgrade_folder/"
 
 
 func _ready() -> void:
