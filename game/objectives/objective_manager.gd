@@ -3,6 +3,7 @@ extends Node
 
 const OBJECTIVES_SAVE_FOLDER: String = "user://objectives/"
 
+@export var default_objective: ObjectiveTemplate
 
 func _ready() -> void:
 	if check_save_file_exists():
@@ -19,7 +20,7 @@ func load_data_from_resources() -> void:
 		var objective := Objective.new()
 		objective.initialize(template)
 		Globals.objectives[objective.template.title] = objective
-	Globals.bookmarked_objective = Globals.objectives["Finished White Line"]
+	Globals.bookmarked_objective = Globals.objectives[default_objective.title]
 	EventBus.bookmarked_objective_changed.emit()
 
 func load_data_from_save() -> void:

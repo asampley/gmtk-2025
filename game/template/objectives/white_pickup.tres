@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3w4rn")
 title = "Find the Tires in the White Line"
-reward = 0
+reward = 100
 upgrade_unlock = ExtResource("2_d7ugq")
 number_of_tasks = 1
 metadata/_custom_type_script = "uid://gbab211mk4fl"
