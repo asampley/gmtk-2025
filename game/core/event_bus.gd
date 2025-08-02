@@ -18,6 +18,7 @@ signal shop_menu_closed()
 #Objectives
 signal objective_menu_requested()
 signal bookmarked_objective_changed()
+signal bookmarked_objective_updated()
 signal objective_task_completed(objective_title: String)
 
 #Doing tricks
