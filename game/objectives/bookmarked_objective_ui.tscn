@@ -8,7 +8,6 @@
 [node name="ColorRect" type="ColorRect"]
 material = ExtResource("3_d47ul")
 custom_minimum_size = Vector2(500, 150)
-anchors_preset = -1
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -68,7 +67,14 @@ text = "0/1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CompletedIcon" type="TextureRect" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CompletedIcon" type="TextureRect" parent="MarginContainer/BookmarkedObjectiveUI/MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_1oq12")

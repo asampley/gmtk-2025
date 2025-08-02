@@ -42,10 +42,14 @@ shader = ExtResource("9_ee6o4")
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/threshold = 0.6
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent", "spawn_position")]
 script = ExtResource("1_h7iqs")
 rollercoaster_template = ExtResource("2_h7iqs")
 rollercoaster_parent = NodePath("World/RollercoasterParent")
+spawn_position = NodePath("SpawnPosition")
+
+[node name="SpawnPosition" type="Node2D" parent="."]
+position = Vector2(-95, 31)
 
 [node name="World" type="Node2D" parent="."]
 

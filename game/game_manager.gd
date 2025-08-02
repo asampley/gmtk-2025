@@ -3,6 +3,7 @@ extends Node2D
 
 @export var rollercoaster_template: RollercoasterTemplate
 @export var rollercoaster_parent: Node2D
+@export var spawn_position: Node2D
 
 var current_rollercoaster_stats: RollercoasterStats
 var upgrades: Array[Upgrade] = []
@@ -19,7 +20,7 @@ func _ready() -> void:
 	else:
 		load_data_from_resources()
 	EventBus.money_amount_changed.emit(Globals.money)
-	spawn_rollercoaster()
+	spawn_rollercoaster(spawn_position.global_position)
 
 func connect_events() -> void:
 	EventBus.upgrade_purchased.connect(on_upgrade_purchased)
@@ -28,10 +29,12 @@ func connect_events() -> void:
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
 	EventBus.upgrade_unlocked.connect(on_upgrade_unlocked)
 
-func spawn_rollercoaster() -> void:
+func spawn_rollercoaster(spawn_position: Vector2) -> void:
 	var rollercoaster: CharacterBody2D = rollercoaster_template.prefab.instantiate()
 	rollercoaster_parent.add_child(rollercoaster)
+	rollercoaster.global_position = spawn_position
 	rollercoaster.set_stats(current_rollercoaster_stats)
+	rollercoaster.initialize()
 	var initial_impulse_direction := Vector2.RIGHT
 	rollercoaster.velocity += initial_impulse_direction * rollercoaster.stats.initial_velocity
 
@@ -52,7 +55,7 @@ func on_station_stop() -> void:
 
 func on_shop_menu_closed() -> void:
 	save_data()
-	spawn_rollercoaster()
+	spawn_rollercoaster(spawn_position.global_position)
 
 func on_upgrade_unlocked(upgrade_name: String) -> void:
 	var i := upgrades.find_custom(func(u: Upgrade) -> bool: return u.template.upgrade_name == upgrade_name)

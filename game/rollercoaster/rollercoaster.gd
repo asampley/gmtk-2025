@@ -15,7 +15,7 @@ extends CharacterBody2D
 var stats: RollercoasterStats
 
 
-func _ready() -> void:
+func initialize() -> void:
 	state_machine.initialize(self)
 	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
