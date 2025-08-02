@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=65 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
@@ -14,12 +14,13 @@
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]
 [ext_resource type="AudioStream" uid="uid://fk3rboyyo5o2" path="res://game/rollercoaster/states/falling_sound.wav" id="10_yw4u4"]
+[ext_resource type="PackedScene" uid="uid://ditcfcjt55exv" path="res://game/screen_shake/screen_shake.tscn" id="16_p2xsc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cxb7"]
 shader = ExtResource("2_y8uoc")
 shader_parameter/deformation = Vector2(0, 0)
 shader_parameter/sidewaysDeformationFactor = 3.0
-shader_parameter/knockbackFactor = 0.0
+shader_parameter/knockbackFactor = 0.001
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8uoc"]
 atlas = ExtResource("3_rsh2y")
@@ -453,6 +454,10 @@ script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 100.0
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource("16_p2xsc")]
+shake_multiplier = 0.001
+max_shake = 20.0
 
 [node name="AnimatePath" type="Path2D" parent="."]
 top_level = true

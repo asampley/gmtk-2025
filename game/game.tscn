@@ -252,12 +252,12 @@ fly_in_text_parent = NodePath("../CanvasLayer/FlyTextParent")
 text_speed = 30.0
 
 [node name="AudioManager" type="AudioStreamPlayer" parent="."]
-volume_db = -30.0
+volume_db = -10.0
 script = ExtResource("22_mhvfb")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_8bboj")
-volume_db = -15.048
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
 

@@ -23,7 +23,6 @@ func prepare_state(collision_track: Track, collision_point: Vector2) -> void:
 
 func enter() -> void:
 	super()
-	base_node.deform()
 	assert(track)
 	assert(tile_pos != Vector2i.MAX)
 	var in_dir := -base_node.velocity

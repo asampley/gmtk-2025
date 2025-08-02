@@ -16,6 +16,9 @@ func enter() -> void:
 func exit() -> void:
 	super()
 	EventBus.audio_clip_requested.emit(landing_sound)
+	EventBus.combo_reset.emit()
+	EventBus.screen_shake_increased.emit(base_node.velocity.length())
+	base_node.deform(Vector2(0,1))
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_1"):
