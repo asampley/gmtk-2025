@@ -18,7 +18,7 @@ func load_data_from_resources() -> void:
 	for template: ObjectiveTemplate in DataHandler.objective_resources:
 		var objective := Objective.new()
 		objective.initialize(template)
-		Globals.objectives[objective.title] = objective
+		Globals.objectives[objective.template.title] = objective
 	Globals.bookmarked_objective = Globals.objectives["Finished White Line"]
 	EventBus.bookmarked_objective_changed.emit()
 
@@ -29,7 +29,7 @@ func load_data_from_save() -> void:
 		var save_data: String = loaded_file.get_as_text()
 		var objective := Objective.new()
 		objective.load_save_data(save_data)
-		Globals.objectives[objective.title] = objective
+		Globals.objectives[objective.template.title] = objective
 	print(SaveData.data_dictionary)
 	var bookmarked_objective_title: String = SaveData.data_dictionary["bookmarked_objective_title"]
 	Globals.bookmarked_objective = Globals.objectives[bookmarked_objective_title]
@@ -46,12 +46,12 @@ func check_save_file_exists() -> bool:
 	return dir != null
 
 func save_data() -> void:
-	SaveData.save("bookmarked_objective_title", Globals.bookmarked_objective.title)
+	SaveData.save("bookmarked_objective_title", Globals.bookmarked_objective.template.title)
 	if !DirAccess.dir_exists_absolute(OBJECTIVES_SAVE_FOLDER):
 		DirAccess.make_dir_recursive_absolute(OBJECTIVES_SAVE_FOLDER)
 	for objective: Objective in Globals.objectives.values():
 		var save_data := objective.save()
-		var file := FileAccess.open(OBJECTIVES_SAVE_FOLDER + objective.title + ".dat", FileAccess.WRITE)
+		var file := FileAccess.open(OBJECTIVES_SAVE_FOLDER + objective.template.title + ".dat", FileAccess.WRITE)
 		file.store_string(save_data)
 		file.close()
 

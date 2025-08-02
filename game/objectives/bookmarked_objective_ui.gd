@@ -12,9 +12,9 @@ func _ready() -> void:
 
 func on_bookmarked_objective_changed() -> void:
 	var objective := Globals.bookmarked_objective
-	title.text = objective.title
-	if objective.tasks_completed >= objective.number_of_tasks:
+	title.text = objective.template.title
+	if objective.tasks_completed >= objective.template.number_of_tasks:
 		tasks_completed.text = "Completed!"
 	else:
-		tasks_completed.text = str(objective.tasks_completed) + " / " + str(objective.number_of_tasks)
+		tasks_completed.text = str(objective.tasks_completed) + " / " + str(objective.template.number_of_tasks)
 
