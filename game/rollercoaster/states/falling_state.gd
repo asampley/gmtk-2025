@@ -75,4 +75,4 @@ func process_physics(delta: float) -> State:
 func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
 	var vector := base_node.velocity.normalized()
-	EventBus.generated_fly_in_text.emit(text, screen_transform + Vector2(0, -20), -vector)
+	EventBus.generated_fly_in_text.emit(text, screen_transform + Vector2(0, -100), -vector)
