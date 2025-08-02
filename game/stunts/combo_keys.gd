@@ -30,7 +30,6 @@ func on_combo_button_pressed(button: Globals.ComboButtons, _length: int) -> void
 	button_icon_parent.add_child(button_icon)
 	show()
 
-
 func on_combo_completed(_score: float, _mult: float) -> void:
 	on_combo_reset()
 
