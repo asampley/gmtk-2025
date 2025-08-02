@@ -9,6 +9,7 @@ func on_requested_reset_data_popup() -> void:
 
 func _on_yes_pressed() -> void:
 	EventBus.requested_save_data_reset.emit()
+	hide()
 
 func _on_no_pressed() -> void:
 	hide()

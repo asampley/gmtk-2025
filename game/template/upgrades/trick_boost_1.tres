@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://y2fdax8ammjv" path="res://assets/trick_fins.png" id="1_sh17f"]
 [ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="2_cgep5"]
-[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="2_sh17f"]
+[ext_resource type="Script" path="res://game/upgrade/upgrade_tier_template.gd" id="2_sh17f"]
 
 [sub_resource type="Resource" id="Resource_644he"]
 script = ExtResource("2_sh17f")
