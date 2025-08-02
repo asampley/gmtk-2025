@@ -35,7 +35,7 @@ func on_combo_button_pressed(_combo_button: Globals.ComboButtons, length: int) -
 			stream = seven_buttons
 	play()
 
-func on_combo_completed() -> void:
+func on_combo_completed(_score: float, _mult: float) -> void:
 	stream = success_sound
 	play()
 

@@ -25,7 +25,7 @@ signal objective_task_completed(objective_title: String)
 #Doing tricks
 signal generated_fly_in_text(text: String, position: Vector2, direction: Vector2)
 signal combo_button_pressed(combo_button: Globals.ComboButtons, length: int)
-signal combo_completed(combo_name: String)
+signal combo_completed(current_score: float, current_mult: float)
 signal combo_failed()
 signal combo_reset()
 

@@ -11,7 +11,7 @@ extends Control
 
 func _ready() -> void:
 	EventBus.combo_button_pressed.connect(on_combo_button_pressed)
-	EventBus.combo_completed.connect(on_combo_reset)
+	EventBus.combo_completed.connect(on_combo_completed)
 	EventBus.combo_failed.connect(on_combo_reset)
 	EventBus.combo_reset.connect(on_combo_reset)
 
@@ -29,6 +29,10 @@ func on_combo_button_pressed(button: Globals.ComboButtons, _length: int) -> void
 			button_icon.texture = down_button_texture
 	button_icon_parent.add_child(button_icon)
 	show()
+
+
+func on_combo_completed(_score: float, _mult: float) -> void:
+	on_combo_reset()
 
 func on_combo_reset() -> void:
 	hide()

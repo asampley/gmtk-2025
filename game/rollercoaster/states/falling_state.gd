@@ -69,9 +69,9 @@ func match_combo(combo: ComboTemplate) -> bool:
 		base_node.set_animation(combo.animation_name)
 		spawn_fly_in_text(combo.combo_name)
 		combo_sequence.clear()
-		EventBus.combo_completed.emit()
 		base_combo_score += combo.base_score
 		combo_multiplier += 1.0
+		EventBus.combo_completed.emit(base_combo_score, combo_multiplier)
 		return true
 	for i in combo_sequence.size():
 		if combo_sequence[i] != combo.sequence[i]:
