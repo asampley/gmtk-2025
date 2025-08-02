@@ -11,6 +11,9 @@ const UPGRADES_SAVE_FOLDER: String = "user://upgrade_folder/"
 
 
 func _ready() -> void:
+	current_rollercoaster_stats = RollercoasterStats.new()
+	current_rollercoaster_stats.initialize(rollercoaster_template)
+
 	connect_events()
 	if check_save_file_exists():
 		load_data_from_save()
@@ -28,17 +31,17 @@ func connect_events() -> void:
 func spawn_rollercoaster() -> void:
 	var rollercoaster: CharacterBody2D = rollercoaster_template.prefab.instantiate()
 	rollercoaster_parent.add_child(rollercoaster)
-	if current_rollercoaster_stats == null:
-		current_rollercoaster_stats = RollercoasterStats.new()
-		current_rollercoaster_stats.initialize(rollercoaster_template)
 	rollercoaster.set_stats(current_rollercoaster_stats)
 	var initial_impulse_direction := Vector2.RIGHT
 	rollercoaster.velocity += initial_impulse_direction * rollercoaster.stats.initial_velocity
 
 func on_upgrade_purchased(upgrade: Upgrade) -> void:
 	upgrade.purchase_upgrade()
-	current_rollercoaster_stats.apply_upgrade(upgrade)
+	apply_upgrade_to_rollercoaster(upgrade)
 	EventBus.upgrade_menu_opened.emit(upgrades)
+
+func apply_upgrade_to_rollercoaster(upgrade: Upgrade) -> void:
+	current_rollercoaster_stats.apply_upgrade(upgrade)
 
 func open_menus() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrades)
@@ -78,6 +81,9 @@ func load_data_from_save() -> void:
 		var upgrade := Upgrade.new()
 		upgrade.load_save_data(save_data)
 		upgrades.append(upgrade)
+
+		if upgrade.purchased:
+			apply_upgrade_to_rollercoaster(upgrade)
 
 func save_data() -> void:
 	SaveData.save("money", Globals.money)
