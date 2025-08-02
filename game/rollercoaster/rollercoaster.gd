@@ -41,7 +41,7 @@ func deform() -> void:
 	var deformation_scale := deformation_direction * deformation_strength
 	var tween := create_tween()
 	tween.stop()
-	tween.tween_property(animations.material, "shader_parameter/deformation", deformation_scale, deformation_duration)
+	tween.tween_property(animations.material, "shader_parameter/deformation", -deformation_scale, deformation_duration)
 	tween.tween_property(animations.material, "shader_parameter/deformation", Vector2.ZERO, deformation_duration * 2)
 	tween.play()
 

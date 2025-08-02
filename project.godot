@@ -34,7 +34,6 @@ EventBus="*res://game/core/event_bus.gd"
 Globals="*res://game/core/globals.gd"
 DataHandler="*res://game/core/data_handler.gd"
 SaveData="*res://game/core/save_data.gd"
-SoundManager="*res://game/sound_manager.gd"
 
 [debug]
 
