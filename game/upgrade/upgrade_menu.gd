@@ -11,7 +11,7 @@ func on_upgrade_menu_opened(upgrades: Array[Upgrade]) -> void:
 	for child: Node in upgrade_selector_parent.get_children():
 		child.queue_free()
 	for upgrade in upgrades:
-		if upgrade.purchased == false:
+		if !upgrade.purchased && upgrade.unlocked:
 			var upgrade_selector: UpgradeSelector = upgrade_selector_prefab.instantiate()
 			upgrade_selector_parent.add_child(upgrade_selector)
 			upgrade_selector.initialize(upgrade)

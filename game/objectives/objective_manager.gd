@@ -12,6 +12,7 @@ func _ready() -> void:
 	EventBus.station_stop.connect(save_data)
 	EventBus.shop_menu_closed.connect(save_data)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
+	EventBus.objective_task_completed.connect(on_objective_task_completed)
 
 func load_data_from_resources() -> void:
 	for template: ObjectiveTemplate in DataHandler.objective_resources:

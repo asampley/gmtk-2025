@@ -23,6 +23,7 @@ func connect_events() -> void:
 	EventBus.station_stop.connect(on_station_stop)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
+	EventBus.upgrade_unlocked.connect(on_upgrade_unlocked)
 
 func spawn_rollercoaster() -> void:
 	var rollercoaster: CharacterBody2D = rollercoaster_template.prefab.instantiate()
@@ -49,6 +50,14 @@ func on_station_stop() -> void:
 func on_shop_menu_closed() -> void:
 	save_data()
 	spawn_rollercoaster()
+
+func on_upgrade_unlocked(upgrade_name: String) -> void:
+	var i := upgrades.find_custom(func(v: Upgrade) -> bool: return v.upgrade_name == upgrade_name)
+	if i != -1:
+		push_warning("Tried to unlock upgrade and could not find '%s' in '%s'" % [ upgrade_name, upgrades ])
+	else:
+		upgrades[i].unlocked = true
+		print("Upgrade '%s' unlocked!" % upgrade_name)
 
 func load_data_from_resources() -> void:
 	Globals.money = 0

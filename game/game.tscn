@@ -58,7 +58,7 @@ position = Vector2(0, 32)
 scale = Vector2(4, 1)
 
 [node name="Pickup" parent="World" instance=ExtResource("9_u8s88")]
-position = Vector2(20, 187)
+position = Vector2(60, 185)
 pickup = ExtResource("10_dxwpq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

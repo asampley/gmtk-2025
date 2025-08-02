@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PickupResource" load_steps=3 format=3 uid="uid://bqwmpnxjtlmuv"]
+[gd_resource type="Resource" script_class="PickupResource" load_steps=4 format=3 uid="uid://bqwmpnxjtlmuv"]
 
+[ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="1_dav35"]
 [ext_resource type="Script" uid="uid://bjdbxi1york2" path="res://game/pickup/pickup_resource.gd" id="1_wsmxh"]
 [ext_resource type="Texture2D" uid="uid://b0261n03lpeli" path="res://assets/pickup_wheels.png" id="2_dnofk"]
 
 [resource]
 script = ExtResource("1_wsmxh")
 texture = ExtResource("2_dnofk")
-objective_title = ""
+objective = ExtResource("1_dav35")
 metadata/_custom_type_script = "uid://bjdbxi1york2"
