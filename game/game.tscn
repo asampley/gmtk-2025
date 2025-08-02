@@ -202,10 +202,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ComboMeter" parent="CanvasLayer" instance=ExtResource("22_vkvnp")]
-offset_left = 1178.0
-offset_top = 349.0
-offset_right = 1178.0
-offset_bottom = 349.0
+offset_left = 1193.0
+offset_top = 353.0
+offset_right = 1193.0
+offset_bottom = 353.0
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
