@@ -64,7 +64,7 @@ func process_physics(delta: float) -> State:
 	airtime += delta
 	EventBus.airtime_changed.emit(airtime)
 	if gliding:
-		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer, gliding_gravity_min)
+		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer * Globals.acceleration, gliding_gravity_min * Globals.acceleration)
 		base_node.velocity.y += reduced_gravity * delta
 		glide_duration -= delta
 		if glide_duration <= 0:
