@@ -45,7 +45,7 @@ func exit() -> void:
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
-	if event.is_action_pressed("move_up") || event.is_action_pressed("move_down"):
+	if ["move_up", "move_down", "move_left", "move_right"].any(func(k: String) -> bool: return event.is_action_pressed(k)):
 		var follow := base_node.path_follow
 		var curve := base_node.path.curve
 
@@ -126,13 +126,13 @@ func flip() -> void:
 func get_direction(vector_in: Vector2) -> Vector2i:
 	return (Vector2i(-vector_in) / 32).clampi(-1,1)
 
-func calc_direction(available_directions: Array[Vector2i], up: bool, down: bool) -> Vector2i:
-	if up == down:
+func calc_direction(available_directions: Array[Vector2i], motion: Vector2i) -> Vector2i:
+	if motion == Vector2i.ZERO:
 		return available_directions[0]
-	elif up:
-		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y > acc.y else v)
 	else:
-		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i: return acc if v.y < acc.y else v)
+		return available_directions.reduce(func(acc: Vector2i, v: Vector2i) -> Vector2i:
+			return acc if (acc - motion).length_squared() < (v - motion).length_squared() else v
+		)
 
 # estimate_progress assigns the progress as well, based on the current location
 func update_path(estimate_progress: bool) -> State:
@@ -145,7 +145,7 @@ func update_path(estimate_progress: bool) -> State:
 	if available_directions.size() == 0:
 		return falling_state
 
-	out_direction = calc_direction(available_directions, Input.is_action_pressed("move_up"), Input.is_action_pressed("move_down"))
+	out_direction = calc_direction(available_directions, calc_motion())
 
 	var tile_as_global := track.to_global(track.map_to_local(tile_pos))
 
@@ -159,6 +159,12 @@ func update_path(estimate_progress: bool) -> State:
 		base_node.path_follow.progress = curve.get_closest_offset(self.global_position)
 
 	return null
+
+func calc_motion() -> Vector2i:
+	return (Input.is_action_pressed("move_up") as int * Vector2i.UP) \
+			+ (Input.is_action_pressed("move_down") as int * Vector2i.DOWN) \
+			+ (Input.is_action_pressed("move_left") as int * Vector2i.LEFT) \
+			+ (Input.is_action_pressed("move_right") as int * Vector2i.RIGHT)
 
 func entered_station(station: Station) -> State:
 	print("Entered station: %s" % station)

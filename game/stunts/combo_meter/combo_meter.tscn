@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://drqjaswvgs5u3"]
+[gd_scene load_steps=12 format=3 uid="uid://drqjaswvgs5u3"]
 
 [ext_resource type="Script" uid="uid://defkhc7ih55sh" path="res://game/stunts/combo_meter/combo_meter.gd" id="1_mkgrf"]
 [ext_resource type="Shader" uid="uid://bqmxdq8kcpvw8" path="res://game/shaders/fire-number.gdshader" id="2_cd2f0"]
 [ext_resource type="Texture2D" uid="uid://lhueon4ofbj2" path="res://game/stunts/combo_meter/red-btn.png" id="3_m3kmn"]
-[ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="4_uybfr"]
 [ext_resource type="Texture2D" uid="uid://wm7qo0clndg" path="res://game/stunts/combo_meter/blue-btn.png" id="5_3een6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6gauc"]
@@ -24,12 +23,6 @@ shader_parameter/fire_aperture = 2.063
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wiveq"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2axpp"]
-font_size = 60
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.364706)
-shadow_offset = Vector2(4, 3)
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lhdva"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y3ejj"]
@@ -45,12 +38,6 @@ shader_parameter/top_color = Color(0, 0.576471, 0.996078, 1)
 shader_parameter/fire_alpha = 1.0
 shader_parameter/fire_speed = Vector2(-0.2, 1.715)
 shader_parameter/fire_aperture = 0.799
-
-[sub_resource type="LabelSettings" id="LabelSettings_kcq4r"]
-font_size = 60
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.313726)
-shadow_offset = Vector2(-4, 3)
 
 [node name="ComboMeter" type="Control"]
 layout_mode = 3
@@ -68,26 +55,36 @@ scale = Vector2(0.357099, 0.355263)
 [node name="RedFire" type="TextureRect" parent="red"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_kqlb2")
-offset_left = -104.0
-offset_top = -569.585
-offset_right = 106.0
-offset_bottom = -37.905
+offset_left = -212.826
+offset_top = -850.0
+offset_right = -2.82635
+offset_bottom = -318.32
+scale = Vector2(1.5, 1.5)
 texture = SubResource("PlaceholderTexture2D_wiveq")
 
 [node name="Red-btn" type="Sprite2D" parent="red"]
+position = Vector2(-55, 0)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_m3kmn")
 
-[node name="RedLabel" type="Label" parent="red"]
+[node name="VBoxContainer" type="VBoxContainer" parent="red"]
+offset_left = -140.017
+offset_top = -75.0
+offset_right = 34.9827
+offset_bottom = 125.0
+
+[node name="RedLabel" type="Label" parent="red/VBoxContainer"]
 unique_name_in_owner = true
-offset_left = -64.4079
-offset_top = -33.7779
-offset_right = 62.5921
-offset_bottom = 26.2221
-theme = ExtResource("4_uybfr")
-text = "24,000"
-label_settings = SubResource("LabelSettings_2axpp")
+layout_mode = 2
+theme_type_variation = &"ComboLabel"
+text = "0"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="red/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ComboLabel"
+text = "Score"
+horizontal_alignment = 1
 
 [node name="blue" type="Node2D" parent="."]
 position = Vector2(40.9999, 4.99994)
@@ -96,21 +93,35 @@ scale = Vector2(0.359649, 0.359649)
 [node name="BlueFire" type="TextureRect" parent="blue"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_h7dcs")
-offset_left = -106.0
-offset_top = -569.585
-offset_right = 106.0
-offset_bottom = -37.905
+offset_left = -102.878
+offset_top = -850.0
+offset_right = 109.122
+offset_bottom = -318.015
+scale = Vector2(1.5, 1.5)
 texture = SubResource("PlaceholderTexture2D_wiveq")
 
 [node name="Blue-btn" type="Sprite2D" parent="blue"]
+position = Vector2(55, 0)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_3een6")
 
-[node name="BlueLabel" type="Label" parent="blue"]
+[node name="VBoxContainer" type="VBoxContainer" parent="blue"]
+offset_left = -144.585
+offset_top = -75.0
+offset_right = 255.415
+offset_bottom = 125.0
+
+[node name="BlueLabel" type="Label" parent="blue/VBoxContainer"]
 unique_name_in_owner = true
-offset_left = -64.4079
-offset_top = -33.7779
-offset_right = 62.5921
-offset_bottom = 26.2221
-text = "15,000"
-label_settings = SubResource("LabelSettings_kcq4r")
+layout_mode = 2
+theme_type_variation = &"ComboLabel"
+text = "1	"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="blue/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ComboLabel"
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 80
+text = "Mult"
 horizontal_alignment = 1
