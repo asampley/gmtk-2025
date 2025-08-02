@@ -9,18 +9,18 @@ var upgrade: Upgrade
 
 func initialize(upgrade_in: Upgrade) -> void:
 	upgrade = upgrade_in
-	icon.texture = upgrade.purchase_icon
-	cost.text = str(upgrade.cost)
+	icon.texture = upgrade.template.purchase_icon
+	cost.text = str(upgrade.template.cost)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_released("left_click"):
-		if Globals.money >= upgrade.cost:
+		if Globals.money >= upgrade.template.cost:
 			EventBus.upgrade_purchased.emit(upgrade)
 		else:
 			print_debug("Not enough money")
 
 func _on_mouse_entered() -> void:
-	EventBus.tooltip_requested.emit(upgrade.description, get_global_mouse_position())
+	EventBus.tooltip_requested.emit(upgrade.template.description, get_global_mouse_position())
 
 func _on_mouse_exited() -> void:
 	EventBus.tooltip_hidden.emit()

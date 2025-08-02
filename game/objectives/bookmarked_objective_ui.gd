@@ -8,7 +8,7 @@ extends PanelContainer
 
 func _ready() -> void:
 	EventBus.bookmarked_objective_changed.connect(on_bookmarked_objective_changed)
-	EventBus.objective_task_completed.connect(on_bookmarked_objective_changed)
+	#EventBus.objective_task_completed.connect(on_bookmarked_objective_changed)
 
 func on_bookmarked_objective_changed() -> void:
 	var objective := Globals.bookmarked_objective
@@ -17,4 +17,4 @@ func on_bookmarked_objective_changed() -> void:
 		tasks_completed.text = "Completed!"
 	else:
 		tasks_completed.text = str(objective.tasks_completed) + " / " + str(objective.number_of_tasks)
-	
+

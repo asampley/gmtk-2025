@@ -7,7 +7,7 @@ extends Node2D
 var current_rollercoaster_stats: RollercoasterStats
 var upgrades: Array[Upgrade] = []
 
-const UPGRADES_SAVE_FOLDER: String = "user://upgrades/"
+const UPGRADES_SAVE_FOLDER: String = "user://upgrade_folder/"
 
 
 func _ready() -> void:
@@ -23,6 +23,7 @@ func connect_events() -> void:
 	EventBus.station_stop.connect(on_station_stop)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
+	EventBus.upgrade_unlocked.connect(on_upgrade_unlocked)
 
 func spawn_rollercoaster() -> void:
 	var rollercoaster: CharacterBody2D = rollercoaster_template.prefab.instantiate()
@@ -50,6 +51,17 @@ func on_shop_menu_closed() -> void:
 	save_data()
 	spawn_rollercoaster()
 
+func on_upgrade_unlocked(upgrade_name: String) -> void:
+	var i := upgrades.find_custom(func(u: Upgrade) -> bool: return u.template.upgrade_name == upgrade_name)
+	if i == -1:
+		push_warning("Tried to unlock upgrade and could not find '%s' in '%s'" % [
+			upgrade_name,
+			upgrades.map(func(u: Upgrade) -> String: return u.template.upgrade_name)
+		])
+	else:
+		upgrades[i].unlocked = true
+		print("Upgrade '%s' unlocked!" % upgrade_name)
+
 func load_data_from_resources() -> void:
 	Globals.money = 0
 	for upgrade_template: UpgradeTemplate in DataHandler.upgrade_resources:
@@ -72,7 +84,7 @@ func save_data() -> void:
 	DirAccess.make_dir_recursive_absolute(UPGRADES_SAVE_FOLDER)
 	for upgrade: Upgrade in upgrades:
 		var save_data := upgrade.save()
-		var file := FileAccess.open(UPGRADES_SAVE_FOLDER + upgrade.upgrade_name + ".dat", FileAccess.WRITE)
+		var file := FileAccess.open(UPGRADES_SAVE_FOLDER + upgrade.template.upgrade_name + ".dat", FileAccess.WRITE)
 		file.store_string(save_data)
 		file.close()
 
@@ -82,9 +94,8 @@ func check_save_file_exists() -> bool:
 
 func on_requested_save_data_reset() -> void:
 	SaveData.reset()
-	if DirAccess.open(UPGRADES_SAVE_FOLDER) == null:
-		return
 	var dir := DirAccess.open(UPGRADES_SAVE_FOLDER)
-	for file: String in dir.get_files():
-		DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER + file)
-	DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER)
+	if dir != null:
+		for file: String in dir.get_files():
+			DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER + file)
+		DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER)

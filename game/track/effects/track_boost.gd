@@ -6,8 +6,6 @@ extends TrackEffect
 @export var goal_velocity: Vector2
 
 func effect(track: Track, tile: Vector2i, coaster: Rollercoaster, delta: float) -> void:
-	print("Acceleration time!")
-
 	var a := track.transform_vector2(tile, acceleration)
 	var g := track.transform_vector2(tile, goal_velocity)
 
@@ -15,7 +13,6 @@ func effect(track: Track, tile: Vector2i, coaster: Rollercoaster, delta: float) 
 	var next_velocity := coaster.velocity + a * delta
 
 	if stop_at_goal && (g - next_velocity).length_squared() > (g - start_velocity).length_squared():
-		print("That's fast enough (%s over %s)" % [ coaster.velocity, next_velocity ])
 		return
 
 	coaster.velocity = next_velocity
