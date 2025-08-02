@@ -18,3 +18,8 @@ extends Node
 func setup() -> void:
 	if sprite:
 		sprite.texture = pickup.texture if pickup else null
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print("Collected pickup '%s'" % pickup.objective_title)
+	EventBus.objective_task_completed.emit(pickup.objective_title)
+	queue_free()

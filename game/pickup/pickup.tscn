@@ -18,6 +18,8 @@ sprite = NodePath("Path2D/PathFollow2D/Sprite2D")
 path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p2abh")
@@ -31,3 +33,5 @@ script = ExtResource("2_4oaaa")
 period = 3.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
