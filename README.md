@@ -26,9 +26,23 @@ We follow the [godot style] except for the following exceptions:
 
 
 Attributions:
+
+Additional UI assets from kenney.nl (https://kenney.nl/assets)
+
 Fonts:
-Jersey 15 by Sarah Cadigan-Fried https://fonts.google.com/specimen/Jersey+15
-Sixtyfour by Jens Kutílek https://fonts.google.com/specimen/Sixtyfour
+Jersey 15 by Sarah Cadigan-Fried (https://fonts.google.com/specimen/Jersey+15)
+Sixtyfour by Jens Kutílek (https://fonts.google.com/specimen/Sixtyfour)
+
+Music:
+The Return Of The 8-bit Era by DJARTMUSIC (https://pixabay.com/music/video-games-the-return-of-the-8-bit-era-301292/)
 
 Shaders:
-Balatro Fire Shader by xxidbr9 https://godotshaders.com/shader/balatro-fire-shader/
+Balatro Fire Shader by xxidbr9 (https://godotshaders.com/shader/balatro-fire-shader/)
+
+Sound effects:
+rapid train by freesound_community (https://pixabay.com/sound-effects/rapid-train-39321/)
+Error 010 by Universefield (https://pixabay.com/sound-effects/error-010-206498/)
+bass rumble - deepwhoosh 1 by Logicogonist (https://freesound.org/s/807976/) used under Creative Commons 0 License
+Computer Keyboard Foley Percussion by 8bitmyketison (https://freesound.org/s/701113/) used under Creative Commons 0 License
+Additional sound effects created with jsfxr (sfxr.me)
+
