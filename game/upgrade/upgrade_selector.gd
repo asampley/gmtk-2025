@@ -2,9 +2,13 @@ class_name UpgradeSelector
 extends PanelContainer
 
 
-var upgrade: Upgrade
+@export var success_sound: AudioStream
+@export var fail_sound: AudioStream 
+
 @onready var icon: TextureRect = %Icon
 @onready var cost: Label = %Cost
+
+var upgrade: Upgrade
 
 
 func initialize(upgrade_in: Upgrade) -> void:
@@ -16,7 +20,9 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_released("left_click"):
 		if Globals.money >= upgrade.next_tier().cost:
 			EventBus.upgrade_purchased.emit(upgrade)
+			EventBus.play_ui_sound.emit(success_sound)
 		else:
+			EventBus.play_ui_sound.emit(fail_sound)
 			print_debug("Not enough money")
 
 func _on_mouse_entered() -> void:

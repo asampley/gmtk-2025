@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://duxcyga38wgsi"]
+[gd_scene load_steps=5 format=3 uid="uid://duxcyga38wgsi"]
 
 [ext_resource type="Script" uid="uid://dj6afu3tdxkyp" path="res://game/upgrade/upgrade_selector.gd" id="1_5hy0p"]
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dvsfp"]
+[ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="2_7icgh"]
+[ext_resource type="AudioStream" uid="uid://ddswljrf84jdp" path="res://game/ui/menu_error.mp3" id="3_f3gnx"]
 
 [node name="UpgradeSelector" type="PanelContainer"]
 size_flags_horizontal = 3
 script = ExtResource("1_5hy0p")
+success_sound = ExtResource("2_7icgh")
+fail_sound = ExtResource("3_f3gnx")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
