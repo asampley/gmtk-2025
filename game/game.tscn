@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="3_h7iqs"]
 [ext_resource type="Script" uid="uid://dtxe8wlxj1r3r" path="res://game/track/track.gd" id="4_4fuuu"]
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="5_dxrkv"]
-[ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
+[ext_resource type="Script" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
@@ -18,14 +18,14 @@
 [ext_resource type="Resource" uid="uid://b14qaa3u1tgxj" path="res://game/template/pickups/trick_fins.tres" id="11_mhp6k"]
 [ext_resource type="TileSet" uid="uid://cpiqs5jallov5" path="res://game/track/track_color_tile_set.tres" id="12_4cobl"]
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
-[ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
+[ext_resource type="PackedScene" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
 [ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/info_ui.tscn" id="14_5e03w"]
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
-[ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
+[ext_resource type="Script" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
 [ext_resource type="PackedScene" uid="uid://daumugae1dbgt" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
-[ext_resource type="Script" uid="uid://bujie8kmetx3i" path="res://game/sound_manager.gd" id="22_mhvfb"]
+[ext_resource type="Script" path="res://game/sound_manager.gd" id="22_mhvfb"]
 [ext_resource type="PackedScene" uid="uid://drqjaswvgs5u3" path="res://game/stunts/combo_meter/combo_meter.tscn" id="22_vkvnp"]
 [ext_resource type="AudioStream" uid="uid://dhyqbcxbya402" path="res://game/the-return-of-the-8-bit-era-301292.mp3" id="25_8bboj"]
 [ext_resource type="Script" uid="uid://brarsc1dbm8ww" path="res://game/audio/combo_sounds/combo_sounds.gd" id="27_jucfl"]
@@ -290,19 +290,20 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Boost Tracks" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(1080, -50)
+scroll_scale = Vector2(0.25, 1)
+scroll_offset = Vector2(1070, -172)
 
 [node name="Boost tracks" type="Label" parent="Signs/Boost Tracks"]
-offset_right = 506.0
-offset_bottom = 83.833
+offset_right = 327.0
+offset_bottom = 85.0
 text = "Boost tracks increase your speed"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Tricks" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(1815, -221)
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(1983, -322)
 
 [node name="Tricks" type="Label" parent="Signs/Tricks"]
 anchors_preset = 8
