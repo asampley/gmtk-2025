@@ -12,4 +12,3 @@ void fragment() {
 	float color_distance = length(screen_color.rgb - color.rgb);
 	COLOR.rgb = color_distance <= threshold ? COLOR.rgb : screen_color.rgb;
 }
-

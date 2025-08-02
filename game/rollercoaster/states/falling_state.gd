@@ -22,6 +22,7 @@ func exit() -> void:
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
+	boost_velocity()
 	clear_combo_data()
 
 func process_input(event: InputEvent) -> State:
@@ -90,3 +91,6 @@ func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
 	var vector := base_node.velocity.normalized()
 	EventBus.generated_fly_in_text.emit(text, screen_transform + Vector2(0, -100), -vector)
+
+func boost_velocity() -> void:
+	base_node.velocity += base_node.stats.combo_boost * max(0, combo_multiplier - 1) * base_node.velocity.normalized()
