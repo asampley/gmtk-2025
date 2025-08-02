@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bj53oijhvhgcc" path="res://game/objectives/bookmarked_objective_ui.gd" id="1_xlycx"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_fc7ko"]
 [ext_resource type="Material" uid="uid://dp04t3ero8lug" path="res://game/theme/objective_completed_materioal.tres" id="3_d47ul"]
-[ext_resource type="Texture2D" uid="uid://giwhrtqgj805" path="res://game/objectives/shadedLight46.png" id="4_1oq12"]
+[ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="4_1oq12"]
 
 [node name="ColorRect" type="ColorRect"]
 material = ExtResource("3_d47ul")

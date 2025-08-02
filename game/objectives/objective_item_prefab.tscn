@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://djsroa7s51myg"]
 
 [ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
-[ext_resource type="Texture2D" uid="uid://giwhrtqgj805" path="res://game/objectives/shadedLight46.png" id="2_5gkqd"]
+[ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="2_3jywm"]
 [ext_resource type="Texture2D" uid="uid://bh1kg80u83ygo" path="res://game/objectives/checkmark_grey.png" id="3_3jywm"]
-[ext_resource type="Texture2D" uid="uid://br4kq6ckqs1ro" path="res://game/objectives/shadedLight48.png" id="4_3jywm"]
+[ext_resource type="Texture2D" uid="uid://c6yu2yr7llgxx" path="res://game/objectives/target.png" id="4_qvuah"]
 [ext_resource type="Texture2D" uid="uid://bpssuu4j6h3tx" path="res://game/objectives/target_grey.png" id="5_qvuah"]
 
 [node name="ObjectiveItem" type="PanelContainer"]
@@ -30,13 +30,13 @@ autowrap_mode = 3
 [node name="Claim" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("2_5gkqd")
+texture_normal = ExtResource("2_3jywm")
 texture_disabled = ExtResource("3_3jywm")
 
 [node name="Bookmark" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("4_3jywm")
+texture_normal = ExtResource("4_qvuah")
 texture_disabled = ExtResource("5_qvuah")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Claim" to="." method="_on_claim_pressed"]
