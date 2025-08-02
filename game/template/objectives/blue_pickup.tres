@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_pkfmj"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="2_1g1hv"]
-[ext_resource type="Resource" uid="uid://cyvchdsy6xdwu" path="res://game/template/upgrades/trick_boost_1.tres" id="3_d72um"]
+[ext_resource type="Resource" uid="uid://cyvchdsy6xdwu" path="res://game/template/upgrades/trick_boost.tres" id="3_d72um"]
 
 [resource]
 script = ExtResource("1_pkfmj")
