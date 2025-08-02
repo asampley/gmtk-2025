@@ -85,9 +85,8 @@ func load_data_from_save() -> void:
 		upgrade.load_save_data(save_data)
 		upgrades.append(upgrade)
 
-		if upgrade.available():
-			for i in range(upgrade.purchased):
-				apply_upgrade_to_rollercoaster(upgrade, i)
+		for i in range(upgrade.purchased):
+			apply_upgrade_to_rollercoaster(upgrade, i)
 
 func save_data() -> void:
 	SaveData.save("money", Globals.money)

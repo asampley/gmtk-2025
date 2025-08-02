@@ -15,6 +15,7 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 
 func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	var upgrade_tier := upgrade.template.tiers[tier]
+	print("Applying upgrade %s %d: %s" % [ upgrade.template.upgrade_name, tier, upgrade_tier ])
 	initial_velocity += upgrade_tier.add_initial_velocity
 	jump_force += upgrade_tier.add_jump_force
 	combo_boost += upgrade_tier.combo_boost
