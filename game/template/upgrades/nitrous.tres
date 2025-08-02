@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=5 format=3 uid="uid://cvbx1ac8ya0ga"]
+
+[ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_5t75g"]
+[ext_resource type="Texture2D" uid="uid://dkmpd8bcsr113" path="res://assets/nitro_powerup_2.png" id="1_ntquw"]
+[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="2_ntquw"]
+
+[sub_resource type="Resource" id="Resource_ntquw"]
+script = ExtResource("2_ntquw")
+cost = 600
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 0.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[resource]
+script = ExtResource("1_5t75g")
+upgrade_name = "Nitrous Oxide Boost"
+description = "Give yourself a healthy speed increase, using space"
+purchase_icon = ExtResource("1_ntquw")
+unlocked = false
+tiers = Array[ExtResource("2_ntquw")]([SubResource("Resource_ntquw")])
+metadata/_custom_type_script = "uid://b6ea637edsxpb"

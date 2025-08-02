@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c608o4gv4yg2r"]
+[gd_scene load_steps=12 format=4 uid="uid://c608o4gv4yg2r"]
 
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="1_dess5"]
 [ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="2_uynus"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bhuyhfwdb8mck" path="res://game/pickup/pickup.tscn" id="7_5hesp"]
 [ext_resource type="Resource" uid="uid://bqwmpnxjtlmuv" path="res://game/template/pickups/tires.tres" id="8_ncs2d"]
 [ext_resource type="Resource" uid="uid://b14qaa3u1tgxj" path="res://game/template/pickups/trick_fins.tres" id="9_io0hq"]
+[ext_resource type="Resource" uid="uid://dpw8qdlrg1jlb" path="res://game/template/pickups/nitrous.tres" id="10_5hesp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hesp"]
 shader = ExtResource("4_ibfx6")
@@ -47,3 +48,7 @@ pickup = ExtResource("8_ncs2d")
 [node name="Trick Fins" parent="Pickups" instance=ExtResource("7_5hesp")]
 position = Vector2(4427, -571)
 pickup = ExtResource("9_io0hq")
+
+[node name="Nitrous" parent="Pickups" instance=ExtResource("7_5hesp")]
+position = Vector2(1108, -4216)
+pickup = ExtResource("10_5hesp")

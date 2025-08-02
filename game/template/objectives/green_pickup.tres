@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ObjectiveTemplate" load_steps=4 format=3 uid="uid://be0n4srrs5irk"]
+
+[ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_vs4cl"]
+[ext_resource type="Resource" uid="uid://btowgy20o7tbn" path="res://game/template/objectives/blue_pickup.tres" id="2_4p4ju"]
+[ext_resource type="Resource" uid="uid://cvbx1ac8ya0ga" path="res://game/template/upgrades/nitrous.tres" id="3_rr82a"]
+
+[resource]
+script = ExtResource("1_vs4cl")
+title = "Find a helpful gas cannister"
+reward = 0
+upgrade_unlock = ExtResource("3_rr82a")
+number_of_tasks = 1
+unlocked_by = ExtResource("2_4p4ju")
+metadata/_custom_type_script = "uid://gbab211mk4fl"

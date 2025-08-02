@@ -45,6 +45,8 @@ func exit() -> void:
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
+	if event.is_action_pressed("special_move"):
+		base_node.nitro_activate()
 	if ["move_up", "move_down", "move_left", "move_right"].any(func(k: String) -> bool: return event.is_action_pressed(k)):
 		var follow := base_node.path_follow
 		var curve := base_node.path.curve
@@ -62,6 +64,8 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	base_node.apply_nitro(delta)
+
 	var effect := track.effect(tile_pos)
 
 	if effect:

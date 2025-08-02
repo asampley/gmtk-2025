@@ -15,6 +15,7 @@ extends CharacterBody2D
 var stats: RollercoasterStats
 var glide_cooldown: float = 0
 var nitro_cooldown: float = 0
+var nitro_remaining_duration: float = 0
 
 
 func initialize() -> void:
@@ -37,6 +38,8 @@ func _physics_process(delta: float) -> void:
 		EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
 	if nitro_cooldown > 0:
 		nitro_cooldown -= delta
+	if nitro_remaining_duration > 0:
+		nitro_remaining_duration -= delta
 	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
 		state_machine.process_physics(delta)
@@ -60,3 +63,16 @@ func deform(direction: Vector2) -> void:
 
 func on_shop_menu_closed() -> void:
 	queue_free()
+
+func nitro_activate() -> void:
+	nitro_remaining_duration = stats.nitrous_duration
+
+func nitro_active() -> bool:
+	return nitro_remaining_duration > 0
+
+# By default not applied, left up to the states
+func apply_nitro(delta: float) -> void:
+	if !nitro_active() && stats.nitrous_acceleration <= 0.0:
+		return
+
+	velocity += velocity.normalized() * stats.nitrous_acceleration * Globals.time_scale_squared * delta
