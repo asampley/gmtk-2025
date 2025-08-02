@@ -70,8 +70,6 @@ func connections(tile: Vector2i, in_direction: Vector2i) -> Array[Vector2i]:
 	for data: Vector2i in custom_data:
 		array.append(transform_vector2i(tile, data))
 
-	print("d:%s c:%s a:%s" % [ in_direction, custom_data, array ])
-
 	return array
 
 # Return an approximate normal for orienting the coaster

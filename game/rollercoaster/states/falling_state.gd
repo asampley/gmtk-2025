@@ -54,7 +54,6 @@ func process_frame(delta: float) -> State:
 func process_physics(delta: float) -> State:
 	airtime += delta
 	EventBus.airtime_changed.emit(airtime)
-	print("velocity = ", base_node.velocity)
 	base_node.velocity.y += gravity * delta
 	var collision := base_node.move_and_collide(base_node.velocity * delta)
 	if collision && collision.get_collider() is Track:

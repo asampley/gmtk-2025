@@ -33,7 +33,6 @@ func enter() -> void:
 		else:
 			return acc
 	, Vector2i.ZERO)
-	print("tile: %s, in direction: %s, selected: %s" % [ tile_pos, in_dir, in_direction ])
 	update_path(true)
 	EventBus.audio_clip_requested.emit(moving_sound)
 
@@ -81,9 +80,7 @@ func process_physics(delta: float) -> State:
 	if new_progress > curve.get_baked_length():
 		new_progress -= curve.get_baked_length()
 
-		print("Leaving tile %s from %s" % [tile_pos, out_direction])
 		tile_pos += out_direction
-		print("Entering tile %s from %s" % [tile_pos, -out_direction])
 
 		in_direction = -out_direction
 		var state := update_path(false)
