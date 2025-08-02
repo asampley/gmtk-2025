@@ -39,8 +39,8 @@ func on_combo_reset() -> void:
 	hide_flames()
 
 func update_text() -> void:
-	red_label.text = str(score)
-	blue_label.text = str(mult)
+	red_label.text = str(snappedf(score, 0.1))
+	blue_label.text = str(snappedf(mult, 0.1))
 
 func hide_flames() -> void:
 	red_fire.hide()
