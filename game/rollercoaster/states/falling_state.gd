@@ -9,6 +9,7 @@ extends State
 var combo_sequence: Array[Globals.ComboButtons]
 var base_combo_score: float
 var combo_multiplier: float
+var combo_count: int
 var airtime: float
 
 func enter() -> void:
@@ -64,6 +65,7 @@ func process_physics(delta: float) -> State:
 
 func match_combo(combo: ComboTemplate) -> bool:
 	if combo_sequence == combo.sequence:
+		combo_count += 1
 		base_node.set_animation(combo.animation_name)
 		spawn_fly_in_text(combo.combo_name)
 		combo_sequence.clear()
@@ -80,6 +82,7 @@ func match_combo(combo: ComboTemplate) -> bool:
 func clear_combo_data() -> void:
 	var final_score: float = (base_combo_score + airtime) * combo_multiplier
 	Globals.money += final_score
+	combo_count = 0
 	EventBus.money_amount_changed.emit(Globals.money)
 	base_combo_score = 0
 	combo_multiplier = base_node.stats.base_combo_multiplier
@@ -93,4 +96,6 @@ func spawn_fly_in_text(text: String) -> void:
 	EventBus.generated_fly_in_text.emit(text, screen_transform + Vector2(0, -100), -vector)
 
 func boost_velocity() -> void:
-	base_node.velocity += base_node.stats.combo_boost * max(0, combo_multiplier - 1) * base_node.velocity.normalized()
+	var init_velocity := base_node.velocity
+	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized()
+	print("Combo boost: %s -> %s" % [ init_velocity, base_node.velocity ])
