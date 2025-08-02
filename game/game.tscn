@@ -181,8 +181,9 @@ script = ExtResource("6_dakft")
 [node name="UtilityButtonsMenu" parent="CanvasLayer" instance=ExtResource("20_urpib")]
 offset_left = 5.0
 offset_top = 6.0
-offset_right = 5.0
-offset_bottom = 6.0
+offset_right = -1117.0
+offset_bottom = -666.0
+mouse_filter = 2
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
 visible = false
@@ -209,8 +210,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 

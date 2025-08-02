@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ObjectiveTemplate" load_steps=3 format=3 uid="uid://0hs85aeq2lap"]
 
 [ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_3w4rn"]
-[ext_resource type="Resource" path="res://game/template/upgrades/initial_velocity_1.tres" id="2_d7ugq"]
+[ext_resource type="Resource" uid="uid://den0hucjdw2pm" path="res://game/template/upgrades/initial_velocity.tres" id="2_d7ugq"]
 
 [resource]
 script = ExtResource("1_3w4rn")
