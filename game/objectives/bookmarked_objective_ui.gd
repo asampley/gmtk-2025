@@ -2,6 +2,10 @@ extends PanelContainer
 
 
 @export var objective_item_prefab: PackedScene
+@export var color_rect: ColorRect
+@export var number_of_stripes: int = 24
+
+
 @onready var title: Label = %Title
 @onready var tasks_completed: Label = %TasksCompleted
 @onready var completed_icon: TextureRect = %CompletedIcon
@@ -17,7 +21,9 @@ func on_bookmarked_objective_changed() -> void:
 	if objective.tasks_completed >= objective.template.number_of_tasks:
 		tasks_completed.hide()
 		completed_icon.show()
+		color_rect.material.set("shader_parameter/number_of_stripes", number_of_stripes)
 	else:
 		tasks_completed.text = str(objective.tasks_completed) + " / " + str(objective.template.number_of_tasks)
 		tasks_completed.show()
 		completed_icon.hide()
+		color_rect.material.set("shader_parameter/number_of_stripes", 0)

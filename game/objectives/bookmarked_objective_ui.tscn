@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyuerdakeu2tu"]
+[gd_scene load_steps=5 format=3 uid="uid://cyuerdakeu2tu"]
 
 [ext_resource type="Script" uid="uid://bj53oijhvhgcc" path="res://game/objectives/bookmarked_objective_ui.gd" id="1_xlycx"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_fc7ko"]
 [ext_resource type="Material" uid="uid://dp04t3ero8lug" path="res://game/theme/objective_completed_materioal.tres" id="3_d47ul"]
 [ext_resource type="Texture2D" uid="uid://giwhrtqgj805" path="res://game/objectives/shadedLight46.png" id="4_1oq12"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1oq12"]
-
-[node name="PanelContainer" type="ColorRect"]
+[node name="ColorRect" type="ColorRect"]
 material = ExtResource("3_d47ul")
 custom_minimum_size = Vector2(500, 150)
 anchors_preset = -1
@@ -30,11 +28,11 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 3
 
-[node name="BookmarkedObjectiveUI" type="PanelContainer" parent="MarginContainer"]
-material = SubResource("ShaderMaterial_1oq12")
+[node name="BookmarkedObjectiveUI" type="PanelContainer" parent="MarginContainer" node_paths=PackedStringArray("color_rect")]
 layout_mode = 2
 script = ExtResource("1_xlycx")
 objective_item_prefab = ExtResource("2_fc7ko")
+color_rect = NodePath("../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BookmarkedObjectiveUI"]
 layout_mode = 2
