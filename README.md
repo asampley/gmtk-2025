@@ -23,3 +23,12 @@ We follow the [godot style] except for the following exceptions:
 
 [Godot 4.4.1]: https://godotengine.org/download/archive/4.4.1-stable
 [godot style]: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
+
+
+Attributions:
+Fonts:
+Jersey 15 by Sarah Cadigan-Fried https://fonts.google.com/specimen/Jersey+15
+Sixtyfour by Jens Kutílek https://fonts.google.com/specimen/Sixtyfour
+
+Shaders:
+Balatro Fire Shader by xxidbr9 https://godotshaders.com/shader/balatro-fire-shader/
