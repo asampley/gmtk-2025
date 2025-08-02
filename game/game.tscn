@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=42 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -22,11 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/info_ui.tscn" id="14_5e03w"]
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
-[ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
 [ext_resource type="PackedScene" uid="uid://daumugae1dbgt" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
+[ext_resource type="PackedScene" uid="uid://bkxvtukwghm2e" path="res://game/utility_buttons_menu/utility_buttons_menu.tscn" id="20_urpib"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
 [ext_resource type="Script" uid="uid://bujie8kmetx3i" path="res://game/sound_manager.gd" id="22_mhvfb"]
 [ext_resource type="PackedScene" uid="uid://drqjaswvgs5u3" path="res://game/stunts/combo_meter/combo_meter.tscn" id="22_vkvnp"]
+[ext_resource type="PackedScene" uid="uid://bki3tklhq664b" path="res://game/ui/reset_data_popup.tscn" id="23_cieqw"]
 [ext_resource type="AudioStream" uid="uid://dhyqbcxbya402" path="res://game/the-return-of-the-8-bit-era-301292.mp3" id="25_8bboj"]
 [ext_resource type="Script" uid="uid://brarsc1dbm8ww" path="res://game/audio/combo_sounds/combo_sounds.gd" id="27_jucfl"]
 [ext_resource type="AudioStream" uid="uid://ghljfmhhup4c" path="res://game/audio/combo_sounds/success.mp3" id="28_5ywmu"]
@@ -112,6 +113,7 @@ offset_right = 126.0
 offset_bottom = 352.0
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,10 +171,18 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 1186.0
+offset_top = 1.0
+offset_right = 1238.0
+offset_bottom = 41.8333
 text = "FPS"
 script = ExtResource("6_dakft")
+
+[node name="UtilityButtonsMenu" parent="CanvasLayer" instance=ExtResource("20_urpib")]
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 5.0
+offset_bottom = 6.0
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
 visible = false
@@ -185,17 +195,6 @@ offset_right = 10.0
 offset_bottom = -30.0
 grow_vertical = 0
 
-[node name="ResetSaveData" type="Button" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -8.0
-offset_bottom = 8.0
-grow_horizontal = 0
-theme = ExtResource("14_jucfl")
-text = "Reset Save Data"
-script = ExtResource("14_pxxsx")
-
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
 offset_right = 265.0
@@ -203,9 +202,29 @@ offset_bottom = 70.8333
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResetDataPopup" parent="CanvasLayer" instance=ExtResource("23_cieqw")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -261.5
+offset_right = 300.0
+offset_bottom = 261.5
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
@@ -329,17 +348,18 @@ text_speed = 30.0
 
 [node name="AudioManager" type="AudioStreamPlayer" parent="AudioPlayers"]
 volume_db = -10.0
+bus = &"sfx"
 script = ExtResource("22_mhvfb")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("25_8bboj")
 volume_db = -5.0
 autoplay = true
-bus = &"Music"
+bus = &"music"
 
 [node name="ComboSounds" type="AudioStreamPlayer" parent="AudioPlayers"]
 volume_db = 24.0
-bus = &"SFX"
+bus = &"sfx"
 script = ExtResource("27_jucfl")
 success_sound = ExtResource("28_5ywmu")
 failure_sound = ExtResource("29_mhp6k")
@@ -362,5 +382,3 @@ offset_top = -976.0
 offset_right = 2095.0
 offset_bottom = 464.0
 texture = ExtResource("39_urpib")
-
-[connection signal="pressed" from="CanvasLayer/ResetSaveData" to="CanvasLayer/ResetSaveData" method="_on_pressed"]

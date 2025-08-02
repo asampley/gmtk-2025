@@ -4,6 +4,7 @@ signal debug(text: String)
 
 
 signal debug_collision_position(position: Vector2)
+signal requested_reset_data_popup()
 signal requested_save_data_reset()
 signal audio_clip_requested(clip: AudioStream)
 signal screen_shake_increased(amount: float)
