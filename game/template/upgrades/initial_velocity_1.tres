@@ -10,6 +10,6 @@ description = "Increases the initial launch speed"
 purchase_icon = ExtResource("1_cju7f")
 cost = 0
 unlocked = false
-add_initial_velocity = 100.0
+add_initial_velocity = 200.0
 add_jump_force = 0.0
 metadata/_custom_type_script = "uid://b6ea637edsxpb"
