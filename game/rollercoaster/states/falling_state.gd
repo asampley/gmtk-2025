@@ -3,15 +3,19 @@ extends State
 
 @export var moving_on_rails_state: State
 @export var stopped_state: State
+@export var falling_sound: AudioStream
+@export var landing_sound: AudioStream
 
 var combo_sequence: Array[Globals.ComboButtons]
 
 func enter() -> void:
 	super()
 	combo_sequence = []
+	EventBus.audio_clip_requested.emit(falling_sound)
 
 func exit() -> void:
 	super()
+	EventBus.audio_clip_requested.emit(landing_sound)
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_1"):

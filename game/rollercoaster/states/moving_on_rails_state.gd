@@ -5,6 +5,8 @@ extends State
 @export var stopped_state: State
 @export var station_state: State
 
+@export var moving_sound: AudioStream
+
 var tile_pos: Vector2i = Vector2i.MAX
 var in_direction: Vector2i
 var out_direction: Vector2i
@@ -22,10 +24,8 @@ func prepare_state(collision_track: Track, collision_point: Vector2) -> void:
 func enter() -> void:
 	super()
 	base_node.deform()
-
 	assert(track)
 	assert(tile_pos != Vector2i.MAX)
-
 	var in_dir := -base_node.velocity
 	in_direction = Track.DIRECTIONS.reduce(func(acc: Vector2i, d: Vector2i) -> Vector2:
 		var available_directions := track.connections(tile_pos, d)
@@ -36,6 +36,7 @@ func enter() -> void:
 	, Vector2i.ZERO)
 	print("tile: %s, in direction: %s, selected: %s" % [ tile_pos, in_dir, in_direction ])
 	update_path(true)
+	EventBus.audio_clip_requested.emit(moving_sound)
 
 func exit() -> void:
 	super()

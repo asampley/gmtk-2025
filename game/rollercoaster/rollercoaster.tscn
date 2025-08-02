@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=64 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
@@ -7,9 +7,13 @@
 [ext_resource type="Script" uid="uid://cgxc1m8epbsvj" path="res://game/rollercoaster/states/stopped_state.gd" id="4_8bbrx"]
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
+[ext_resource type="AudioStream" uid="uid://bf2lkkjouh2ly" path="res://game/rollercoaster/states/moving_sound.mp3" id="6_0cxb7"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
 [ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="7_y8uoc"]
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
+[ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]
+[ext_resource type="AudioStream" uid="uid://fk3rboyyo5o2" path="res://game/rollercoaster/states/falling_sound.wav" id="10_yw4u4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cxb7"]
 shader = ExtResource("2_y8uoc")
@@ -422,16 +426,20 @@ jumping_state = NodePath("../JumpingState")
 falling_state = NodePath("../FallingState")
 stopped_state = NodePath("../StoppedState")
 station_state = NodePath("../StationState")
+moving_sound = ExtResource("6_0cxb7")
 
 [node name="JumpingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_on_rails_state", "falling_state")]
 script = ExtResource("5_j853t")
 moving_on_rails_state = NodePath("../MovingOnRailsState")
 falling_state = NodePath("../FallingState")
+jump_sound = ExtResource("7_y8uoc")
 
 [node name="FallingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_on_rails_state", "stopped_state")]
 script = ExtResource("6_hr1qv")
 moving_on_rails_state = NodePath("../MovingOnRailsState")
 stopped_state = NodePath("../StoppedState")
+falling_sound = ExtResource("10_yw4u4")
+landing_sound = ExtResource("10_b70cr")
 
 [node name="StoppedState" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_8bbrx")
