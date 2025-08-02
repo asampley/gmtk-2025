@@ -13,5 +13,5 @@ unlocked = false
 add_initial_velocity = 0.0
 add_jump_force = 0.0
 add_combo_multiplier = 0.0
-combo_boost = 100.0
+combo_boost = 150.0
 metadata/_custom_type_script = "uid://b6ea637edsxpb"
