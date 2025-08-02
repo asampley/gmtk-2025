@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=25 format=4 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -13,14 +13,20 @@
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
 [ext_resource type="PackedScene" uid="uid://bhuyhfwdb8mck" path="res://game/pickup/pickup.tscn" id="9_u8s88"]
 [ext_resource type="Resource" uid="uid://bqwmpnxjtlmuv" path="res://game/pickup/resources/tires.tres" id="10_dxwpq"]
-[ext_resource type="PackedScene" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
+[ext_resource type="PackedScene" uid="uid://cm1qm3i5wk2ia" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
 [ext_resource type="PackedScene" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
 [ext_resource type="TileSet" uid="uid://cpiqs5jallov5" path="res://game/track/track_color_tile_set.tres" id="12_4cobl"]
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
+=======
+[ext_resource type="PackedScene" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
+[ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/money_counter.tscn" id="14_5e03w"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
 [ext_resource type="PackedScene" uid="uid://baigi8431vl47" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
+[ext_resource type="Script" uid="uid://cxeyudn2jw3he" path="res://game/ui/money_counter.gd" id="15_leid8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hb504"]
 shader = ExtResource("9_ee6o4")
@@ -79,27 +85,29 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
-visible = false
 offset_right = 141.0
 offset_bottom = 43.0
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_b686c")
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MenusParent"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(31.9668, 17.8102)
+[node name="Money counter" parent="CanvasLayer/MenusParent" instance=ExtResource("14_5e03w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 990.0
+offset_top = 0.0
+offset_right = 1067.0
+offset_bottom = 43.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.28608, 0.732285)
+script = ExtResource("15_leid8")
 
 [node name="UpgradeMenu" parent="CanvasLayer/MenusParent" instance=ExtResource("7_u5opy")]
 layout_mode = 1
@@ -131,7 +139,6 @@ text = "FPS"
 script = ExtResource("6_dakft")
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
-visible = false
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -152,6 +159,7 @@ text = "Reset Save Data"
 script = ExtResource("14_pxxsx")
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

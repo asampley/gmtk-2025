@@ -36,6 +36,7 @@ func process_input(event: InputEvent) -> State:
 			spawn_fly_in_text(combo.combo_name)
 			combo_sequence.clear()
 			EventBus.combo_reset.emit()
+			Globals.money += 100
 		for i in combo_sequence.size():
 			if combo_sequence[i] != combo.sequence[i]:
 				missed_combos += 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpia522rnokua"]
+[gd_scene load_steps=3 format=3 uid="uid://cm1qm3i5wk2ia"]
 
 [ext_resource type="Script" uid="uid://c6rnbafmqgamo" path="res://game/objectives/objectives_menu.gd" id="1_idrao"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_213xj"]
