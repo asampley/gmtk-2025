@@ -69,25 +69,21 @@ pickup = ExtResource("10_dxwpq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
-visible = false
-offset_right = 141.0
-offset_bottom = 43.0
-
 [node name="InfoUI" parent="CanvasLayer" instance=ExtResource("14_5e03w")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 1044.0
-offset_top = 367.0
+offset_top = 357.0
 offset_right = 1273.0
-offset_bottom = 565.0
+offset_bottom = 555.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1, 1)
 theme = ExtResource("14_jucfl")
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,7 +99,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0313726, 0.0313726, 0.0313726, 0.329412)
+color = Color(0.0313726, 0.0313726, 0.0313726, 0.619608)
 
 [node name="UpgradeMenu" parent="CanvasLayer/MenusParent" instance=ExtResource("7_u5opy")]
 layout_mode = 1
@@ -130,15 +126,16 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
+custom_minimum_size = Vector2(0, 0)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -504.0
-offset_top = -152.0
+offset_left = -533.0
+offset_top = -163.0
 offset_right = -4.0
-offset_bottom = -2.0
+offset_bottom = -13.0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -170,6 +167,11 @@ grow_horizontal = 0
 theme = ExtResource("14_jucfl")
 text = "Reset Save Data"
 script = ExtResource("14_pxxsx")
+
+[node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
+visible = false
+offset_right = 265.0
+offset_bottom = 70.8333
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
 visible = false
