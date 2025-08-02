@@ -16,11 +16,14 @@ func load_save_data(save_data: String) -> void:
 	var data_split := save_data.split(",")
 	template_path = data_split[0]
 	template = ResourceLoader.load(template_path, "ObjectiveTemplate")
-	completed = data_split[1] as int
-	claimed = data_split[2] as int
+	tasks_completed = data_split[1] as int
+	completed = data_split[2] as int
+	claimed = data_split[3] as int
 
 func save() -> String:
 	var save_string: String = ""
+	save_string += template_path
+	save_string += ","
 	save_string += str(tasks_completed)
 	save_string += ","
 	var completed_int: int = completed
