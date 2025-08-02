@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="3_h7iqs"]
 [ext_resource type="Script" uid="uid://dtxe8wlxj1r3r" path="res://game/track/track.gd" id="4_4fuuu"]
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="5_dxrkv"]
-[ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
+[ext_resource type="Script" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
@@ -17,14 +17,10 @@
 [ext_resource type="PackedScene" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
 [ext_resource type="TileSet" uid="uid://cpiqs5jallov5" path="res://game/track/track_color_tile_set.tres" id="12_4cobl"]
 [ext_resource type="PackedScene" uid="uid://dpe3tu0yg8wlh" path="res://game/station/station.tscn" id="12_qf6n1"]
-<<<<<<< Updated upstream
-[ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
-=======
 [ext_resource type="PackedScene" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
 [ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/money_counter.tscn" id="14_5e03w"]
->>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
-[ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
+[ext_resource type="Script" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
 [ext_resource type="PackedScene" uid="uid://baigi8431vl47" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 [ext_resource type="Script" uid="uid://cxeyudn2jw3he" path="res://game/ui/money_counter.gd" id="15_leid8"]
 
