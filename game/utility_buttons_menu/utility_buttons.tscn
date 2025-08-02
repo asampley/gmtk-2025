@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkxvtukwghm2e"]
+
+[ext_resource type="Script" uid="uid://b1h8k5e5l5g5j" path="res://game/utility_buttons_menu/utility_buttons_menu.gd" id="1_d5aa8"]
+[ext_resource type="Texture2D" uid="uid://fhg6tq5pr0y1" path="res://game/utility_buttons_menu/reset_save.png" id="2_02mpp"]
+[ext_resource type="Texture2D" uid="uid://hk31adavwets" path="res://game/utility_buttons_menu/music.png" id="3_ccdf6"]
+[ext_resource type="Texture2D" uid="uid://denpkxs8jat4e" path="res://game/utility_buttons_menu/sfx_on.png" id="4_olkcr"]
+
+[node name="UtilityButtonsButton" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d5aa8")
+
+[node name="ResetSave" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_02mpp")
+
+[node name="MuteMusic" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("3_ccdf6")
+
+[node name="MuteSFX" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("4_olkcr")
+
+[connection signal="pressed" from="ResetSave" to="." method="_on_reset_save_pressed"]
+[connection signal="pressed" from="MuteMusic" to="." method="_on_mute_music_pressed"]
+[connection signal="pressed" from="MuteSFX" to="." method="_on_mute_sfx_pressed"]
