@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func on_glide_cooldown_changed(amount: float) -> void:
 	glide_cooldown.value = amount
+	

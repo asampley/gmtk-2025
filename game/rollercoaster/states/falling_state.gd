@@ -30,6 +30,7 @@ func exit() -> void:
 	clear_combo_data()
 	if gliding:
 		base_node.glide_cooldown = base_node.stats.glide_cooldown
+		gliding = false
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("stunt_key_1"):

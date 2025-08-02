@@ -13,14 +13,15 @@ extends CharacterBody2D
 
 
 var stats: RollercoasterStats
-var glide_cooldown: float
-var nitro_cooldown: float
+var glide_cooldown: float = 0
+var nitro_cooldown: float = 0
 
 
 func initialize() -> void:
 	state_machine.initialize(self)
 	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
+	EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
 
 func _input(event: InputEvent) -> void:
 	if state_machine:
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if glide_cooldown > 0:
 		glide_cooldown -= delta
+		EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
 	if nitro_cooldown > 0:
 		nitro_cooldown -= delta
 	EventBus.speed_update.emit(velocity.length())
