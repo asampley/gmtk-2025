@@ -3,7 +3,7 @@ class_name Upgrade
 var template_path: String
 var template: UpgradeTemplate
 
-var purchased: bool = false
+var purchased: int
 var unlocked: bool
 
 
@@ -23,12 +23,17 @@ func save() -> String:
 	var save_string: String = ""
 	save_string += str(template_path)
 	save_string += ","
-	var purchased_int: int = purchased
-	save_string += str(purchased_int)
+	save_string += str(purchased)
 	save_string += ","
 	var unlocked_int: int = unlocked
 	save_string += str(unlocked_int)
 	return save_string
 
 func purchase_upgrade() -> void:
-	purchased = true
+	purchased += 1
+
+func available() -> bool:
+	return unlocked && purchased < template.tiers.size()
+
+func next_tier() -> UpgradeTierTemplate:
+	return template.tiers[purchased]

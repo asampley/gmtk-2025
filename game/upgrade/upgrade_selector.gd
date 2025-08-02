@@ -10,11 +10,11 @@ var upgrade: Upgrade
 func initialize(upgrade_in: Upgrade) -> void:
 	upgrade = upgrade_in
 	icon.texture = upgrade.template.purchase_icon
-	cost.text = str(upgrade.template.cost)
+	cost.text = str(upgrade.next_tier().cost)
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_released("left_click"):
-		if Globals.money >= upgrade.template.cost:
+		if Globals.money >= upgrade.next_tier().cost:
 			EventBus.upgrade_purchased.emit(upgrade)
 		else:
 			print_debug("Not enough money")

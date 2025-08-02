@@ -13,7 +13,8 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	base_combo_multiplier += rollercoaster_template.base_combo_multiplier
 	combo_boost = rollercoaster_template.combo_boost
 
-func apply_upgrade(upgrade: Upgrade) -> void:
-	initial_velocity += upgrade.template.add_initial_velocity
-	jump_force += upgrade.template.add_jump_force
-	combo_boost += upgrade.template.combo_boost
+func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
+	var upgrade_tier := upgrade.template.tiers[tier]
+	initial_velocity += upgrade_tier.add_initial_velocity
+	jump_force += upgrade_tier.add_jump_force
+	combo_boost += upgrade_tier.combo_boost

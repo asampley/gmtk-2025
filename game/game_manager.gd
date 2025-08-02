@@ -40,11 +40,11 @@ func spawn_rollercoaster(spawn_position: Vector2) -> void:
 
 func on_upgrade_purchased(upgrade: Upgrade) -> void:
 	upgrade.purchase_upgrade()
-	apply_upgrade_to_rollercoaster(upgrade)
+	apply_upgrade_to_rollercoaster(upgrade, upgrade.purchased - 1)
 	EventBus.upgrade_menu_opened.emit(upgrades)
 
-func apply_upgrade_to_rollercoaster(upgrade: Upgrade) -> void:
-	current_rollercoaster_stats.apply_upgrade(upgrade)
+func apply_upgrade_to_rollercoaster(upgrade: Upgrade, tier: int) -> void:
+	current_rollercoaster_stats.apply_upgrade(upgrade, tier)
 
 func open_menus() -> void:
 	EventBus.upgrade_menu_opened.emit(upgrades)
@@ -85,8 +85,9 @@ func load_data_from_save() -> void:
 		upgrade.load_save_data(save_data)
 		upgrades.append(upgrade)
 
-		if upgrade.purchased:
-			apply_upgrade_to_rollercoaster(upgrade)
+		if upgrade.available():
+			for i in range(upgrade.purchased):
+				apply_upgrade_to_rollercoaster(upgrade, i)
 
 func save_data() -> void:
 	SaveData.save("money", Globals.money)
