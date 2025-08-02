@@ -30,6 +30,7 @@ Button/font_sizes/font_size = 40
 Button/fonts/font = ExtResource("3_ejh2t")
 Button/styles/hover = ExtResource("2_eo17r")
 Button/styles/normal = ExtResource("2_eo17r")
+Button/styles/pressed = ExtResource("2_eo17r")
 ComboLabel/base_type = &"Label"
 ComboLabel/constants/outline_size = 20
 ComboLabel/font_sizes/font_size = 70
