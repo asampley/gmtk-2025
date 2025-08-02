@@ -9,3 +9,4 @@ extends Resource
 @export var unlocked: bool
 @export var add_initial_velocity: float
 @export var add_jump_force: float
+@export var add_combo_multiplier: float

@@ -73,6 +73,7 @@ func match_combo(combo: ComboTemplate) -> bool:
 		return true
 	for i in combo_sequence.size():
 		if combo_sequence[i] != combo.sequence[i]:
+			combo_multiplier = base_node.stats.base_combo_multiplier
 			return false
 	return false
 
@@ -81,7 +82,7 @@ func clear_combo_data() -> void:
 	Globals.money += final_score
 	EventBus.money_amount_changed.emit(Globals.money)
 	base_combo_score = 0
-	combo_multiplier = 0
+	combo_multiplier = base_node.stats.base_combo_multiplier
 	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
 	airtime = 0
 	EventBus.airtime_changed.emit(airtime)
