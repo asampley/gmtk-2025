@@ -36,7 +36,7 @@ func spawn_rollercoaster(spawn_position: Vector2) -> void:
 	rollercoaster.set_stats(current_rollercoaster_stats)
 	rollercoaster.initialize()
 	var initial_impulse_direction := Vector2.RIGHT
-	rollercoaster.velocity += initial_impulse_direction * rollercoaster.stats.initial_velocity * Globals.velocity
+	rollercoaster.velocity += initial_impulse_direction * rollercoaster.stats.initial_velocity * Globals.time_scale
 
 func on_upgrade_purchased(upgrade: Upgrade) -> void:
 	upgrade.purchase_upgrade()

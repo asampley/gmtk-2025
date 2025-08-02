@@ -104,7 +104,7 @@ func process_physics(delta: float) -> State:
 	var dv := (self.gravity * Vector2i.DOWN).project(direction) * delta
 	base_node.velocity = base_node.velocity.length() * direction + dv
 
-	if base_node.velocity.length() <= 10 * Globals.velocity:
+	if base_node.velocity.length() <= 10 * Globals.time_scale:
 		stopped_time += delta
 		if stopped_time > 5:
 			return stopped_state

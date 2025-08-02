@@ -64,12 +64,12 @@ func process_physics(delta: float) -> State:
 	airtime += delta
 	EventBus.airtime_changed.emit(airtime)
 	if gliding:
-		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer * Globals.acceleration, gliding_gravity_min * Globals.acceleration)
+		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer * Globals.time_scale_squared, gliding_gravity_min * Globals.time_scale_squared)
 		base_node.velocity.y += reduced_gravity * delta
-		glide_duration -= delta
+		glide_duration -= delta * Globals.time_scale
 		if glide_duration <= 0:
 			gliding = false
-			base_node.glide_cooldown = base_node.stats.glide_cooldown
+			base_node.glide_cooldown = base_node.stats.glide_cooldown * Globals.time_scale
 		#var current_angle := base_node.velocity.angle()
 		#var glide_angle := deg_to_rad(base_node.stats.glide_movement_transfer)
 		#var new_angle := current_angle + glide_angle
@@ -118,7 +118,7 @@ func spawn_fly_in_text(text: String) -> void:
 
 func boost_velocity() -> void:
 	var init_velocity := base_node.velocity
-	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized() * Globals.velocity
+	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized() * Globals.time_scale
 	print("Combo boost: %s -> %s" % [ init_velocity, base_node.velocity ])
 
 func activate_glide() -> void:
