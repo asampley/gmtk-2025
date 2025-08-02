@@ -5,6 +5,9 @@ var initial_velocity: float
 var jump_force: float
 var base_combo_multiplier: float
 var combo_boost: float
+var glide_movement_transfer: float
+var glide_duration: float
+var glide_cooldown: float
 
 
 func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
@@ -12,6 +15,9 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	jump_force = rollercoaster_template.jump_force
 	base_combo_multiplier += rollercoaster_template.base_combo_multiplier
 	combo_boost = rollercoaster_template.combo_boost
+	glide_movement_transfer = rollercoaster_template.glide_movement_transfer
+	glide_duration = rollercoaster_template.glide_duration
+	glide_cooldown = rollercoaster_template.glide_cooldown
 
 func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	var upgrade_tier := upgrade.template.tiers[tier]

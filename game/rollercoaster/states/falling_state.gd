@@ -11,6 +11,9 @@ var base_combo_score: float
 var combo_multiplier: float
 var combo_count: int
 var airtime: float
+var gliding: bool = false
+var gliding_gravity_min: float = 100
+var glide_duration: float
 
 func enter() -> void:
 	super()
@@ -25,6 +28,8 @@ func exit() -> void:
 	base_node.deform(Vector2(0,1))
 	boost_velocity()
 	clear_combo_data()
+	if gliding:
+		base_node.glide_cooldown = base_node.stats.glide_cooldown
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("stunt_key_1"):
@@ -38,7 +43,8 @@ func process_input(event: InputEvent) -> State:
 		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
 	elif event.is_action_pressed("stunt_key_4"):
 		combo_sequence.append(Globals.ComboButtons.DOWN)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.DOWN, combo_sequence.size())
+	elif event.is_action_pressed("special_move"):
+		activate_glide()
 	else:
 		return
 	var missed_combos: int = 0
@@ -56,7 +62,21 @@ func process_frame(delta: float) -> State:
 func process_physics(delta: float) -> State:
 	airtime += delta
 	EventBus.airtime_changed.emit(airtime)
-	base_node.velocity.y += gravity * delta
+	if gliding:
+		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer, gliding_gravity_min)
+		base_node.velocity.y += reduced_gravity * delta
+		glide_duration -= delta
+		if glide_duration <= 0:
+			gliding = false
+			base_node.glide_cooldown = base_node.stats.glide_cooldown
+		#var current_angle := base_node.velocity.angle()
+		#var glide_angle := deg_to_rad(base_node.stats.glide_movement_transfer)
+		#var new_angle := current_angle + glide_angle
+		#base_node.velocity.rotated(new_angle)
+		#gravity_angle = Vector2(0, gravity) 
+		#base_node.velocity.y += 
+	else:
+		base_node.velocity.y += gravity * delta
 	var collision := base_node.move_and_collide(base_node.velocity * delta)
 	if collision && collision.get_collider() is Track:
 		moving_on_rails_state.prepare_state(collision.get_collider(), collision.get_position())
@@ -99,3 +119,7 @@ func boost_velocity() -> void:
 	var init_velocity := base_node.velocity
 	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized()
 	print("Combo boost: %s -> %s" % [ init_velocity, base_node.velocity ])
+
+func activate_glide() -> void:
+	gliding = true
+	glide_duration = base_node.stats.glide_duration

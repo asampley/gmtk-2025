@@ -13,6 +13,8 @@ extends CharacterBody2D
 
 
 var stats: RollercoasterStats
+var glide_cooldown: float
+var nitro_cooldown: float
 
 
 func initialize() -> void:
@@ -29,6 +31,10 @@ func _process(delta: float) -> void:
 		state_machine.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
+	if glide_cooldown > 0:
+		glide_cooldown -= delta
+	if nitro_cooldown > 0:
+		nitro_cooldown -= delta
 	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
 		state_machine.process_physics(delta)
