@@ -15,4 +15,3 @@ func _process(delta: float) -> void:
 	var zoom_multiplier := current_speed / max_speed
 	var zoom_amount: float = clamp(min_zoom / zoom_multiplier, min_zoom, max_zoom)
 	zoom = Vector2(zoom_amount, zoom_amount)
-	print(zoom_amount)
