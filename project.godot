@@ -63,7 +63,9 @@ auto_rebuild=true
 
 [gui]
 
-theme/custom="uid://cqy65buqed56w"
+theme/custom="uid://cvdgn5uuf5t4w"
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 
 [input]
 

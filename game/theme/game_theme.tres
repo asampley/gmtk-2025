@@ -1,9 +1,43 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cvdgn5uuf5t4w"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvdgn5uuf5t4w"]
 
 [ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="1_ju1rf"]
+[ext_resource type="Texture2D" uid="uid://7q0x7mi1han4" path="res://game/theme/blue_button10.png" id="2_gqbws"]
+[ext_resource type="FontFile" uid="uid://b3pw6ae3vjjhj" path="res://assets/fonts/Jersey_15/Jersey15-Regular.ttf" id="3_ejh2t"]
+[ext_resource type="FontFile" uid="uid://p7erkbs6xxaf" path="res://assets/fonts/Sixtyfour/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="3_eo17r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo17r"]
+texture = ExtResource("2_gqbws")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_eo17r"]
+color = Color(1, 1, 1, 1)
+grow_begin = -25.0
+grow_end = -25.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbm55"]
 texture = ExtResource("1_ju1rf")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
 
 [resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("3_ejh2t")
+Button/styles/normal = SubResource("StyleBoxTexture_eo17r")
+HSeparator/styles/separator = SubResource("StyleBoxLine_eo17r")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("3_ejh2t")
+LabelTitle/base_type = &"Label"
+LabelTitle/colors/font_color = Color(1, 1, 1, 1)
+LabelTitle/constants/outline_size = 15
+LabelTitle/font_sizes/font_size = 40
+LabelTitle/fonts/font = ExtResource("3_eo17r")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_pbm55")

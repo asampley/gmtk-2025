@@ -13,12 +13,12 @@ const UPGRADES_SAVE_FOLDER: String = "user://upgrade_folder/"
 func _ready() -> void:
 	current_rollercoaster_stats = RollercoasterStats.new()
 	current_rollercoaster_stats.initialize(rollercoaster_template)
-
 	connect_events()
 	if check_save_file_exists():
 		load_data_from_save()
 	else:
 		load_data_from_resources()
+	EventBus.money_amount_changed.emit(Globals.money)
 	spawn_rollercoaster()
 
 func connect_events() -> void:

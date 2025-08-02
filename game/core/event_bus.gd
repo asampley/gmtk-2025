@@ -31,3 +31,8 @@ signal combo_reset()
 # Coaster events
 signal station_stop()
 signal station_exit()
+
+#UI
+signal money_amount_changed(money: int)
+signal speed_update(speed: float)
+signal airtime_changed(airtime: float)

@@ -36,6 +36,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"LabelTitle"
 text = "Upgrade Shop"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]

@@ -11,4 +11,3 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 func apply_upgrade(upgrade: Upgrade) -> void:
 	initial_velocity += upgrade.template.add_initial_velocity
 	jump_force += upgrade.template.add_jump_force
-

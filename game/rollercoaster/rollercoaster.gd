@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var deformation_limit: float = 4
 @export var deformation_divider: float = 100000
 @export var deformation_duration: float = 0.1
+@export var camera: Camera2D
 
 
 var stats: RollercoasterStats
@@ -16,6 +17,7 @@ var stats: RollercoasterStats
 
 func _ready() -> void:
 	state_machine.initialize(self)
+	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 
 func _input(event: InputEvent) -> void:
@@ -27,6 +29,7 @@ func _process(delta: float) -> void:
 		state_machine.process_frame(delta)
 
 func _physics_process(delta: float) -> void:
+	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
 		state_machine.process_physics(delta)
 

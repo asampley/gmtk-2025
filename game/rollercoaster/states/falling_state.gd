@@ -7,6 +7,7 @@ extends State
 @export var landing_sound: AudioStream
 
 var combo_sequence: Array[Globals.ComboButtons]
+var airtime: float
 
 func enter() -> void:
 	super()
@@ -19,6 +20,7 @@ func exit() -> void:
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
+	airtime = 0
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_1"):
@@ -58,6 +60,8 @@ func process_frame(delta: float) -> State:
 	return null
 
 func process_physics(delta: float) -> State:
+	airtime += delta
+	EventBus.airtime_changed.emit(airtime)
 	print("velocity = ", base_node.velocity)
 	base_node.velocity.y += gravity * delta
 	var collision := base_node.move_and_collide(base_node.velocity * delta)

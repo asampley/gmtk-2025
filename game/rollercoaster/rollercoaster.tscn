@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=66 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
@@ -9,11 +9,12 @@
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="AudioStream" uid="uid://bf2lkkjouh2ly" path="res://game/rollercoaster/states/moving_sound.mp3" id="6_0cxb7"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
-[ext_resource type="Script" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 [ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="7_y8uoc"]
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]
 [ext_resource type="AudioStream" uid="uid://fk3rboyyo5o2" path="res://game/rollercoaster/states/falling_sound.wav" id="10_yw4u4"]
+[ext_resource type="Script" uid="uid://cqxg0n4agnmx4" path="res://game/rollercoaster/camera.gd" id="15_8v57q"]
 [ext_resource type="PackedScene" uid="uid://ditcfcjt55exv" path="res://game/screen_shake/screen_shake.tscn" id="16_p2xsc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cxb7"]
@@ -390,7 +391,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow")]
+[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow", "camera")]
 collision_layer = 2
 collision_mask = 13
 slide_on_ceiling = false
@@ -406,6 +407,7 @@ state_machine = NodePath("StateMachine")
 animations = NodePath("AnimatedSprite2D")
 path = NodePath("AnimatePath")
 path_follow = NodePath("AnimatePath/AnimatePathFollow")
+camera = NodePath("Camera2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0cxb7")
@@ -454,6 +456,11 @@ script = ExtResource("6_pce4i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 100.0
+script = ExtResource("15_8v57q")
+min_zoom = 1.0
+max_zoom = 3.0
+max_speed = 5000.0
+speed_divider = 1.0
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource("16_p2xsc")]
 shake_multiplier = 0.001
