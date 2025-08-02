@@ -52,9 +52,12 @@ func on_shop_menu_closed() -> void:
 	spawn_rollercoaster()
 
 func on_upgrade_unlocked(upgrade_name: String) -> void:
-	var i := upgrades.find_custom(func(v: Upgrade) -> bool: return v.upgrade_name == upgrade_name)
-	if i != -1:
-		push_warning("Tried to unlock upgrade and could not find '%s' in '%s'" % [ upgrade_name, upgrades ])
+	var i := upgrades.find_custom(func(u: Upgrade) -> bool: return u.template.upgrade_name == upgrade_name)
+	if i == -1:
+		push_warning("Tried to unlock upgrade and could not find '%s' in '%s'" % [
+			upgrade_name,
+			upgrades.map(func(u: Upgrade) -> String: return u.template.upgrade_name)
+		])
 	else:
 		upgrades[i].unlocked = true
 		print("Upgrade '%s' unlocked!" % upgrade_name)
@@ -81,7 +84,7 @@ func save_data() -> void:
 	DirAccess.make_dir_recursive_absolute(UPGRADES_SAVE_FOLDER)
 	for upgrade: Upgrade in upgrades:
 		var save_data := upgrade.save()
-		var file := FileAccess.open(UPGRADES_SAVE_FOLDER + upgrade.upgrade_name + ".dat", FileAccess.WRITE)
+		var file := FileAccess.open(UPGRADES_SAVE_FOLDER + upgrade.template.upgrade_name + ".dat", FileAccess.WRITE)
 		file.store_string(save_data)
 		file.close()
 

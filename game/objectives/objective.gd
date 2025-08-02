@@ -47,7 +47,6 @@ func save() -> String:
 	save_string += str(claimed_int)
 	save_string += ","
 	save_string += str(upgrade_unlock)
-	save_string += ";"
 	return save_string
 
 func task_completed() -> void:
@@ -55,7 +54,6 @@ func task_completed() -> void:
 	if tasks_completed >= number_of_tasks:
 		completed = true
 
-	print(upgrade_unlock)
 	if upgrade_unlock != "":
 		EventBus.upgrade_unlocked.emit(upgrade_unlock);
 
