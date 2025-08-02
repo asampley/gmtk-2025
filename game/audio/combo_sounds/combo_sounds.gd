@@ -17,7 +17,7 @@ func _ready() -> void:
 	EventBus.combo_completed.connect(on_combo_completed)
 	EventBus.combo_failed.connect(on_combo_failed)
 
-func on_combo_button_pressed(combo_button: Globals.ComboButtons, length: int) -> void:
+func on_combo_button_pressed(_combo_button: Globals.ComboButtons, length: int) -> void:
 	match length:
 		1:
 			stream = one_button

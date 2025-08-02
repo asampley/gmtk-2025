@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_afnnp")
 combo_name = "Flat spin"
-sequence = Array[int]([2, 2, 0, 0])
+sequence = Array[int]([2, 2, 0, 0, 2, 3, 1, 0])
+base_score = 100.0
 animation_name = "flat_spin"
 deforming_strength = 0.0
 metadata/_custom_type_script = "uid://dyays6ei4o082"

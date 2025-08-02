@@ -6,5 +6,6 @@ enum ComboButtons { LEFT, RIGHT, UP, DOWN }
 
 @export var combo_name: String
 @export var sequence: Array[ComboButtons]
+@export var base_score: float = 1.0
 @export var animation_name: String
 @export var deforming_strength: float

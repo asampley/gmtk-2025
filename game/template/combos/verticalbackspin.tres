@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="ComboTemplate" load_steps=2 format=3 uid="uid://cdunljy5xem27"]
+[gd_resource type="Resource" script_class="ComboTemplate" load_steps=2 format=3 uid="uid://n7t82c4da15r"]
 
 [ext_resource type="Script" uid="uid://dyays6ei4o082" path="res://game/stunts/combo_template.gd" id="1_l1xgp"]
 
 [resource]
 script = ExtResource("1_l1xgp")
 combo_name = "Kick flip"
-sequence = Array[int]([3, 3, 1, 1])
+sequence = Array[int]([3, 3, 1, 1, 3, 3, 1, 1])
+base_score = 80.0
 animation_name = "kick_flip"
 deforming_strength = 0.0
 metadata/_custom_type_script = "uid://dyays6ei4o082"

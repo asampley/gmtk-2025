@@ -7,6 +7,8 @@ extends State
 @export var landing_sound: AudioStream
 
 var combo_sequence: Array[Globals.ComboButtons]
+var base_combo_score: float
+var combo_multiplier: float
 var airtime: float
 
 func enter() -> void:
@@ -20,9 +22,7 @@ func exit() -> void:
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
-	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
-	airtime = 0
-	EventBus.airtime_changed.emit(airtime)
+	clear_combo_data()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("stunt_key_1"):
@@ -41,17 +41,7 @@ func process_input(event: InputEvent) -> State:
 		return
 	var missed_combos: int = 0
 	for combo: ComboTemplate in DataHandler.combo_resources:
-		var mismatch := false
-		if combo_sequence == combo.sequence:
-			base_node.set_animation(combo.animation_name)
-			spawn_fly_in_text(combo.combo_name)
-			combo_sequence.clear()
-			EventBus.combo_completed.emit()
-			Globals.money += 100
-		for i in combo_sequence.size():
-			if combo_sequence[i] != combo.sequence[i]:
-				missed_combos += 1
-				break
+		missed_combos += 1 if match_combo(combo) else 0
 	if missed_combos >= DataHandler.combo_resources.size():
 		combo_sequence.clear()
 		EventBus.combo_failed.emit()
@@ -71,6 +61,30 @@ func process_physics(delta: float) -> State:
 		moving_on_rails_state.prepare_state(collision.get_collider(), collision.get_position())
 		return moving_on_rails_state
 	return null
+
+func match_combo(combo: ComboTemplate) -> bool:
+	if combo_sequence == combo.sequence:
+		base_node.set_animation(combo.animation_name)
+		spawn_fly_in_text(combo.combo_name)
+		combo_sequence.clear()
+		EventBus.combo_completed.emit()
+		base_combo_score += combo.base_score
+		combo_multiplier += 1.0
+		return true
+	for i in combo_sequence.size():
+		if combo_sequence[i] != combo.sequence[i]:
+			return false
+	return false
+
+func clear_combo_data() -> void:
+	var final_score: float = (base_combo_score + airtime) * combo_multiplier
+	Globals.money += final_score
+	EventBus.money_amount_changed.emit(Globals.money)
+	base_combo_score = 0
+	combo_multiplier = 0
+	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
+	airtime = 0
+	EventBus.airtime_changed.emit(airtime)
 
 func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()

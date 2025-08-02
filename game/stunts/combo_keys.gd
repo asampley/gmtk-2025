@@ -15,7 +15,7 @@ func _ready() -> void:
 	EventBus.combo_failed.connect(on_combo_reset)
 	EventBus.combo_reset.connect(on_combo_reset)
 
-func on_combo_button_pressed(button: Globals.ComboButtons) -> void:
+func on_combo_button_pressed(button: Globals.ComboButtons, _length: int) -> void:
 	var button_icon := TextureRect.new()
 	button_icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 	match button:
