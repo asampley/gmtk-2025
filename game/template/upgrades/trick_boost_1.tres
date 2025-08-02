@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=3 format=3 uid="uid://cyvchdsy6xdwu"]
+
+[ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_iwc1c"]
+[ext_resource type="Texture2D" uid="uid://y2fdax8ammjv" path="res://assets/trick_fins.png" id="1_sh17f"]
+
+[resource]
+script = ExtResource("1_iwc1c")
+upgrade_name = "Trick Boost 1"
+description = "Get a speed boost from tricks"
+purchase_icon = ExtResource("1_sh17f")
+cost = 100
+unlocked = false
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+metadata/_custom_type_script = "uid://b6ea637edsxpb"

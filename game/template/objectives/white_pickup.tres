@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_3w4rn")
-title = "Find the Tires in the White Line"
+title = "Find the Tires"
 reward = 100
 upgrade_unlock = ExtResource("2_d7ugq")
 number_of_tasks = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PickupResource" load_steps=4 format=3 uid="uid://bqwmpnxjtlmuv"]
+
+[ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="1_vqjhm"]
+[ext_resource type="Script" uid="uid://bjdbxi1york2" path="res://game/pickup/pickup_resource.gd" id="2_qomda"]
+[ext_resource type="Texture2D" uid="uid://b0261n03lpeli" path="res://assets/pickup_wheels.png" id="3_bmai1"]
+
+[resource]
+script = ExtResource("2_qomda")
+texture = ExtResource("3_bmai1")
+objective = ExtResource("1_vqjhm")
+metadata/_custom_type_script = "uid://bjdbxi1york2"
