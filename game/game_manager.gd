@@ -91,9 +91,8 @@ func check_save_file_exists() -> bool:
 
 func on_requested_save_data_reset() -> void:
 	SaveData.reset()
-	if DirAccess.open(UPGRADES_SAVE_FOLDER) == null:
-		return
 	var dir := DirAccess.open(UPGRADES_SAVE_FOLDER)
-	for file: String in dir.get_files():
-		DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER + file)
-	DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER)
+	if dir != null:
+		for file: String in dir.get_files():
+			DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER + file)
+		DirAccess.remove_absolute(UPGRADES_SAVE_FOLDER)

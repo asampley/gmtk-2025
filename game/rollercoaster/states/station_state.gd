@@ -22,7 +22,6 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("move_up"):
 		base_node.velocity = base_node.stats.initial_velocity * (station.out_direction as Vector2).normalized()
 		return falling_state
-
 	return null
 
 func process_frame(delta: float) -> State:

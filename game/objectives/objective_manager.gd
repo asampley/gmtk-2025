@@ -57,6 +57,7 @@ func save_data() -> void:
 
 func on_requested_save_data_reset() -> void:
 	var dir := DirAccess.open(OBJECTIVES_SAVE_FOLDER)
-	for file: String in dir.get_files():
-		DirAccess.remove_absolute(OBJECTIVES_SAVE_FOLDER + file)
-	DirAccess.remove_absolute(OBJECTIVES_SAVE_FOLDER)
+	if dir != null:
+		for file: String in dir.get_files():
+			DirAccess.remove_absolute(OBJECTIVES_SAVE_FOLDER + file)
+		DirAccess.remove_absolute(OBJECTIVES_SAVE_FOLDER)
