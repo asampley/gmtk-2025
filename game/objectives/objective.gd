@@ -38,8 +38,15 @@ func task_completed() -> void:
 	if tasks_completed >= template.number_of_tasks:
 		completed = true
 
-	if template.upgrade_unlock:
-		EventBus.upgrade_unlocked.emit(template.upgrade_unlock.upgrade_name);
+		if template.upgrade_unlock:
+			EventBus.upgrade_unlocked.emit(template.upgrade_unlock.upgrade_name);
+
+	updated()
 
 func claim() -> void:
 	claimed = true
+	updated()
+
+func updated() -> void:
+	if Globals.bookmarked_objective == self:
+		EventBus.bookmarked_objective_updated.emit()

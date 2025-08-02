@@ -8,7 +8,7 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable;
 void fragment() {
 	// Called for every pixel the material is visible on.
 	vec4 screen_color = textureLod(screen_texture, SCREEN_UV, 0.0);
-	
+
 	float color_distance = length(screen_color.rgb - color.rgb);
 	COLOR.rgb = color_distance <= threshold ? COLOR.rgb : screen_color.rgb;
 }
