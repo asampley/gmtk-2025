@@ -6,8 +6,8 @@ extends TrackEffect
 @export var goal_velocity: Vector2
 
 func effect(track: Track, tile: Vector2i, coaster: Rollercoaster, delta: float) -> void:
-	var a := track.transform_vector2(tile, acceleration)
-	var g := track.transform_vector2(tile, goal_velocity)
+	var a := track.transform_vector2(tile, acceleration) * Globals.acceleration
+	var g := track.transform_vector2(tile, goal_velocity) * Globals.velocity
 
 	var start_velocity := coaster.velocity
 	var next_velocity := coaster.velocity + a * delta

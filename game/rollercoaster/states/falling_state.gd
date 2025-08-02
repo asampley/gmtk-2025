@@ -74,8 +74,8 @@ func process_physics(delta: float) -> State:
 		#var glide_angle := deg_to_rad(base_node.stats.glide_movement_transfer)
 		#var new_angle := current_angle + glide_angle
 		#base_node.velocity.rotated(new_angle)
-		#gravity_angle = Vector2(0, gravity) 
-		#base_node.velocity.y += 
+		#gravity_angle = Vector2(0, gravity)
+		#base_node.velocity.y +=
 	else:
 		base_node.velocity.y += gravity * delta
 	var collision := base_node.move_and_collide(base_node.velocity * delta)
@@ -118,7 +118,7 @@ func spawn_fly_in_text(text: String) -> void:
 
 func boost_velocity() -> void:
 	var init_velocity := base_node.velocity
-	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized()
+	base_node.velocity += base_node.stats.combo_boost * sqrt(combo_count) * base_node.velocity.normalized() * Globals.velocity
 	print("Combo boost: %s -> %s" % [ init_velocity, base_node.velocity ])
 
 func activate_glide() -> void:

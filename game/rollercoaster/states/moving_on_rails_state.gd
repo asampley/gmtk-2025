@@ -96,8 +96,6 @@ func process_physics(delta: float) -> State:
 	# If we're upside down
 	if (Vector2.UP.rotated(base_node.rotation)).dot(track.normal(tile_pos)) < 0:
 		gt = gt * Transform2D.IDENTITY.rotated(PI).scaled(Vector2(-1, 1))
-		#base_node.rotation += PI
-		#base_node.scale *= Vector2(-1, 1)
 
 	base_node.global_transform = gt
 
@@ -106,7 +104,7 @@ func process_physics(delta: float) -> State:
 	var dv := (self.gravity * Vector2i.DOWN).project(direction) * delta
 	base_node.velocity = base_node.velocity.length() * direction + dv
 
-	if base_node.velocity.length() <= 10:
+	if base_node.velocity.length() <= 10 * Globals.velocity:
 		stopped_time += delta
 		if stopped_time > 5:
 			return stopped_state
