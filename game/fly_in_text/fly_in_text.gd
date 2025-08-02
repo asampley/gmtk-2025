@@ -1,8 +1,9 @@
 extends Label
 
 
-var duration: float = 2
 @export var fade_time: float = 0.5
+
+var duration: float = 2
 var fading := false
 
 

@@ -13,7 +13,7 @@ func _ready() -> void:
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 
 func on_money_amount_changed(money: int) -> void:
-	money_text.text = "Money: %i" % money
+	money_text.text = "Money: $%s" % money
 
 func on_speed_update(speed: float) -> void:
 	speed_text.text = "Speed: %s m/s" % snappedf(speed, 0.1)

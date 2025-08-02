@@ -1,21 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://baigi8431vl47"]
+[gd_scene load_steps=4 format=3 uid="uid://daumugae1dbgt"]
 
 [ext_resource type="Script" uid="uid://8vw304rpupyl" path="res://game/fly_in_text/fly_in_text.gd" id="1_d4p20"]
-[ext_resource type="Shader" uid="uid://c5njqqrd0hwj" path="res://game/shaders/directional_move.gdshader" id="1_qrm7b"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wb5k3"]
-shader = ExtResource("1_qrm7b")
-shader_parameter/speed = 30.0
-shader_parameter/direction = Vector2(1, 1)
+[ext_resource type="Material" uid="uid://d03en70ewbjeu" path="res://game/fly_in_text/fly_in_text_shader_material_prefab.tres" id="2_qrm7b"]
+[ext_resource type="FontFile" uid="uid://bnemha51mb4gq" path="res://assets/fonts/Jersey_10/Jersey10-Regular.ttf" id="2_wb5k3"]
 
 [node name="FlyInTextPrefab" type="Label"]
-z_index = 50
-material = SubResource("ShaderMaterial_wb5k3")
+material = ExtResource("2_qrm7b")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "TEST"
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_wb5k3")
+theme_override_font_sizes/font_size = 50
+text = "Test"
 script = ExtResource("1_d4p20")

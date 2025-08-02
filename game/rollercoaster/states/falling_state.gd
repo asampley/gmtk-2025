@@ -20,7 +20,10 @@ func exit() -> void:
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
+	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
 	airtime = 0
+	EventBus.airtime_changed.emit(airtime)
+	
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_released("stunt_key_1"):

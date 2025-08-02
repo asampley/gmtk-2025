@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
 [ext_resource type="Script" uid="uid://dre0hiq2gknig" path="res://game/reset_save_data_button.gd" id="14_pxxsx"]
-[ext_resource type="PackedScene" uid="uid://baigi8431vl47" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
+[ext_resource type="PackedScene" uid="uid://daumugae1dbgt" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
 [ext_resource type="Script" uid="uid://bujie8kmetx3i" path="res://game/sound_manager.gd" id="22_mhvfb"]
 [ext_resource type="AudioStream" uid="uid://dhyqbcxbya402" path="res://game/the-return-of-the-8-bit-era-301292.mp3" id="25_8bboj"]
@@ -174,7 +174,6 @@ offset_right = 265.0
 offset_bottom = 70.8333
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

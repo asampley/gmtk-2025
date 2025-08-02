@@ -14,5 +14,8 @@ func on_generated_fly_in_text(text: String, position: Vector2, direction: Vector
 	fly_in_text_parent.add_child(fly_in_text)
 	fly_in_text.position = position
 	fly_in_text.initialize(text)
+	print(fly_in_text.material.get_rid())
+	fly_in_text.material = fly_in_text.material.duplicate()
+	print(fly_in_text.material.get_rid())
 	fly_in_text.material.set("shader_parameter/speed", text_speed)
 	fly_in_text.material.set("shader_parameter/direction", direction)

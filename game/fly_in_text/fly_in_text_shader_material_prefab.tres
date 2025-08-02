@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d03en70ewbjeu"]
+
+[sub_resource type="Shader" id="Shader_tbp2e"]
+code = "shader_type canvas_item;
+
+uniform float speed;
+uniform vec2 direction;
+
+void vertex() {
+	vec2 amount = direction * speed * TIME;
+	vec2 scrolled_uv = UV + amount;
+	VERTEX += scrolled_uv;
+}
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+}
+
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource("Shader_tbp2e")
+shader_parameter/speed = 0.0
+shader_parameter/direction = Vector2(0, 0)
