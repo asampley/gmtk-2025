@@ -1,20 +1,9 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cvdgn5uuf5t4w"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvdgn5uuf5t4w"]
 
 [ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="1_ju1rf"]
-[ext_resource type="Texture2D" uid="uid://7q0x7mi1han4" path="res://game/theme/blue_button10.png" id="2_gqbws"]
+[ext_resource type="StyleBox" uid="uid://o0apevoeavog" path="res://game/new_style_box_texture.tres" id="2_eo17r"]
 [ext_resource type="FontFile" uid="uid://b3pw6ae3vjjhj" path="res://assets/fonts/Jersey_15/Jersey15-Regular.ttf" id="3_ejh2t"]
 [ext_resource type="FontFile" uid="uid://p7erkbs6xxaf" path="res://assets/fonts/Sixtyfour/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="3_eo17r"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eo17r"]
-texture = ExtResource("2_gqbws")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
-expand_margin_left = 40.0
-expand_margin_top = 20.0
-expand_margin_right = 40.0
-expand_margin_bottom = 20.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_eo17r"]
 color = Color(1, 1, 1, 1)
@@ -39,7 +28,8 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 12
 Button/font_sizes/font_size = 40
 Button/fonts/font = ExtResource("3_ejh2t")
-Button/styles/normal = SubResource("StyleBoxTexture_eo17r")
+Button/styles/hover = ExtResource("2_eo17r")
+Button/styles/normal = ExtResource("2_eo17r")
 ComboLabel/base_type = &"Label"
 ComboLabel/constants/outline_size = 20
 ComboLabel/font_sizes/font_size = 70

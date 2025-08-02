@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvev8bvwgsb3b"]
+
+[ext_resource type="Script" uid="uid://cpl366r1xvxp3" path="res://game/ui/combo_viewer_prefab.gd" id="1_v8bxn"]
+[ext_resource type="Texture2D" uid="uid://c1u307618h5ct" path="res://game/stunts/transparentDark22.png" id="2_byymy"]
+[ext_resource type="Texture2D" uid="uid://dek2c4cvglo8x" path="res://game/stunts/transparentDark23.png" id="3_5g3m6"]
+[ext_resource type="Texture2D" uid="uid://scepyt4dhb02" path="res://game/stunts/transparentDark24.png" id="4_e8yr4"]
+[ext_resource type="Texture2D" uid="uid://o6ltwac00flh" path="res://game/stunts/transparentDark25.png" id="5_02yuw"]
+
+[node name="ComboViewerPrefab" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 100)
+script = ExtResource("1_v8bxn")
+left_button_texture = ExtResource("2_byymy")
+right_button_texture = ExtResource("3_5g3m6")
+up_button_texture = ExtResource("4_e8yr4")
+down_button_texture = ExtResource("5_02yuw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ComboName" type="Label" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Stunt Name"
+horizontal_alignment = 1
+
+[node name="ButtonIconParent" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect8" type="TextureRect" parent="VBoxContainer/ButtonIconParent"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_5g3m6")
+expand_mode = 5
+stretch_mode = 4

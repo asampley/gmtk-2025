@@ -8,6 +8,8 @@ var combo_boost: float
 var glide_movement_transfer: float
 var glide_duration: float
 var glide_cooldown: float
+var nitro_speed_boost: float
+var nitro_duration: float
 
 
 func initialize(rollercoaster_template: RollercoasterTemplate) -> void:

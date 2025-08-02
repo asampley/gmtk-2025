@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcs7yacbfq5ff"]
+
+[ext_resource type="Script" uid="uid://b3djeedaj5tni" path="res://game/ui/stunts_menu.gd" id="1_63t88"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="1_7106x"]
+[ext_resource type="PackedScene" uid="uid://cvev8bvwgsb3b" path="res://game/ui/combo_viewer_prefab.tscn" id="3_tgetc"]
+
+[node name="StuntsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 800.0
+offset_bottom = 100.0
+grow_horizontal = 2
+script = ExtResource("1_63t88")
+combo_viewer_prefab = ExtResource("3_tgetc")
+
+[node name="OpenStuntsButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
+text = "View Combos"
+autowrap_mode = 2
+script = ExtResource("1_7106x")
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
+
+[node name="StuntsParent" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 105.0
+offset_right = 605.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+
+[connection signal="toggled" from="OpenStuntsButton" to="." method="_on_open_stunts_toggled"]
