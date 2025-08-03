@@ -79,6 +79,7 @@ offset_bottom = 184.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Down here!" type="Label" parent="Signs/DownSign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 20.0
 offset_top = 33.0
@@ -97,6 +98,7 @@ offset_bottom = -25.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Shop" type="Label" parent="Signs/Shop Sign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 19.0
 offset_top = 7.0
@@ -115,6 +117,7 @@ offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tracks" type="Label" parent="Signs/TracksSign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 24.0
 offset_top = 22.0
@@ -134,6 +137,7 @@ offset_bottom = -159.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Welcome" type="Label" parent="Signs/WelcomeSign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 12.0
 offset_top = 9.0
@@ -179,6 +183,7 @@ offset_bottom = 344.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Objectives" type="Label" parent="Signs/ObjectivesSign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -209,6 +214,7 @@ offset_bottom = 110.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Trick Boost" type="Label" parent="Signs/Blue Pickup/TricksBoostSign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 49.0
 offset_top = 2.0
@@ -227,6 +233,7 @@ offset_bottom = -137.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Boost tracks" type="Label" parent="Signs/TrickBoostSign"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 23.0
 offset_top = 18.0
@@ -263,6 +270,7 @@ offset_bottom = 168.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks2" type="Label" parent="Signs/Tricks2Sign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -288,6 +296,7 @@ offset_bottom = -89.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks3" type="Label" parent="Signs/Tricks3Sign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -331,6 +340,7 @@ offset_bottom = -647.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="ComboBoost" type="Label" parent="Signs/ComboBoostSign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -356,6 +366,7 @@ offset_bottom = 247.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="MoreAir" type="Label" parent="Signs/MoreAirSign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -381,6 +392,7 @@ offset_bottom = -832.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="MoreAir" type="Label" parent="Signs/MoreAirSign2"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -406,6 +418,7 @@ offset_bottom = -649.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks5" type="Label" parent="Signs/TricksSign5"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -431,6 +444,7 @@ offset_bottom = -648.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks6" type="Label" parent="Signs/Tricks6Sign"]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
