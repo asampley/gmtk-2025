@@ -71,6 +71,11 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer3"]
 layout_mode = 2
 
+[node name="MoneyText" type="Label" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -81,9 +86,5 @@ text = "Finished"
 script = ExtResource("3_fkfn1")
 sound = ExtResource("4_a0w04")
 metadata/_custom_type_script = "uid://d32h6unvtwvf"
-
-[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer3/HBoxContainer2/Finished" to="." method="_on_finished_pressed"]
