@@ -11,6 +11,8 @@ func enter() -> void:
 	assert(station)
 	EventBus.station_stop.emit()
 	base_node.velocity = Vector2.ZERO
+	base_node.nitro_cooldown = 0
+	base_node.glide_cooldown = 0
 	update_path()
 
 func exit() -> void:
