@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ibxbc")
 title = "Do a Barrel Roll"
-reward = 100
+reward = 200
 number_of_tasks = 1
 metadata/_custom_type_script = "uid://gbab211mk4fl"
