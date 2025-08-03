@@ -6,7 +6,6 @@ signal debug(text: String)
 signal debug_collision_position(position: Vector2)
 signal requested_reset_data_popup()
 signal requested_save_data_reset()
-signal audio_clip_requested(clip: AudioStream)
 signal screen_shake_increased(amount: float)
 
 #Upgrade Purchasing
@@ -33,6 +32,7 @@ signal combo_reset()
 # Coaster events
 signal station_stop()
 signal station_exit()
+signal train_audio_requested(clip: AudioStream)
 
 #UI
 signal money_amount_changed(money: int)

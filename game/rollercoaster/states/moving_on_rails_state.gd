@@ -34,7 +34,7 @@ func enter() -> void:
 			return acc
 	, Vector2i.ZERO)
 	update_path(true)
-	EventBus.audio_clip_requested.emit(moving_sound)
+	EventBus.train_audio_requested.emit(moving_sound)
 
 func exit() -> void:
 	super()
@@ -46,6 +46,7 @@ func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
 	if event.is_action_pressed("special_move"):
+		print("ACTIVATE NITRO")
 		base_node.nitro_activate()
 	if ["move_up", "move_down", "move_left", "move_right"].any(func(k: String) -> bool: return event.is_action_pressed(k)):
 		var follow := base_node.path_follow

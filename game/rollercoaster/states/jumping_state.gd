@@ -9,7 +9,7 @@ extends State
 func enter() -> void:
 	super()
 	base_node.velocity.y += -base_node.stats.jump_force
-	EventBus.audio_clip_requested.emit(jump_sound, false)
+	EventBus.train_audio_requested.emit(jump_sound)
 
 func exit() -> void:
 	super()
