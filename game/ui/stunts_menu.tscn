@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://b3djeedaj5tni" path="res://game/ui/stunts_menu.gd" id="1_63t88"]
 [ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="1_7106x"]
 [ext_resource type="PackedScene" uid="uid://cvev8bvwgsb3b" path="res://game/ui/combo_viewer_prefab.tscn" id="3_tgetc"]
-[ext_resource type="Shader" uid="uid://cjdhldj33d1t7" path="res://game/shaders/fade_and_unfade_cycle.gdshader" id="4_7dx23"]
+[ext_resource type="Shader" uid="uid://c3yoqu5pj4qwc" path="res://game/shaders/hologram_style_highlight.gdshader" id="5_i2ib0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2ib0"]
-shader = ExtResource("4_7dx23")
-shader_parameter/fadeSpeed = 3.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1ntj"]
+shader = ExtResource("5_i2ib0")
+shader_parameter/size_effect = 0.1
+shader_parameter/speed = 0.5
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
 
 [node name="StuntsMenu" type="Control"]
 layout_mode = 3
@@ -30,23 +34,26 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
+text = "Show Combos"
 autowrap_mode = 2
 script = ExtResource("1_7106x")
 metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
-[node name="GlowyText" type="Label" parent="OpenStuntsButton"]
+[node name="Highlight" type="PanelContainer" parent="OpenStuntsButton"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_i2ib0")
+material = SubResource("ShaderMaterial_v1ntj")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 29.0
-offset_right = -5.0
-offset_bottom = 3.315
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="GlowyText" type="Label" parent="OpenStuntsButton/Highlight"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
 theme_override_constants/line_spacing = -1
 theme_override_font_sizes/font_size = 20
 text = "Show Combos"
