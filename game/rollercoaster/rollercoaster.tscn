@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=75 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="AudioStream" uid="uid://hah1nr1k70bg" path="res://game/rollercoaster/nitro_boost.mp3" id="2_33xk4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dnocpwuiytvrl" path="res://game/rollercoaster/spawning_state.gd" id="5_p2xsc"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
 [ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Texture2D" uid="uid://cbrxqoybglyyn" path="res://assets/railcarsprites-Sheet.png" id="7_4i0yg"]
 [ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="7_y8uoc"]
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]
@@ -84,6 +85,14 @@ region = Rect2(192, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2xsc"]
 atlas = ExtResource("3_rsh2y")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg0jh"]
+atlas = ExtResource("7_4i0yg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0txto"]
+atlas = ExtResource("7_4i0yg")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b70cr"]
@@ -263,6 +272,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p2xsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg0jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0txto")
 }],
 "loop": true,
 "name": &"default",
@@ -441,11 +456,11 @@ nitro_colour = ExtResource("3_wsxgt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0cxb7")
 sprite_frames = SubResource("SpriteFrames_fpfh7")
-animation = &"heel_flip"
+frame_progress = 0.787566
 offset = Vector2(0, -8)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(-13, -8)
+position = Vector2(-19, -8)
 amount = 5000
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_4i0yg")

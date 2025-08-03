@@ -330,9 +330,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="ComboBoostSign" type="Panel" parent="Signs"]
 offset_left = 3256.0
-offset_top = -744.0
+offset_top = -794.0
 offset_right = 3624.0
-offset_bottom = -615.0
+offset_bottom = -614.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="ComboBoost" type="Label" parent="Signs/ComboBoostSign"]
@@ -343,14 +343,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -163.0
-offset_top = -59.5
-offset_right = 162.0
-offset_bottom = 62.5
+offset_left = -168.0
+offset_top = -63.0
+offset_right = 157.0
+offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 25
-text = "This one gives you a speedboost from doing combos"
+text = "This gives you a speedboost from doing combos!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
