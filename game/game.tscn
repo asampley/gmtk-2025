@@ -204,6 +204,7 @@ offset_bottom = 110.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Trick Boost" type="Label" parent="Signs/Blue Pickup/TricksBoostSign"]
+layout_mode = 0
 offset_left = 49.0
 offset_top = 2.0
 offset_right = 492.0

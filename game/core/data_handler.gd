@@ -14,11 +14,20 @@ var debug_string: String
 func _ready() -> void:
 	for path: String in get_resource_paths(combo_resource_folder):
 		combo_resources.append(ResourceLoader.load(path))
+		combo_resources.sort_custom(sort_combos)
 	for path: String in get_resource_paths(upgrade_resource_folder):
 		upgrade_resources.append(ResourceLoader.load(path))
 		#debug_string += str(upgrade_resources.size()) + " | "
 	for path: String in get_resource_paths(objective_resource_folder):
 		objective_resources.append(ResourceLoader.load(path))
+
+func sort_combos(a: Resource, b: Resource) -> bool:
+	var combo_a := a as ComboTemplate
+	var combo_b := b as ComboTemplate
+	if combo_a.sequence.size() < combo_b.sequence.size():
+		return true
+	return false
+	
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#EventBus.debug.emit(debug_string)
