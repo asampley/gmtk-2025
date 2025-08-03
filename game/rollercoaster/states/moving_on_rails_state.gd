@@ -34,7 +34,7 @@ func enter() -> void:
 			return acc
 	, Vector2i.ZERO)
 	update_path(true)
-	EventBus.audio_clip_requested.emit(moving_sound)
+	EventBus.train_audio_requested.emit(moving_sound)
 
 func exit() -> void:
 	super()

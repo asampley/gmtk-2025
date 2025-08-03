@@ -11,6 +11,11 @@ add_initial_velocity = 0.0
 add_jump_force = 0.0
 add_combo_multiplier = 0.0
 combo_boost = 0.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
 metadata/_custom_type_script = "uid://dwia3wqigp7cc"
 
 [resource]

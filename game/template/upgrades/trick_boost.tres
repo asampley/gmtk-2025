@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://y2fdax8ammjv" path="res://assets/trick_fins.png" id="1_5u3n6"]
 [ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="2_b0dkm"]
-[ext_resource type="Script" path="res://game/upgrade/upgrade_tier_template.gd" id="3_qo1k6"]
+[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="3_qo1k6"]
 
 [sub_resource type="Resource" id="Resource_644he"]
 script = ExtResource("3_qo1k6")
@@ -11,6 +11,11 @@ add_initial_velocity = 0.0
 add_jump_force = 0.0
 add_combo_multiplier = 0.0
 combo_boost = 150.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
 metadata/_custom_type_script = "uid://dwia3wqigp7cc"
 
 [sub_resource type="Resource" id="Resource_k64oh"]
@@ -20,6 +25,11 @@ add_initial_velocity = 0.0
 add_jump_force = 0.0
 add_combo_multiplier = 0.0
 combo_boost = 100.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
 metadata/_custom_type_script = "uid://dwia3wqigp7cc"
 
 [resource]

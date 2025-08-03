@@ -18,11 +18,11 @@ var glide_duration: float
 func enter() -> void:
 	super()
 	combo_sequence = []
-	EventBus.audio_clip_requested.emit(falling_sound)
+	EventBus.train_audio_requested.emit(falling_sound)
 
 func exit() -> void:
 	super()
-	EventBus.audio_clip_requested.emit(landing_sound)
+	EventBus.train_audio_requested.emit(landing_sound)
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
