@@ -46,8 +46,8 @@ func process_input(event: InputEvent) -> State:
 		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
 	elif event.is_action_pressed("stunt_key_4"):
 		combo_sequence.append(Globals.ComboButtons.DOWN)
-	elif event.is_action_pressed("special_move"):
-		activate_glide()
+	#elif event.is_action_pressed("special_move"):
+	#	activate_glide()
 	else:
 		return
 	var missed_combos: int = 0
@@ -111,7 +111,7 @@ func clear_combo_data() -> void:
 		spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
 	airtime = 0
 	EventBus.airtime_changed.emit(airtime)
-	
+
 
 func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
