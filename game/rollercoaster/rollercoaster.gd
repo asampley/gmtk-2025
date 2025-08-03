@@ -77,11 +77,11 @@ func on_shop_menu_closed() -> void:
 
 func nitro_activate() -> void:
 	if nitro_cooldown <= 0 && stats.nitro_unlocked:
-		print("Nitro activated")
 		nitro_cooldown = stats.nitro_cooldown
 		nitro_remaining_duration = stats.nitro_duration
 		EventBus.train_audio_requested.emit(nitro_sound)
 		particles.process_material.color_ramp = nitro_colour
+		print("Nitro activated (cooldown %ds)" % stats.nitro_cooldown)
 
 func nitro_active() -> bool:
 	return nitro_remaining_duration > 0
