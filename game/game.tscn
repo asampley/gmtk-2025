@@ -76,6 +76,7 @@ offset_bottom = 184.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Down here!" type="Label" parent="Signs/DownSign"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 20.0
 offset_right = 115.0
@@ -91,6 +92,7 @@ offset_bottom = -25.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Shop" type="Label" parent="Signs/Shop Sign"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 7.0
 offset_right = 126.0
@@ -108,6 +110,7 @@ offset_bottom = 1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tracks" type="Label" parent="Signs/TracksSign"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 343.0
@@ -126,6 +129,7 @@ offset_bottom = -159.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Welcome" type="Label" parent="Signs/WelcomeSign"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 9.0
 offset_right = 633.0
@@ -137,6 +141,7 @@ vertical_alignment = 1
 
 [node name="Attachment1" type="Panel" parent="Signs/WelcomeSign"]
 z_index = -1
+layout_mode = 0
 offset_left = 1142.0
 offset_top = 82.0
 offset_right = 1191.0
@@ -145,6 +150,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Attachment2" type="Panel" parent="Signs/WelcomeSign"]
 z_index = -1
+layout_mode = 0
 offset_left = 343.0
 offset_top = 57.0
 offset_right = 392.0
@@ -153,6 +159,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Attachment3" type="Panel" parent="Signs/WelcomeSign"]
 z_index = -1
+layout_mode = 0
 offset_left = 583.0
 offset_top = 41.0
 offset_right = 632.0
@@ -218,6 +225,7 @@ offset_bottom = -137.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Boost tracks" type="Label" parent="Signs/TrickBoostSign"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 18.0
 offset_right = 350.0
@@ -229,6 +237,7 @@ autowrap_mode = 3
 
 [node name="LLeg" type="Panel" parent="Signs/TrickBoostSign"]
 z_index = -1
+layout_mode = 0
 offset_left = -1087.0
 offset_top = 66.0
 offset_right = -1038.0
@@ -237,6 +246,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="RLeg" type="Panel" parent="Signs/TrickBoostSign"]
 z_index = -1
+layout_mode = 0
 offset_left = 296.0
 offset_top = 90.0
 offset_right = 345.0
@@ -295,6 +305,7 @@ autowrap_mode = 2
 
 [node name="LLeg" type="Panel" parent="Signs/Tricks3Sign"]
 z_index = -1
+layout_mode = 0
 offset_left = 23.0
 offset_top = 43.0
 offset_right = 72.0
@@ -303,6 +314,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="RLeg" type="Panel" parent="Signs/Tricks3Sign"]
 z_index = -1
+layout_mode = 0
 offset_left = 200.0
 offset_top = 42.0
 offset_right = 249.0
@@ -548,6 +560,8 @@ mouse_filter = 2
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
 default_objective = ExtResource("22_leid8")
+
+[node name="Signs2" type="Node2D" parent="."]
 
 [node name="FlyInTextManager" type="Node" parent="." node_paths=PackedStringArray("fly_in_text_parent")]
 script = ExtResource("14_hb504")
