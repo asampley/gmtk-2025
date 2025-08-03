@@ -4,6 +4,8 @@ extends Control
 @export var combo_viewer_prefab: PackedScene
 @onready var stunts_parent: HBoxContainer = %StuntsParent
 @onready var open_stunts_button: SoundButton = %OpenStuntsButton
+@onready var glowy_text: Label = %GlowyText
+
 
 
 func _ready() -> void:
@@ -14,6 +16,7 @@ func _ready() -> void:
 		combo_viewer.initialize(combo)
 
 func _on_open_stunts_toggled(toggled_on: bool) -> void:
+	glowy_text.hide()
 	stunts_parent.visible = toggled_on
 	if toggled_on:
 		open_stunts_button.text = "Hide Combos"

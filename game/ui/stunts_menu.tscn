@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcs7yacbfq5ff"]
+[gd_scene load_steps=6 format=3 uid="uid://bcs7yacbfq5ff"]
 
 [ext_resource type="Script" uid="uid://b3djeedaj5tni" path="res://game/ui/stunts_menu.gd" id="1_63t88"]
 [ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="1_7106x"]
 [ext_resource type="PackedScene" uid="uid://cvev8bvwgsb3b" path="res://game/ui/combo_viewer_prefab.tscn" id="3_tgetc"]
+[ext_resource type="Shader" uid="uid://cjdhldj33d1t7" path="res://game/shaders/fade_and_unfade_cycle.gdshader" id="4_7dx23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2ib0"]
+shader = ExtResource("4_7dx23")
+shader_parameter/fadeSpeed = 3.0
 
 [node name="StuntsMenu" type="Control"]
 layout_mode = 3
@@ -25,17 +30,36 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-text = "View Combos"
 autowrap_mode = 2
 script = ExtResource("1_7106x")
 metadata/_custom_type_script = "uid://d32h6unvtwvf"
+
+[node name="GlowyText" type="Label" parent="OpenStuntsButton"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_i2ib0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 29.0
+offset_right = -5.0
+offset_bottom = 3.315
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 20
+text = "Show Combos"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="StuntsParent" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 105.0
+offset_top = -1.0
 offset_right = 605.0
-offset_bottom = 100.0
+offset_bottom = 99.0
 size_flags_horizontal = 3
 
 [connection signal="toggled" from="OpenStuntsButton" to="." method="_on_open_stunts_toggled"]
