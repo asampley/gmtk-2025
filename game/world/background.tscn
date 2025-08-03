@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://gm04nnjeptj4"]
+
+[ext_resource type="Texture2D" uid="uid://c7n22c87mjr1s" path="res://game/background_test.png" id="1_ndoh8"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.25, 0)
+repeat_size = Vector2(2560, 0)
+limit_end = Vector2(1e+07, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+texture = ExtResource("1_ndoh8")
