@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_l1xgp")
-combo_name = "Kick flip"
+combo_name = "Kick Flip"
 sequence = Array[int]([3, 3, 1, 1, 3, 3, 1, 1])
 base_score = 100.0
 animation_name = "kick_flip"

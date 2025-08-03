@@ -21,12 +21,12 @@ signal objective_menu_requested()
 signal bookmarked_objective_changed()
 signal bookmarked_objective_updated()
 signal objective_task_completed(objective_title: String)
-signal objective_completed()
+signal objective_claimed()
 
 #Doing tricks
 signal generated_fly_in_text(text: String, position: Vector2, direction: Vector2)
 signal combo_button_pressed(combo_button: Globals.ComboButtons, length: int)
-signal combo_completed(current_score: float, current_mult: float)
+signal combo_completed(combo_name: String, current_score: float, current_mult: float)
 signal combo_failed()
 signal combo_reset()
 

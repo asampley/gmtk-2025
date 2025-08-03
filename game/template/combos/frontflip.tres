@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_v2h6r")
-combo_name = "Front flip"
+combo_name = "Front Flip"
 sequence = Array[int]([1, 3])
 base_score = 20.0
 animation_name = "front_flip"

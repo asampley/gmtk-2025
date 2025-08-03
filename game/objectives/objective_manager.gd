@@ -14,7 +14,7 @@ func _ready() -> void:
 	EventBus.shop_menu_closed.connect(save_data)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
 	EventBus.objective_task_completed.connect(on_objective_task_completed)
-	EventBus.objective_completed.connect(on_objective_completed)
+	EventBus.objective_claimed.connect(on_objective_claimed)
 
 func load_data_from_resources() -> void:
 	for template: ObjectiveTemplate in DataHandler.objective_resources:
@@ -43,9 +43,9 @@ func on_objective_task_completed(objective_title: String) -> void:
 	else:
 		printerr("There is a mistitled objective task.")
 
-func on_objective_completed() -> void:
+func on_objective_claimed() -> void:
 	for objective: Objective in Globals.objectives.values():
-		if !objective.completed:
+		if !objective.claimed:
 			Globals.bookmarked_objective = objective
 			EventBus.bookmarked_objective_changed.emit()
 

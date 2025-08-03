@@ -17,7 +17,7 @@ func _ready() -> void:
 	EventBus.combo_reset.connect(on_combo_reset)
 	on_combo_reset()
 
-func on_combo_completed(score_in: float, mult_in: float) -> void:
+func on_combo_completed(_combo_name: String, score_in: float, mult_in: float) -> void:
 	score = score_in
 	mult = mult_in
 	var red_score_mult := score_in / max_score

@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgk8eeosxx0sy"]
+[gd_scene load_steps=5 format=3 uid="uid://cfgt4p78oa2fi"]
 
 [ext_resource type="Script" uid="uid://dcst3h1vrly4" path="res://game/ui/game_end.gd" id="1_5477f"]
 [ext_resource type="Texture2D" uid="uid://bs6j6ig2koe8" path="res://title_2.png" id="2_vc0pv"]
 [ext_resource type="Texture2D" uid="uid://ci30e1mo17nfn" path="res://assets/star.png" id="3_tcc8s"]
-[ext_resource type="Script" uid="uid://dynb1tq2jef8s" path="res://game/ui/star.gd" id="4_gu6b5"]
+[ext_resource type="Script" path="res://game/ui/star.gd" id="4_gu6b5"]
 
 [node name="Game End" type="Control"]
 layout_mode = 3

@@ -64,7 +64,6 @@ func process_frame(delta: float) -> State:
 
 func process_physics(delta: float) -> State:
 	base_node.apply_nitro(delta)
-
 	airtime += delta
 	EventBus.airtime_changed.emit(airtime)
 	if gliding:
@@ -75,12 +74,6 @@ func process_physics(delta: float) -> State:
 			gliding = false
 			print( base_node.stats.glide_cooldown * Globals.time_scale)
 			base_node.glide_cooldown = base_node.stats.glide_cooldown * Globals.time_scale
-		#var current_angle := base_node.velocity.angle()
-		#var glide_angle := deg_to_rad(base_node.stats.glide_movement_transfer)
-		#var new_angle := current_angle + glide_angle
-		#base_node.velocity.rotated(new_angle)
-		#gravity_angle = Vector2(0, gravity)
-		#base_node.velocity.y +=
 	else:
 		base_node.velocity.y += gravity * delta
 	var collision := base_node.move_and_collide(base_node.velocity * delta)
@@ -97,7 +90,7 @@ func match_combo(combo: ComboTemplate) -> bool:
 		combo_sequence.clear()
 		base_combo_score += combo.base_score
 		combo_multiplier += 1.0
-		EventBus.combo_completed.emit(base_combo_score, combo_multiplier)
+		EventBus.combo_completed.emit(combo.combo_name, base_combo_score, combo_multiplier)
 		return true
 	for i in combo_sequence.size():
 		if combo_sequence[i] != combo.sequence[i]:

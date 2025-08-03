@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObjectiveTemplate" load_steps=2 format=3 uid="uid://6hb6vln8k1xj"]
+
+[ext_resource type="Script" uid="uid://gbab211mk4fl" path="res://game/objectives/objective_template.gd" id="1_8fkym"]
+
+[resource]
+script = ExtResource("1_8fkym")
+title = "Do a Front Flip"
+reward = 50
+number_of_tasks = 1
+metadata/_custom_type_script = "uid://gbab211mk4fl"

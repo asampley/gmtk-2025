@@ -20,8 +20,9 @@ func initialize(objective_in: Objective) -> void:
 
 func _on_claim_pressed() -> void:
 	Globals.money += objective.template.reward
+	EventBus.money_amount_changed.emit(Globals.money)
 	objective.claim()
-	EventBus.objective_completed.emit()
+	EventBus.objective_claimed.emit()
 	EventBus.objective_menu_requested.emit()
 
 func _on_bookmark_pressed() -> void:

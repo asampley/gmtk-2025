@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=6 format=3 uid="uid://d3g1fofe4nakx"]
+
+[ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_3jpwd"]
+[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="2_up8r1"]
+
+[sub_resource type="Resource" id="Resource_3jpwd"]
+script = ExtResource("2_up8r1")
+cost = 50
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 1.0
+combo_boost = 0.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+nitrous_cooldown_multiplier = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[sub_resource type="Resource" id="Resource_up8r1"]
+script = ExtResource("2_up8r1")
+cost = 100
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 1.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+nitrous_cooldown_multiplier = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[sub_resource type="Resource" id="Resource_w110b"]
+script = ExtResource("2_up8r1")
+cost = 200
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 1.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+nitrous_cooldown_multiplier = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[resource]
+script = ExtResource("1_3jpwd")
+upgrade_name = "Combo Multiplier Increase"
+description = "Adds to the base multiplier for combos"
+unlocked = false
+tiers = Array[ExtResource("2_up8r1")]([SubResource("Resource_3jpwd"), SubResource("Resource_up8r1"), SubResource("Resource_w110b")])
+metadata/_custom_type_script = "uid://b6ea637edsxpb"

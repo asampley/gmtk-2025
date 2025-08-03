@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=4 format=3 uid="uid://qrgw2dhb1dcg"]
+
+[ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_8hjgk"]
+[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="2_w3742"]
+
+[sub_resource type="Resource" id="Resource_8hjgk"]
+script = ExtResource("2_w3742")
+cost = 0
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 0.0
+nitrous_acceleration = 0.0
+nitrous_duration = 0.0
+nitrous_cooldown_multiplier = 0.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 0.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[resource]
+script = ExtResource("1_8hjgk")
+upgrade_name = ""
+description = ""
+unlocked = false
+tiers = Array[ExtResource("2_w3742")]([SubResource("Resource_8hjgk")])
+metadata/_custom_type_script = "uid://b6ea637edsxpb"

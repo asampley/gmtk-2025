@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="Script" uid="uid://dnocpwuiytvrl" path="res://game/rollercoaster/spawning_state.gd" id="5_p2xsc"]
 [ext_resource type="Script" uid="uid://hstyt5t0d27f" path="res://game/rollercoaster/states/falling_state.gd" id="6_hr1qv"]
-[ext_resource type="Script" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
+[ext_resource type="Script" uid="uid://ctcv17rs0l5ir" path="res://game/rollercoaster/player_controller.gd" id="6_pce4i"]
 [ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="7_y8uoc"]
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]

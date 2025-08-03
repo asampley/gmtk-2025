@@ -1,24 +1,24 @@
-[gd_scene load_steps=44 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=45 format=3 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://gm04nnjeptj4" path="res://game/world/background.tscn" id="3_cieqw"]
 [ext_resource type="PackedScene" uid="uid://c608o4gv4yg2r" path="res://game/world/world.tscn" id="4_cf130"]
-[ext_resource type="Script" path="res://game/menu_parent.gd" id="6_b686c"]
+[ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
 [ext_resource type="PackedScene" uid="uid://cm1qm3i5wk2ia" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
 [ext_resource type="PackedScene" uid="uid://cyuerdakeu2tu" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
-[ext_resource type="PackedScene" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
+[ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
 [ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/info_ui.tscn" id="14_5e03w"]
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
 [ext_resource type="PackedScene" uid="uid://daumugae1dbgt" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
 [ext_resource type="PackedScene" uid="uid://cduk4oy45y8st" path="res://game/ui/special_abilities_menu.tscn" id="17_posua"]
 [ext_resource type="PackedScene" uid="uid://bcs7yacbfq5ff" path="res://game/ui/stunts_menu.tscn" id="18_gvtgv"]
-[ext_resource type="PackedScene" uid="uid://dgk8eeosxx0sy" path="res://game/ui/game_end.tscn" id="20_64wtb"]
+[ext_resource type="PackedScene" uid="uid://cfgt4p78oa2fi" path="res://game/ui/game_end.tscn" id="20_64wtb"]
 [ext_resource type="PackedScene" uid="uid://bkxvtukwghm2e" path="res://game/utility_buttons_menu/utility_buttons_menu.tscn" id="20_urpib"]
 [ext_resource type="Texture2D" uid="uid://b6w1mnkaavxik" path="res://assets/sign_background.png" id="21_ta815"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
@@ -41,7 +41,8 @@
 [ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="36_urpib"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="37_vkvnp"]
 [ext_resource type="Script" uid="uid://dprna0ao8na72" path="res://game/moving_sound.gd" id="39_cieqw"]
-[ext_resource type="Script" path="res://game/ui/ui_audio_player.gd" id="41_ta815"]
+[ext_resource type="Script" uid="uid://y3y8mhdlm4co" path="res://game/ui/ui_audio_player.gd" id="41_ta815"]
+[ext_resource type="Script" uid="uid://nj2sk6e8b58f" path="res://game/objective_listener.gd" id="42_64wtb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64wtb"]
 texture = ExtResource("21_ta815")
@@ -557,6 +558,7 @@ offset_bottom = 102.0
 mouse_filter = 2
 
 [node name="Game End" parent="CanvasLayer" instance=ExtResource("20_64wtb")]
+mouse_filter = 2
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
@@ -608,3 +610,6 @@ seven_buttons = ExtResource("36_281ou")
 volume_db = -10.0
 script = ExtResource("39_cieqw")
 moving_sound = ExtResource("34_5ywmu")
+
+[node name="ObjectiveListener" type="Node" parent="."]
+script = ExtResource("42_64wtb")

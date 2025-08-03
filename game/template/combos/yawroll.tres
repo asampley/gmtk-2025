@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_afnnp")
-combo_name = "Flat spin"
+combo_name = "Flat Spin"
 sequence = Array[int]([1, 0, 1])
 base_score = 30.0
 animation_name = "flat_spin"
