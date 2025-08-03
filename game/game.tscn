@@ -270,7 +270,7 @@ offset_right = 159.0
 offset_bottom = 60.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press Right and Down when in the air"
+text = "Press RIGHT then DOWN when in the air"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -344,10 +344,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="TricksSign5" type="Panel" parent="Signs"]
-offset_left = 6048.0
-offset_top = -256.0
-offset_right = 6416.0
-offset_bottom = -80.0
+offset_left = 6072.0
+offset_top = -968.0
+offset_right = 6440.0
+offset_bottom = -792.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks5" type="Label" parent="Signs/TricksSign5"]
@@ -369,10 +369,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Tricks6Sign" type="Panel" parent="Signs"]
-offset_left = 6080.0
-offset_top = -961.0
-offset_right = 6448.0
-offset_bottom = -832.0
+offset_left = 5609.0
+offset_top = -968.0
+offset_right = 5977.0
+offset_bottom = -839.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks6" type="Label" parent="Signs/Tricks6Sign"]
@@ -477,6 +477,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 1186.0
 offset_top = 1.0
 offset_right = 1238.0
