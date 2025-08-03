@@ -14,10 +14,10 @@ combo_boost = 100.0
 nitrous_acceleration = 0.0
 unlocks_nitro = false
 nitrous_duration = 0.0
-nitrous_cooldown_multiplier = 0.0
+nitrous_cooldown_multiplier = 1.0
 glide_movement_transfer = 0.0
 glide_duration = 0.0
-glide_cooldown_multiplier = 0.0
+glide_cooldown_multiplier = 1.0
 metadata/_custom_type_script = "uid://dwia3wqigp7cc"
 
 [resource]
