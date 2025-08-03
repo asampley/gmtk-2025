@@ -28,8 +28,8 @@ func initialize() -> void:
 	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 	EventBus.to_the_moon.connect(on_game_win)
-	EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
-	EventBus.nitro_cooldown_changed.emit(nitro_cooldown / stats.nitro_cooldown)
+	EventBus.glide_cooldown_changed.emit(0)
+	EventBus.nitro_cooldown_changed.emit(0)
 
 func _input(event: InputEvent) -> void:
 	if state_machine:
