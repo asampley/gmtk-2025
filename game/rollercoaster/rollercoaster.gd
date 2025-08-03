@@ -23,6 +23,7 @@ func initialize() -> void:
 	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
 	EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
+	EventBus.nitro_cooldown_changed.emit(nitro_cooldown / stats.nitro_cooldown)
 
 func _input(event: InputEvent) -> void:
 	if state_machine:
@@ -38,6 +39,7 @@ func _physics_process(delta: float) -> void:
 		EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
 	if nitro_cooldown > 0:
 		nitro_cooldown -= delta
+		EventBus.nitro_cooldown_changed.emit(nitro_cooldown / stats.nitro_cooldown)
 	if nitro_remaining_duration > 0:
 		nitro_remaining_duration -= delta
 		if nitro_remaining_duration <= 0:

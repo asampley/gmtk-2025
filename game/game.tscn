@@ -4,14 +4,14 @@
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://gm04nnjeptj4" path="res://game/world/background.tscn" id="3_cieqw"]
 [ext_resource type="PackedScene" uid="uid://c608o4gv4yg2r" path="res://game/world/world.tscn" id="4_cf130"]
-[ext_resource type="Script" path="res://game/menu_parent.gd" id="6_b686c"]
+[ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
 [ext_resource type="PackedScene" uid="uid://cm1qm3i5wk2ia" path="res://game/objectives/objectives_menu.tscn" id="10_j8tme"]
 [ext_resource type="PackedScene" uid="uid://cyuerdakeu2tu" path="res://game/objectives/bookmarked_objective_ui.tscn" id="11_3vho3"]
-[ext_resource type="PackedScene" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
+[ext_resource type="PackedScene" uid="uid://baeevb5t2tlgn" path="res://game/stunts/combo_buttons_viewer.tscn" id="13_ln7ps"]
 [ext_resource type="PackedScene" uid="uid://ri3yyocwpwbe" path="res://game/ui/info_ui.tscn" id="14_5e03w"]
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
@@ -39,7 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://b6kdgd77itc63" path="res://game/rollercoaster/states/jump_sound.wav" id="36_urpib"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="37_vkvnp"]
 [ext_resource type="Script" uid="uid://dprna0ao8na72" path="res://game/moving_sound.gd" id="39_cieqw"]
-[ext_resource type="Script" path="res://game/ui/ui_audio_player.gd" id="41_ta815"]
+[ext_resource type="Script" uid="uid://y3y8mhdlm4co" path="res://game/ui/ui_audio_player.gd" id="41_ta815"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rollercoaster_parent", "spawn_position")]
 script = ExtResource("1_h7iqs")
@@ -48,7 +48,6 @@ rollercoaster_parent = NodePath("RollercoasterParent")
 spawn_position = NodePath("SpawnPosition")
 
 [node name="Background" parent="." instance=ExtResource("3_cieqw")]
-position = Vector2(0, -720)
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2(-95, 31)
@@ -201,10 +200,10 @@ offset_bottom = 261.5
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
-offset_left = -87.0
-offset_top = -86.0
-offset_right = -87.0
-offset_bottom = -86.0
+offset_left = -156.0
+offset_top = -79.0
+offset_right = -156.0
+offset_bottom = -79.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
@@ -401,7 +400,7 @@ text_speed = 30.0
 [node name="AudioPlayers" type="Node" parent="."]
 
 [node name="TrainSounds" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -10.0
+volume_db = -25.326
 bus = &"sfx"
 script = ExtResource("35_mhp6k")
 falling_sound = ExtResource("35_vkvnp")

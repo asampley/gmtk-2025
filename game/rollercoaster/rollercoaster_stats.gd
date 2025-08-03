@@ -33,4 +33,4 @@ func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	nitro_cooldown += upgrade_tier.nitrous_cooldown_multiplier
 	glide_movement_transfer += upgrade_tier.glide_movement_transfer
 	glide_duration += upgrade_tier.glide_duration
-	glide_cooldown *= upgrade_tier.glide_cooldown_multiplier
+	glide_cooldown *=  1.0 + upgrade_tier.glide_cooldown_multiplier

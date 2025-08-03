@@ -73,6 +73,7 @@ func process_physics(delta: float) -> State:
 		glide_duration -= delta * Globals.time_scale
 		if glide_duration <= 0:
 			gliding = false
+			print( base_node.stats.glide_cooldown * Globals.time_scale)
 			base_node.glide_cooldown = base_node.stats.glide_cooldown * Globals.time_scale
 		#var current_angle := base_node.velocity.angle()
 		#var glide_angle := deg_to_rad(base_node.stats.glide_movement_transfer)
