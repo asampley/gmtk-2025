@@ -166,18 +166,14 @@ offset_right = 632.0
 offset_bottom = 1038.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
-[node name="Secret" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.75, 1)
-scroll_offset = Vector2(475, 300)
-
-[node name="ObjectivesSign" type="Panel" parent="Signs/Secret"]
-offset_left = -180.0
-offset_top = -85.0
-offset_right = 205.0
-offset_bottom = 44.0
+[node name="ObjectivesSign" type="Panel" parent="Signs"]
+offset_left = 295.0
+offset_top = 215.0
+offset_right = 680.0
+offset_bottom = 344.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
-[node name="Objectives" type="Label" parent="Signs/Secret/ObjectivesSign"]
+[node name="Objectives" type="Label" parent="Signs/ObjectivesSign"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -207,11 +203,11 @@ offset_right = 498.0
 offset_bottom = 110.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
-[node name="Trick Boost" type="Label" parent="Signs/Blue Pickup"]
-offset_left = 2.0
-offset_top = -18.0
-offset_right = 445.0
-offset_bottom = 110.0
+[node name="Trick Boost" type="Label" parent="Signs/Blue Pickup/TricksBoostSign"]
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 492.0
+offset_bottom = 130.0
 text = "Hover over upgrades in the shop to see what they do!"
 horizontal_alignment = 1
 vertical_alignment = 1
