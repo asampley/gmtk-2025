@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c608o4gv4yg2r"]
+[gd_scene load_steps=15 format=4 uid="uid://c608o4gv4yg2r"]
 
 [ext_resource type="TileSet" uid="uid://d0ptlkrsu1w80" path="res://game/track/backgroundmap.tres" id="1_dess5"]
 [ext_resource type="TileSet" uid="uid://cwijggy17ykii" path="res://game/track/trackmap.tres" id="2_uynus"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://b14qaa3u1tgxj" path="res://game/template/pickups/trick_fins.tres" id="9_io0hq"]
 [ext_resource type="Resource" uid="uid://dpw8qdlrg1jlb" path="res://game/template/pickups/nitrous.tres" id="10_5hesp"]
 [ext_resource type="Script" uid="uid://g5rinpeubf27" path="res://game/world/moonxit.gd" id="11_ncs2d"]
+[ext_resource type="Script" uid="uid://ce70in2ogv4n2" path="res://game/camera/end_camera.gd" id="12_io0hq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hesp"]
 shader = ExtResource("4_ibfx6")
@@ -63,5 +64,9 @@ script = ExtResource("11_ncs2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moonxit"]
 shape = SubResource("WorldBoundaryShape2D_io0hq")
+
+[node name="EndCamera" type="Camera2D" parent="Moonxit"]
+enabled = false
+script = ExtResource("12_io0hq")
 
 [connection signal="body_entered" from="Moonxit" to="Moonxit" method="_on_body_entered"]
