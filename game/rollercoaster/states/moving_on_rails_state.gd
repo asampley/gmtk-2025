@@ -90,6 +90,9 @@ func process_physics(delta: float) -> State:
 		in_direction = -out_direction
 		var state := update_path(false)
 		if state != null:
+			# We haven't moved at this point, so we must
+			base_node.position += base_node.velocity * delta
+
 			return state
 
 	var old_pos := base_node.global_position
