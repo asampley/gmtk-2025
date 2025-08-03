@@ -1,16 +1,16 @@
 extends AudioStreamPlayer
 
-@export var stopaudio: AudioStream
-@export var moving_sound := AudioStream
+
+@export var moving_sound: AudioStream
 
 
 func _ready() -> void:
-	EventBus.train_audio_requested.connect(on_train_audio_requested)
+	EventBus.start_train_moving_sound.connect(on_start_playing_sound)
+	EventBus.stop_train_moving_sound.connect(on_stop_playing_sound)
 
-func on_train_audio_requested(clip: AudioStream) -> void:
-	if clip == moving_sound:
-		stream = clip
-		play()
-	else:
-		stop()
-		stream.loop = false
+func on_start_playing_sound() -> void:
+	stream = moving_sound
+	play()
+
+func on_stop_playing_sound() -> void:
+	stop()
