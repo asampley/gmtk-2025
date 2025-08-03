@@ -26,5 +26,6 @@ upgrade_name = "Trick Boost"
 description = "Get a speed boost from tricks"
 purchase_icon = ExtResource("1_5u3n6")
 unlocked = false
+unlocks = Array[ExtResource("2_b0dkm")]([])
 tiers = Array[ExtResource("3_qo1k6")]([SubResource("Resource_644he")])
 metadata/_custom_type_script = "uid://b6ea637edsxpb"
