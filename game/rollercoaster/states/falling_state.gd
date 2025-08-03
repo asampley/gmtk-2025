@@ -109,9 +109,11 @@ func clear_combo_data() -> void:
 	EventBus.money_amount_changed.emit(Globals.money)
 	base_combo_score = 0
 	combo_multiplier = base_node.stats.base_combo_multiplier
-	spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
+	if airtime >= 1.0:
+		spawn_fly_in_text("%s SECONDS AIRTIME" % snappedf(airtime, 0.01))
 	airtime = 0
 	EventBus.airtime_changed.emit(airtime)
+	
 
 func spawn_fly_in_text(text: String) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
