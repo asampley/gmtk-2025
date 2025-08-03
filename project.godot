@@ -148,4 +148,4 @@ special_move={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.699788, 0.545561, 0.993462, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
