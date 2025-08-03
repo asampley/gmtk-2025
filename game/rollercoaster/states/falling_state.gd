@@ -54,6 +54,7 @@ func process_input(event: InputEvent) -> State:
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		missed_combos += 1 if !match_combo(combo) else 0
 	if missed_combos >= DataHandler.combo_resources.size():
+		combo_multiplier = base_node.stats.base_combo_multiplier
 		combo_sequence.clear()
 		EventBus.combo_failed.emit()
 		spawn_fly_in_text("Combo Failed!")
@@ -92,11 +93,12 @@ func match_combo(combo: ComboTemplate) -> bool:
 		combo_multiplier += 1.0
 		EventBus.combo_completed.emit(combo.combo_name, base_combo_score, combo_multiplier)
 		return true
-	for i in combo_sequence.size():
-		if combo_sequence[i] != combo.sequence[i]:
-			combo_multiplier = base_node.stats.base_combo_multiplier
-			return false
+	else:
+		for i in combo_sequence.size():
+			if combo_sequence[i] != combo.sequence[i]:
+				return false
 	return true
+
 
 func clear_combo_data() -> void:
 	var final_score: float = (base_combo_score + airtime) * combo_multiplier

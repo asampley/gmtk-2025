@@ -22,13 +22,14 @@ func on_combo_completed(_combo_name: String, score_in: float, mult_in: float) ->
 	mult = mult_in
 	var red_score_mult := score_in / max_score
 	var red_aperture := clampf(3 - (3.0 * red_score_mult), min_fire_aperture, 3.0)
+	print(red_aperture)
 	red_fire.material.set("shader_paramater/fire_aperture", red_aperture)
 	var blue_score_mult := (mult_in - 1) / max_mult
 	var blue_aperture := clampf(3 - (3.0 * blue_score_mult), min_fire_aperture, 3.0)
 	blue_fire.material.set("shader_paramater/fire_aperture", blue_aperture)
-	if red_aperture >= 2.0:
+	if red_aperture <= 2.0:
 		red_fire.show()
-	if blue_aperture >= 2.0:
+	if blue_aperture <= 2.0:
 		blue_fire.show()
 	update_text()
 
