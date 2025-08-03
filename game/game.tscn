@@ -466,6 +466,7 @@ position = Vector2(0, 32)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InfoUI" parent="CanvasLayer" instance=ExtResource("14_5e03w")]
+texture_filter = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -479,6 +480,7 @@ scale = Vector2(1, 1)
 theme = ExtResource("14_jucfl")
 
 [node name="ComboMeter" parent="CanvasLayer" instance=ExtResource("22_vkvnp")]
+texture_filter = 2
 offset_left = 125.0
 offset_top = 360.0
 offset_right = -1155.0
@@ -487,6 +489,7 @@ mouse_filter = 2
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
 visible = false
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -529,6 +532,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
+texture_filter = 2
 custom_minimum_size = Vector2(0, 0)
 anchors_preset = 3
 anchor_left = 1.0
@@ -545,6 +549,7 @@ size_flags_vertical = 8
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
 visible = false
+texture_filter = 2
 offset_left = 1186.0
 offset_top = 1.0
 offset_right = 1238.0
@@ -553,6 +558,7 @@ text = "FPS"
 script = ExtResource("6_dakft")
 
 [node name="UtilityButtonsMenu" parent="CanvasLayer" instance=ExtResource("20_urpib")]
+texture_filter = 2
 offset_left = 3.0
 offset_top = 6.0
 offset_right = -1067.0
@@ -561,6 +567,7 @@ mouse_filter = 2
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
 visible = false
+texture_filter = 2
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -572,11 +579,13 @@ grow_vertical = 0
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
+texture_filter = 2
 offset_right = 265.0
 offset_bottom = 70.8333
 mouse_filter = 2
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -593,6 +602,7 @@ mouse_filter = 2
 
 [node name="ResetDataPopup" parent="CanvasLayer" instance=ExtResource("23_cieqw")]
 visible = false
+texture_filter = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -604,6 +614,7 @@ offset_right = 300.0
 offset_bottom = 261.5
 
 [node name="SpecialAbilitiesMenu" parent="CanvasLayer" instance=ExtResource("17_posua")]
+texture_filter = 2
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -616,6 +627,7 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="StuntsMenu" parent="CanvasLayer" instance=ExtResource("18_gvtgv")]
+texture_filter = 2
 offset_left = -423.0
 offset_top = 2.0
 offset_right = 477.0
@@ -624,6 +636,7 @@ mouse_filter = 2
 
 [node name="Game End" parent="CanvasLayer" instance=ExtResource("20_64wtb")]
 visible = false
+texture_filter = 2
 mouse_filter = 2
 
 [node name="ObjectiveManager" type="Node" parent="."]
