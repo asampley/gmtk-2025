@@ -558,6 +558,7 @@ offset_bottom = 102.0
 mouse_filter = 2
 
 [node name="Game End" parent="CanvasLayer" instance=ExtResource("20_64wtb")]
+visible = false
 mouse_filter = 2
 
 [node name="ObjectiveManager" type="Node" parent="."]
@@ -608,6 +609,7 @@ seven_buttons = ExtResource("36_281ou")
 
 [node name="MovingSound" type="AudioStreamPlayer" parent="AudioPlayers"]
 volume_db = -10.0
+bus = &"sfx"
 script = ExtResource("39_cieqw")
 moving_sound = ExtResource("34_5ywmu")
 
