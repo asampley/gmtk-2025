@@ -109,7 +109,8 @@ func process_physics(delta: float) -> State:
 	var direction := (base_node.global_position - old_pos).normalized()
 
 	var dv := (self.gravity * Vector2i.DOWN).project(direction) * delta
-	base_node.velocity = base_node.velocity.length() * direction + dv
+	if dv.x != NAN && dv.y != NAN:
+		base_node.velocity = base_node.velocity.length() * direction + dv
 
 	if base_node.velocity.length() <= 10 * Globals.time_scale:
 		stopped_time += delta
