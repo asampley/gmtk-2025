@@ -8,6 +8,7 @@ extends Resource
 @export var combo_boost: float
 @export var nitrous_acceleration: float
 @export var nitrous_duration: float
+@export var nitrous_cooldown_multiplier: float
 @export var glide_movement_transfer: float
 @export var glide_duration: float
 @export var glide_cooldown_multiplier: float

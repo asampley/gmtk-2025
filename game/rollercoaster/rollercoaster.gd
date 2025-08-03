@@ -40,6 +40,8 @@ func _physics_process(delta: float) -> void:
 		nitro_cooldown -= delta
 	if nitro_remaining_duration > 0:
 		nitro_remaining_duration -= delta
+		if nitro_remaining_duration <= 0:
+			print("No more boost")
 	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
 		state_machine.process_physics(delta)
@@ -65,14 +67,17 @@ func on_shop_menu_closed() -> void:
 	queue_free()
 
 func nitro_activate() -> void:
-	nitro_remaining_duration = stats.nitrous_duration
+	if nitro_cooldown <= 0:
+		print("Nitro activated")
+		nitro_cooldown = stats.nitro_cooldown
+		nitro_remaining_duration = stats.nitro_duration
 
 func nitro_active() -> bool:
 	return nitro_remaining_duration > 0
 
 # By default not applied, left up to the states
 func apply_nitro(delta: float) -> void:
-	if !nitro_active() && stats.nitrous_acceleration <= 0.0:
+	if !nitro_active() || stats.nitro_acceleration <= 0.0:
 		return
 
-	velocity += velocity.normalized() * stats.nitrous_acceleration * Globals.time_scale_squared * delta
+	velocity += velocity.normalized() * stats.nitro_acceleration * Globals.time_scale_squared * delta
