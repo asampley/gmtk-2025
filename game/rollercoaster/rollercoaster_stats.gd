@@ -13,6 +13,7 @@ var glide_duration: float
 var glide_cooldown: float
 
 
+
 func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	initial_velocity = rollercoaster_template.initial_velocity
 	jump_force = rollercoaster_template.jump_force
@@ -21,6 +22,8 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	glide_movement_transfer = rollercoaster_template.glide_movement_transfer
 	glide_duration = rollercoaster_template.glide_duration
 	glide_cooldown = rollercoaster_template.glide_cooldown
+	nitro_duration = rollercoaster_template.nitro_duration
+	nitro_cooldown = rollercoaster_template.nitro_cooldown
 
 func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	var upgrade_tier := upgrade.template.tiers[tier]

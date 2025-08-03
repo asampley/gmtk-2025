@@ -10,3 +10,5 @@ extends Resource
 @export var glide_movement_transfer: float
 @export var glide_duration: float
 @export var glide_cooldown: float
+@export var nitro_cooldown: float
+@export var nitro_duration: float

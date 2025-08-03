@@ -12,4 +12,6 @@ func on_glide_cooldown_changed(amount: float) -> void:
 	glide_cooldown.value = amount
 
 func on_nitro_cooldown_changed(amount: float) -> void:
+	print(amount)
 	nitro_cooldown.value = amount
+	
