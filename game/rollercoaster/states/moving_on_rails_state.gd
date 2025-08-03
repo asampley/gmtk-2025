@@ -5,7 +5,6 @@ extends State
 @export var stopped_state: State
 @export var station_state: State
 
-@export var moving_sound: AudioStream
 
 var tile_pos: Vector2i = Vector2i.MAX
 var in_direction: Vector2i
@@ -34,13 +33,13 @@ func enter() -> void:
 			return acc
 	, Vector2i.ZERO)
 	update_path(true)
-	EventBus.train_audio_requested.emit(moving_sound)
+	EventBus.start_train_moving_sound.emit()
 
 func exit() -> void:
 	super()
-
 	track = null
 	tile_pos = Vector2i.MAX
+	EventBus.stop_train_moving_sound.emit()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):

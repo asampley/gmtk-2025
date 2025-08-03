@@ -33,6 +33,8 @@ signal combo_reset()
 signal station_stop()
 signal station_exit()
 signal train_audio_requested(clip: AudioStream)
+signal start_train_moving_sound()
+signal stop_train_moving_sound()
 
 #UI
 signal money_amount_changed(money: int)
