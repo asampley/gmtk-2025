@@ -1,7 +1,9 @@
 extends Control
 
 @onready var glide_cooldown: TextureProgressBar = %GlideCooldown
+@onready var use_button: Label = %UseButton
 @onready var nitro_cooldown: TextureProgressBar = %NitroCooldown
+
 
 
 func _ready() -> void:
@@ -14,8 +16,11 @@ func on_glide_cooldown_changed(amount: float) -> void:
 	glide_cooldown.value = amount
 
 func on_nitro_cooldown_changed(amount: float) -> void:
-	print(amount)
 	nitro_cooldown.value = amount
+	if amount == 0:
+		use_button.show()
+	else:
+		use_button.hide()
 
 func on_need_hide() -> void:
 	hide()

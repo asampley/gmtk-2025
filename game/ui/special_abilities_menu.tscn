@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cduk4oy45y8st"]
+[gd_scene load_steps=7 format=3 uid="uid://cduk4oy45y8st"]
 
 [ext_resource type="Script" uid="uid://c8i6vq78a2btr" path="res://game/ui/special_abilities_menu.gd" id="1_yf4dv"]
 [ext_resource type="Texture2D" uid="uid://cqirq01ud0doj" path="res://assets/slow_glide_powerup_2.png" id="2_h43m5"]
+[ext_resource type="Shader" uid="uid://cjdhldj33d1t7" path="res://game/shaders/fade_and_unfade_cycle.gdshader" id="3_g6f8x"]
 [ext_resource type="Texture2D" uid="uid://d27di5klwr65w" path="res://game/ui/cooldown_overlay.png" id="3_yf4dv"]
 [ext_resource type="Texture2D" uid="uid://dkmpd8bcsr113" path="res://assets/nitro_powerup_2.png" id="4_h43m5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhsur"]
+shader = ExtResource("3_g6f8x")
+shader_parameter/fadeSpeed = 3.0
 
 [node name="SpecialAbilitiesMenu" type="Control"]
 layout_mode = 3
@@ -26,6 +31,17 @@ layout_mode = 2
 [node name="Nitro" type="TextureRect" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("4_h43m5")
+
+[node name="UseButton" type="Label" parent="HBoxContainer/PanelContainer/Nitro"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_qhsur")
+layout_mode = 0
+offset_left = 4.0
+offset_top = 37.0
+offset_right = 61.0
+offset_bottom = 77.8333
+theme_override_font_sizes/font_size = 25
+text = "Space"
 
 [node name="NitroCooldown" type="TextureProgressBar" parent="HBoxContainer/PanelContainer/Nitro"]
 unique_name_in_owner = true
