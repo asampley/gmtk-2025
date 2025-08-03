@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
-[ext_resource type="PackedScene" path="res://game/world/background.tscn" id="3_cieqw"]
+[ext_resource type="PackedScene" uid="uid://gm04nnjeptj4" path="res://game/world/background.tscn" id="3_cieqw"]
 [ext_resource type="PackedScene" uid="uid://c608o4gv4yg2r" path="res://game/world/world.tscn" id="4_cf130"]
 [ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
@@ -16,8 +16,8 @@
 [ext_resource type="Script" uid="uid://dgxd5avufrdp2" path="res://game/fly_in_text/fly_in_text_manager.gd" id="14_hb504"]
 [ext_resource type="Theme" uid="uid://cvdgn5uuf5t4w" path="res://game/theme/game_theme.tres" id="14_jucfl"]
 [ext_resource type="PackedScene" uid="uid://daumugae1dbgt" path="res://game/fly_in_text/fly_in_text_prefab.tscn" id="15_ee6o4"]
-[ext_resource type="PackedScene" path="res://game/ui/special_abilities_menu.tscn" id="17_posua"]
-[ext_resource type="PackedScene" path="res://game/ui/stunts_menu.tscn" id="18_gvtgv"]
+[ext_resource type="PackedScene" uid="uid://cduk4oy45y8st" path="res://game/ui/special_abilities_menu.tscn" id="17_posua"]
+[ext_resource type="PackedScene" uid="uid://bcs7yacbfq5ff" path="res://game/ui/stunts_menu.tscn" id="18_gvtgv"]
 [ext_resource type="PackedScene" uid="uid://bkxvtukwghm2e" path="res://game/utility_buttons_menu/utility_buttons_menu.tscn" id="20_urpib"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
 [ext_resource type="PackedScene" uid="uid://drqjaswvgs5u3" path="res://game/stunts/combo_meter/combo_meter.tscn" id="22_vkvnp"]
@@ -48,6 +48,7 @@ rollercoaster_parent = NodePath("RollercoasterParent")
 spawn_position = NodePath("SpawnPosition")
 
 [node name="Background" parent="." instance=ExtResource("3_cieqw")]
+position = Vector2(607, -708)
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2(-95, 31)
@@ -147,9 +148,9 @@ script = ExtResource("6_dakft")
 
 [node name="UtilityButtonsMenu" parent="CanvasLayer" instance=ExtResource("20_urpib")]
 offset_left = 5.0
-offset_top = 6.0
-offset_right = -1117.0
-offset_bottom = -666.0
+offset_top = 5.0
+offset_right = -1065.0
+offset_bottom = -667.0
 mouse_filter = 2
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
@@ -209,9 +210,9 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="StuntsMenu" parent="CanvasLayer" instance=ExtResource("18_gvtgv")]
-offset_left = -466.0
+offset_left = -423.0
 offset_top = 2.0
-offset_right = 434.0
+offset_right = 477.0
 offset_bottom = 102.0
 mouse_filter = 2
 
@@ -387,6 +388,23 @@ offset_bottom = -830.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Bigger combo equals more money"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tricks7" type="Label" parent="Signs"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5687.0
+offset_top = -564.0
+offset_right = 6012.0
+offset_bottom = -435.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Left?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

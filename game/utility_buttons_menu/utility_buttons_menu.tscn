@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkxvtukwghm2e"]
+[gd_scene load_steps=8 format=3 uid="uid://bkxvtukwghm2e"]
 
 [ext_resource type="Script" uid="uid://b1h8k5e5l5g5j" path="res://game/utility_buttons_menu/utility_buttons_menu.gd" id="1_d5aa8"]
 [ext_resource type="Texture2D" uid="uid://fhg6tq5pr0y1" path="res://game/utility_buttons_menu/reset_save.png" id="2_02mpp"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="3_pjc1h"]
 [ext_resource type="Script" uid="uid://oeebitnriy20" path="res://game/ui/sound_texture_button.gd" id="3_sr2bu"]
 [ext_resource type="Texture2D" uid="uid://denpkxs8jat4e" path="res://game/utility_buttons_menu/sfx_on.png" id="4_olkcr"]
+[ext_resource type="Texture2D" uid="uid://khchawq6xovs" path="res://game/utility_buttons_menu/reset_scene.png" id="5_xcrxv"]
 
 [node name="UtilityButtonsMenu" type="HBoxContainer"]
 anchors_preset = 15
@@ -18,6 +19,13 @@ script = ExtResource("1_d5aa8")
 [node name="ResetSave" type="TextureButton" parent="."]
 layout_mode = 2
 texture_normal = ExtResource("2_02mpp")
+script = ExtResource("3_sr2bu")
+sound = ExtResource("3_pjc1h")
+metadata/_custom_type_script = "uid://oeebitnriy20"
+
+[node name="ResetScene" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("5_xcrxv")
 script = ExtResource("3_sr2bu")
 sound = ExtResource("3_pjc1h")
 metadata/_custom_type_script = "uid://oeebitnriy20"
@@ -39,5 +47,6 @@ sound = ExtResource("3_pjc1h")
 metadata/_custom_type_script = "uid://oeebitnriy20"
 
 [connection signal="pressed" from="ResetSave" to="." method="_on_reset_save_pressed"]
+[connection signal="pressed" from="ResetScene" to="." method="_on_reset_scene_pressed"]
 [connection signal="toggled" from="MuteMusic" to="." method="_on_mute_music_toggled"]
 [connection signal="toggled" from="MuteSFX" to="." method="_on_mute_sfx_toggled"]
