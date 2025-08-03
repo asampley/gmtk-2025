@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	if nitro_remaining_duration > 0:
 		nitro_remaining_duration -= delta
 		if nitro_remaining_duration <= 0:
-			particles.process_material.color_ramp = nitro_colour
+			particles.process_material.color_ramp = normal_colour
 			print("No more boost")
 	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
