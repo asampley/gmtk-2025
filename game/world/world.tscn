@@ -48,7 +48,7 @@ position = Vector2(469, 379)
 pickup = ExtResource("8_ncs2d")
 
 [node name="Trick Fins" parent="Pickups" instance=ExtResource("7_5hesp")]
-position = Vector2(4427, -571)
+position = Vector2(3439, -571)
 pickup = ExtResource("9_io0hq")
 
 [node name="Nitrous" parent="Pickups" instance=ExtResource("7_5hesp")]

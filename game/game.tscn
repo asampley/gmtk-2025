@@ -66,6 +66,7 @@ position = Vector2(7, -757)
 position = Vector2(-95, 31)
 
 [node name="World" parent="." instance=ExtResource("4_cf130")]
+position = Vector2(-2, -5)
 
 [node name="Signs" type="Node2D" parent="."]
 texture_filter = 1
@@ -174,6 +175,25 @@ offset_right = 632.0
 offset_bottom = 1038.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
+[node name="TricksBoostSign" type="Panel" parent="Signs"]
+offset_left = 4152.0
+offset_top = -746.0
+offset_right = 4697.0
+offset_bottom = -616.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
+
+[node name="Trick Boost" type="Label" parent="Signs/TricksBoostSign"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 492.0
+offset_bottom = 130.0
+text = "Hover over upgrades in the shop to see what they do!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="ObjectivesSign" type="Panel" parent="Signs"]
 offset_left = 295.0
 offset_top = 215.0
@@ -195,34 +215,11 @@ offset_right = 168.0
 offset_bottom = 84.3333
 grow_horizontal = 2
 grow_vertical = 2
-text = "A secret!
+text = "A upgrade!
 Check back in the shop
 "
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Blue Pickup" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(2215, -757)
-
-[node name="TricksBoostSign" type="Panel" parent="Signs/Blue Pickup"]
-offset_left = 1937.0
-offset_top = -20.0
-offset_right = 2482.0
-offset_bottom = 110.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
-
-[node name="Trick Boost" type="Label" parent="Signs/Blue Pickup/TricksBoostSign"]
-texture_filter = 2
-layout_mode = 0
-offset_left = 49.0
-offset_top = 2.0
-offset_right = 492.0
-offset_bottom = 130.0
-text = "Hover over upgrades in the shop to see what they do!"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="TrickBoostSign" type="Panel" parent="Signs"]
 offset_left = 1128.0
@@ -332,10 +329,10 @@ offset_bottom = 894.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="ComboBoostSign" type="Panel" parent="Signs"]
-offset_left = 2904.0
-offset_top = -776.0
-offset_right = 3272.0
-offset_bottom = -647.0
+offset_left = 3256.0
+offset_top = -744.0
+offset_right = 3624.0
+offset_bottom = -615.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="ComboBoost" type="Label" parent="Signs/ComboBoostSign"]
@@ -352,7 +349,8 @@ offset_right = 162.0
 offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Combos also give you a speedboost"
+theme_override_font_sizes/font_size = 25
+text = "This one gives you a speedboost from doing combos"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -410,10 +408,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="TricksSign5" type="Panel" parent="Signs"]
-offset_left = 1847.0
-offset_top = -825.0
-offset_right = 2215.0
-offset_bottom = -649.0
+offset_left = 2376.0
+offset_top = -743.0
+offset_right = 2760.0
+offset_bottom = -616.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks5" type="Label" parent="Signs/TricksSign5"]
@@ -424,22 +422,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = -66.0
-offset_right = 153.0
-offset_bottom = 62.5
+offset_left = -162.0
+offset_top = -63.5
+offset_right = 163.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 33
 text = "Click on the view Combos button to see more tricks!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Tricks6Sign" type="Panel" parent="Signs"]
-offset_left = 616.0
-offset_top = -777.0
-offset_right = 984.0
-offset_bottom = -648.0
+offset_left = 1512.0
+offset_top = -745.0
+offset_right = 1880.0
+offset_bottom = -616.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
 
 [node name="Tricks6" type="Label" parent="Signs/Tricks6Sign"]
