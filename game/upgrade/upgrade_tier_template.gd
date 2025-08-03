@@ -7,6 +7,7 @@ extends Resource
 @export var add_combo_multiplier: float
 @export var combo_boost: float
 @export var nitrous_acceleration: float
+@export var unlocks_nitro: bool
 @export var nitrous_duration: float
 @export var nitrous_cooldown_multiplier: float
 @export var glide_movement_transfer: float

@@ -1,6 +1,7 @@
 class_name RollercoasterStats
 
 
+var nitro_unlocked: bool = false
 var initial_velocity: float
 var jump_force: float
 var base_combo_multiplier: float
@@ -11,7 +12,6 @@ var nitro_cooldown: float
 var glide_movement_transfer: float
 var glide_duration: float
 var glide_cooldown: float
-
 
 
 func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
@@ -25,6 +25,7 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	nitro_duration = rollercoaster_template.nitro_duration
 	nitro_cooldown = rollercoaster_template.nitro_cooldown
 
+
 func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	var upgrade_tier := upgrade.template.tiers[tier]
 	print("Applying upgrade %s %d: %s" % [ upgrade.template.upgrade_name, tier, upgrade_tier ])
@@ -37,3 +38,6 @@ func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	glide_movement_transfer += upgrade_tier.glide_movement_transfer
 	glide_duration += upgrade_tier.glide_duration
 	glide_cooldown *=  1.0 + upgrade_tier.glide_cooldown_multiplier
+	if upgrade_tier.unlocks_nitro:
+		nitro_unlocked = true
+		EventBus.nitro_unlocked.emit()

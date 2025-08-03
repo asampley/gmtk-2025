@@ -43,7 +43,8 @@ signal speed_update(speed: float)
 signal airtime_changed(airtime: float)
 signal play_ui_sound(sound: AudioStream)
 signal glide_cooldown_changed(amount: float)
-signal nitro_cooldown_changed(amout: float)
+signal nitro_cooldown_changed(amount: float)
+signal nitro_unlocked()
 
 # Game end
 signal to_the_moon()

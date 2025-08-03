@@ -7,10 +7,12 @@ extends Control
 
 
 func _ready() -> void:
+	hide()
 	EventBus.glide_cooldown_changed.connect(on_glide_cooldown_changed)
 	EventBus.nitro_cooldown_changed.connect(on_nitro_cooldown_changed)
 	EventBus.station_stop.connect(on_need_hide)
 	EventBus.shop_menu_closed.connect(on_need_show)
+	EventBus.nitro_unlocked.connect(show)
 
 func on_glide_cooldown_changed(amount: float) -> void:
 	glide_cooldown.value = amount

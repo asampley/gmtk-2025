@@ -12,6 +12,7 @@ add_jump_force = 0.0
 add_combo_multiplier = 0.0
 combo_boost = 100.0
 nitrous_acceleration = 0.0
+unlocks_nitro = false
 nitrous_duration = 0.0
 nitrous_cooldown_multiplier = 0.0
 glide_movement_transfer = 0.0
