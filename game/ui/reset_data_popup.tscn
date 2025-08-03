@@ -36,7 +36,7 @@ theme_override_constants/margin_bottom = 50
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 theme_override_constants/outline_size = 25
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "This will delete all save data. 
 
 ARE YOU SURE YOU WANT TO PROCEED?"
@@ -45,6 +45,7 @@ autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -52,6 +53,8 @@ size_flags_horizontal = 3
 
 [node name="Yes" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.25
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 70
 text = "YES"
@@ -65,6 +68,8 @@ size_flags_horizontal = 3
 
 [node name="No" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.25
 theme_override_constants/outline_size = 40
 theme_override_font_sizes/font_size = 70
 text = "NO"
