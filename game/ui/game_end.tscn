@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgk8eeosxx0sy"]
+
+[ext_resource type="Script" uid="uid://dcst3h1vrly4" path="res://game/ui/game_end.gd" id="1_5477f"]
+[ext_resource type="Texture2D" uid="uid://bs6j6ig2koe8" path="res://title_2.png" id="2_vc0pv"]
+[ext_resource type="Texture2D" uid="uid://ci30e1mo17nfn" path="res://assets/star.png" id="3_tcc8s"]
+[ext_resource type="Script" uid="uid://dynb1tq2jef8s" path="res://game/ui/star.gd" id="4_gu6b5"]
+
+[node name="Game End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5477f")
+animate_duration = 4.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vc0pv")
+expand_mode = 1
+
+[node name="Star" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(976, 245)
+texture = ExtResource("3_tcc8s")
+script = ExtResource("4_gu6b5")
+time_until_animate = 4.0
+animate_duration = 3.0
