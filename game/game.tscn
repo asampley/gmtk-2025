@@ -381,6 +381,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="GetFast" type="Panel" parent="Signs"]
+offset_left = 6657.0
+offset_top = -1223.0
+offset_right = 7025.0
+offset_bottom = -1094.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_64wtb")
+
+[node name="GetFast" type="Label" parent="Signs/GetFast"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -61.5
+offset_right = 159.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you fast enough to go UP here?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="MoreAirSign2" type="Panel" parent="Signs"]
 offset_left = 6064.0
 offset_top = -961.0
