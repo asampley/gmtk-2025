@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_pkfmj")
-title = "Find the Trick Fins in Blue"
+title = "Find the Trick Fins in Purple"
 reward = 0
 upgrade_unlock = ExtResource("3_d72um")
 number_of_tasks = 1
