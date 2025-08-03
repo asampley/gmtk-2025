@@ -30,6 +30,10 @@ func save() -> String:
 	return save_string
 
 func purchase_upgrade() -> void:
+	if purchased == 0:
+		for upgrade in template.unlocks:
+			EventBus.upgrade_unlocked.emit(upgrade.upgrade_name)
+
 	purchased += 1
 
 func available() -> bool:

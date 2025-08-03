@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=6 format=3 uid="uid://c7fgk7v2g6nmj"]
+
+[ext_resource type="Texture2D" uid="uid://cqirq01ud0doj" path="res://assets/slow_glide_powerup_2.png" id="1_d6qb6"]
+[ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="2_q25d7"]
+[ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="3_xmbaj"]
+
+[sub_resource type="Resource" id="Resource_y7f14"]
+script = ExtResource("3_xmbaj")
+cost = 200
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 0.0
+nitrous_acceleration = 0.0
+nitrous_duration = 2.0
+nitrous_cooldown_multiplier = 1.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 1.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[sub_resource type="Resource" id="Resource_cno0f"]
+script = ExtResource("3_xmbaj")
+cost = 400
+add_initial_velocity = 0.0
+add_jump_force = 0.0
+add_combo_multiplier = 0.0
+combo_boost = 0.0
+nitrous_acceleration = 0.0
+nitrous_duration = 2.0
+nitrous_cooldown_multiplier = 1.0
+glide_movement_transfer = 0.0
+glide_duration = 0.0
+glide_cooldown_multiplier = 1.0
+metadata/_custom_type_script = "uid://dwia3wqigp7cc"
+
+[resource]
+script = ExtResource("2_q25d7")
+upgrade_name = "Nitro Pressure Regulator"
+description = "Increase nitro duration"
+purchase_icon = ExtResource("1_d6qb6")
+unlocked = false
+tiers = Array[ExtResource("3_xmbaj")]([SubResource("Resource_y7f14"), SubResource("Resource_cno0f")])
+metadata/_custom_type_script = "uid://b6ea637edsxpb"

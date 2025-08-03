@@ -5,4 +5,5 @@ extends Resource
 @export var description: String
 @export var purchase_icon: Texture
 @export var unlocked: bool
+@export var unlocks: Array[UpgradeTemplate]
 @export var tiers: Array[UpgradeTierTemplate]
