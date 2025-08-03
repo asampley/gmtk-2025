@@ -10,6 +10,11 @@ extends CharacterBody2D
 @export var deformation_divider: float = 100000
 @export var deformation_duration: float = 0.1
 @export var camera: Camera2D
+@export var particles: GPUParticles2D
+
+@export var nitro_sound: AudioStream
+@export var normal_colour: GradientTexture1D
+@export var nitro_colour: GradientTexture1D
 
 
 var stats: RollercoasterStats
@@ -43,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	if nitro_remaining_duration > 0:
 		nitro_remaining_duration -= delta
 		if nitro_remaining_duration <= 0:
+			particles.process_material.color_ramp = nitro_colour
 			print("No more boost")
 	EventBus.speed_update.emit(velocity.length())
 	if state_machine:
@@ -73,6 +79,8 @@ func nitro_activate() -> void:
 		print("Nitro activated")
 		nitro_cooldown = stats.nitro_cooldown
 		nitro_remaining_duration = stats.nitro_duration
+	EventBus.train_audio_requested.emit(nitro_sound)
+	particles.process_material.color_ramp = nitro_colour
 
 func nitro_active() -> bool:
 	return nitro_remaining_duration > 0
@@ -81,5 +89,4 @@ func nitro_active() -> bool:
 func apply_nitro(delta: float) -> void:
 	if !nitro_active() || stats.nitro_acceleration <= 0.0:
 		return
-
 	velocity += velocity.normalized() * stats.nitro_acceleration * Globals.time_scale_squared * delta

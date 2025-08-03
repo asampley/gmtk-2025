@@ -18,6 +18,7 @@ script = ExtResource("1_yf4dv")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+alignment = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -42,6 +43,7 @@ radial_initial_angle = 360.0
 texture_progress = ExtResource("3_yf4dv")
 
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Glide" type="TextureRect" parent="HBoxContainer/PanelContainer2"]

@@ -418,7 +418,7 @@ text_speed = 30.0
 [node name="AudioPlayers" type="Node" parent="."]
 
 [node name="TrainSounds" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -25.326
+volume_db = -8.0
 bus = &"sfx"
 script = ExtResource("35_mhp6k")
 falling_sound = ExtResource("35_vkvnp")
@@ -450,6 +450,7 @@ six_buttons = ExtResource("35_0rekh")
 seven_buttons = ExtResource("36_281ou")
 
 [node name="MovingSound" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -10.0
+volume_db = -17.958
+bus = &"sfx"
 script = ExtResource("39_cieqw")
 moving_sound = ExtResource("34_5ywmu")

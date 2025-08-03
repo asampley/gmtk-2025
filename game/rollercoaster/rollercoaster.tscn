@@ -1,10 +1,13 @@
-[gd_scene load_steps=71 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=72 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
+[ext_resource type="AudioStream" uid="uid://hah1nr1k70bg" path="res://game/rollercoaster/nitro_boost.mp3" id="2_33xk4"]
 [ext_resource type="Shader" uid="uid://coelylstno2qo" path="res://game/shaders/squash_and_stretch.gdshader" id="2_y8uoc"]
 [ext_resource type="Script" uid="uid://c03h3xluod86s" path="res://game/state_machine/state_machine.gd" id="3_nmpxg"]
 [ext_resource type="Texture2D" uid="uid://dymfq5h55luqx" path="res://assets/railcarsprites.png" id="3_rsh2y"]
+[ext_resource type="Texture2D" uid="uid://cwheynsd0rgad" path="res://game/rollercoaster/nitro_colour_ramp.tres" id="3_wsxgt"]
 [ext_resource type="Script" uid="uid://cgxc1m8epbsvj" path="res://game/rollercoaster/states/stopped_state.gd" id="4_8bbrx"]
+[ext_resource type="Texture2D" uid="uid://bw0v7c8lhvxuy" path="res://game/rollercoaster/normal_colour_ramp.tres" id="4_p2xsc"]
 [ext_resource type="Script" uid="uid://bvpch57cprwa7" path="res://game/rollercoaster/states/moving_on_rails_state.gd" id="5_1ove5"]
 [ext_resource type="Script" uid="uid://btuxrxldtn8mr" path="res://game/rollercoaster/states/jumping_state.gd" id="5_j853t"]
 [ext_resource type="Script" uid="uid://dnocpwuiytvrl" path="res://game/rollercoaster/spawning_state.gd" id="5_p2xsc"]
@@ -382,13 +385,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_8v57q"]
-offsets = PackedFloat32Array(0, 0.115385, 0.307692, 0.538462, 0.74359, 0.987179)
-colors = PackedColorArray(1, 1, 1, 1, 0.501961, 0.501961, 0.501961, 1, 0.784314, 0.176471, 0, 1, 0.894922, 0.512821, 0.297637, 1, 1, 1, 0.0431373, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_p2xsc"]
-gradient = SubResource("Gradient_8v57q")
-
 [sub_resource type="Curve" id="Curve_wsxgt"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.990385, 0.202247), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -406,8 +402,7 @@ spread = 180.0
 gravity = Vector3(0, 0, 0)
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_33xk4")
-color = Color(1, 0.448519, 0.242224, 1)
-color_ramp = SubResource("GradientTexture1D_p2xsc")
+color_ramp = ExtResource("4_p2xsc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmpxg"]
 size = Vector2(26, 9)
@@ -418,7 +413,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow", "camera")]
+[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow", "camera", "particles")]
 collision_layer = 2
 collision_mask = 13
 slide_on_ceiling = false
@@ -435,6 +430,10 @@ animations = NodePath("AnimatedSprite2D")
 path = NodePath("AnimatePath")
 path_follow = NodePath("AnimatePath/AnimatePathFollow")
 camera = NodePath("Camera2D")
+particles = NodePath("GPUParticles2D")
+nitro_sound = ExtResource("2_33xk4")
+normal_colour = ExtResource("4_p2xsc")
+nitro_colour = ExtResource("3_wsxgt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_0cxb7")
@@ -443,7 +442,7 @@ animation = &"heel_flip"
 offset = Vector2(0, -8)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(-13, -9)
+position = Vector2(-13, -8)
 amount = 5000
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_4i0yg")
