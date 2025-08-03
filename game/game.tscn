@@ -48,6 +48,7 @@ rollercoaster_parent = NodePath("RollercoasterParent")
 spawn_position = NodePath("SpawnPosition")
 
 [node name="Background" parent="." instance=ExtResource("3_cieqw")]
+position = Vector2(0, -720)
 
 [node name="SpawnPosition" type="Node2D" parent="."]
 position = Vector2(-95, 31)
