@@ -13,6 +13,6 @@ combo_boost = 0.0
 glide_movement_transfer = 800.0
 glide_duration = 2.0
 glide_cooldown = 10.0
-nitro_cooldown = 10.0
+nitro_cooldown = 5.0
 nitro_duration = 1.0
 metadata/_custom_type_script = "uid://q4xm1msgpepn"
