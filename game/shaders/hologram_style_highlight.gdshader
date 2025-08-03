@@ -1,4 +1,4 @@
-#https://godotshaders.com/shader/2d-highlight-effect/
+//https://godotshaders.com/shader/2d-highlight-effect/
 shader_type canvas_item;
 
 uniform sampler2D vertical_gradient; // used to set alpha values. So you can use this to make the effect dis-/re-appear at points

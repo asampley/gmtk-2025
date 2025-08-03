@@ -402,20 +402,20 @@ position = Vector2(0, 32)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 5.0
-offset_top = 389.0
-offset_right = 245.0
-offset_bottom = 557.0
+offset_left = 4.0
+offset_top = 397.0
+offset_right = 244.0
+offset_bottom = 565.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1, 1)
 theme = ExtResource("14_jucfl")
 
 [node name="ComboMeter" parent="CanvasLayer" instance=ExtResource("22_vkvnp")]
-offset_left = 126.0
-offset_top = 352.0
-offset_right = -1154.0
-offset_bottom = -368.0
+offset_left = 125.0
+offset_top = 360.0
+offset_right = -1155.0
+offset_bottom = -360.0
 mouse_filter = 2
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
@@ -468,9 +468,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1278.0
+offset_left = -1279.0
 offset_top = -153.0
-offset_right = -749.0
+offset_right = -750.0
 offset_bottom = -3.0
 grow_vertical = 0
 size_flags_horizontal = 8

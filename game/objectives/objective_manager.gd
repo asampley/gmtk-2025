@@ -14,6 +14,7 @@ func _ready() -> void:
 	EventBus.shop_menu_closed.connect(save_data)
 	EventBus.requested_save_data_reset.connect(on_requested_save_data_reset)
 	EventBus.objective_task_completed.connect(on_objective_task_completed)
+	EventBus.objective_completed.connect(on_objective_completed)
 
 func load_data_from_resources() -> void:
 	for template: ObjectiveTemplate in DataHandler.objective_resources:
@@ -41,6 +42,12 @@ func on_objective_task_completed(objective_title: String) -> void:
 		Globals.objectives[objective_title].task_completed()
 	else:
 		printerr("There is a mistitled objective task.")
+
+func on_objective_completed() -> void:
+	for objective: Objective in Globals.objectives.values():
+		if !objective.completed:
+			Globals.bookmarked_objective = objective
+			EventBus.bookmarked_objective_changed.emit()
 
 func check_save_file_exists() -> bool:
 	var dir := DirAccess.open(OBJECTIVES_SAVE_FOLDER)

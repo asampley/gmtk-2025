@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djsroa7s51myg"]
+[gd_scene load_steps=11 format=3 uid="uid://djsroa7s51myg"]
 
 [ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
 [ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="2_3jywm"]
@@ -7,6 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://c6yu2yr7llgxx" path="res://game/objectives/target.png" id="4_qvuah"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="5_d60pi"]
 [ext_resource type="Texture2D" uid="uid://bpssuu4j6h3tx" path="res://game/objectives/target_grey.png" id="5_qvuah"]
+[ext_resource type="Shader" uid="uid://8nl8l4xgcmks" path="res://game/shaders/sword_style_sprite_highlight.gdshader" id="6_d60pi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmrwq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnfb4"]
+shader = ExtResource("6_d60pi")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+shader_parameter/replacementColor = Color(0.898039, 0.87451, 0, 0.184314)
 
 [node name="ObjectiveItem" type="PanelContainer"]
 script = ExtResource("1_28l77")
@@ -31,12 +48,26 @@ autowrap_mode = 3
 
 [node name="Claim" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_hmrwq")
 layout_mode = 2
 texture_normal = ExtResource("2_3jywm")
 texture_disabled = ExtResource("3_3jywm")
 script = ExtResource("4_3l71y")
 sound = ExtResource("5_d60pi")
 metadata/_custom_type_script = "uid://oeebitnriy20"
+
+[node name="Highlight" type="TextureRect" parent="MarginContainer/HBoxContainer/Claim"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_rnfb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3jywm")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="Bookmark" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true

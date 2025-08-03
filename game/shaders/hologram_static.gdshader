@@ -1,4 +1,4 @@
-#https://godotshaders.com/shader/hologram-simple-canvasitem-shader/
+//https://godotshaders.com/shader/hologram-simple-canvasitem-shader/
 
 shader_type canvas_item;
 

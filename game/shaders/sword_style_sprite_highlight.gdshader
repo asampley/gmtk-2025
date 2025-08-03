@@ -1,4 +1,4 @@
-#Modified from https://godotshaders.com/shader/highlight-canvasitem-sprite-adaptation/
+//Modified from https://godotshaders.com/shader/highlight-canvasitem-sprite-adaptation/
 
 shader_type canvas_item;
 render_mode blend_premul_alpha;
