@@ -20,6 +20,16 @@ func _process(delta: float) -> void:
 			modulate = Color(1, 1, 1, animation_time / animate_duration)
 
 func start_animation() -> void:
+	var index := AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_mute(index, true)
 	show()
 	animate = true
 	animation_time = 0
+
+
+func _on_reset_data_pressed() -> void:
+	EventBus.requested_save_data_reset.emit()
+	get_tree().reload_current_scene()
+
+func _on_reset_scene_pressed() -> void:
+	get_tree().reload_current_scene()

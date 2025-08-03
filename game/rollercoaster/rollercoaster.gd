@@ -27,6 +27,7 @@ func initialize() -> void:
 	state_machine.initialize(self)
 	camera.initialize(self)
 	EventBus.shop_menu_closed.connect(on_shop_menu_closed)
+	EventBus.to_the_moon.connect(on_game_win)
 	EventBus.glide_cooldown_changed.emit(glide_cooldown / stats.glide_cooldown)
 	EventBus.nitro_cooldown_changed.emit(nitro_cooldown / stats.nitro_cooldown)
 
@@ -90,3 +91,6 @@ func apply_nitro(delta: float) -> void:
 	if !nitro_active() || stats.nitro_acceleration <= 0.0:
 		return
 	velocity += velocity.normalized() * stats.nitro_acceleration * Globals.time_scale_squared * delta
+
+func on_game_win() -> void:
+	queue_free()
