@@ -43,6 +43,7 @@ func spawn_rollercoaster(spawn_position: Vector2) -> void:
 func on_upgrade_purchased(upgrade: Upgrade) -> void:
 	upgrade.purchase_upgrade()
 	Globals.money -= upgrade.template.tiers[upgrade.purchased - 1].cost
+	EventBus.money_amount_changed.emit(Globals.money)
 	apply_upgrade_to_rollercoaster(upgrade, upgrade.purchased - 1)
 	EventBus.upgrade_menu_opened.emit(upgrades)
 

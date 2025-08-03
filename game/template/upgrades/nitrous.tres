@@ -1,23 +1,26 @@
-[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=5 format=3 uid="uid://cvbx1ac8ya0ga"]
+[gd_resource type="Resource" script_class="UpgradeTemplate" load_steps=8 format=3 uid="uid://cvbx1ac8ya0ga"]
 
 [ext_resource type="Script" uid="uid://b6ea637edsxpb" path="res://game/upgrade/upgrade_template.gd" id="1_5t75g"]
 [ext_resource type="Texture2D" uid="uid://dkmpd8bcsr113" path="res://assets/nitro_powerup_2.png" id="1_ntquw"]
 [ext_resource type="Script" uid="uid://dwia3wqigp7cc" path="res://game/upgrade/upgrade_tier_template.gd" id="2_ntquw"]
+[ext_resource type="Resource" uid="uid://c88gx67pljatj" path="res://game/template/upgrades/nitrouse_cooldown.tres" id="4_q27hv"]
+[ext_resource type="Resource" uid="uid://dw2bfcar5jusn" path="res://game/template/upgrades/nitrous_acceleration.tres" id="5_o305p"]
+[ext_resource type="Resource" uid="uid://c7fgk7v2g6nmj" path="res://game/template/upgrades/nitrous_duration.tres" id="6_0qty8"]
 
 [sub_resource type="Resource" id="Resource_ntquw"]
 script = ExtResource("2_ntquw")
-cost = 600
+cost = 300
 add_initial_velocity = 0.0
 add_jump_force = 0.0
 add_combo_multiplier = 0.0
 combo_boost = 0.0
-nitrous_acceleration = 1000.0
-unlocks_nitro = false
-nitrous_duration = 3.0
+nitrous_acceleration = 500.0
+unlocks_nitro = true
+nitrous_duration = 2.0
 nitrous_cooldown_multiplier = 1.0
 glide_movement_transfer = 0.0
 glide_duration = 0.0
-glide_cooldown_multiplier = 0.0
+glide_cooldown_multiplier = 1.0
 metadata/_custom_type_script = "uid://dwia3wqigp7cc"
 
 [resource]
@@ -26,5 +29,6 @@ upgrade_name = "Nitrous Oxide Boost"
 description = "Give yourself a healthy speed increase, using space"
 purchase_icon = ExtResource("1_ntquw")
 unlocked = false
+unlocks = Array[ExtResource("1_5t75g")]([ExtResource("4_q27hv"), ExtResource("5_o305p"), ExtResource("6_0qty8")])
 tiers = Array[ExtResource("2_ntquw")]([SubResource("Resource_ntquw")])
 metadata/_custom_type_script = "uid://b6ea637edsxpb"
