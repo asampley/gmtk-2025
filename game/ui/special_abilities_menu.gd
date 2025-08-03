@@ -2,17 +2,18 @@ extends Control
 
 @onready var glide_cooldown: TextureProgressBar = %GlideCooldown
 @onready var use_button: Label = %UseButton
+@onready var nitro_parent: PanelContainer = %NitroParent
 @onready var nitro_cooldown: TextureProgressBar = %NitroCooldown
 
 
 
 func _ready() -> void:
-	hide()
+	nitro_parent.hide()
 	EventBus.glide_cooldown_changed.connect(on_glide_cooldown_changed)
 	EventBus.nitro_cooldown_changed.connect(on_nitro_cooldown_changed)
 	EventBus.station_stop.connect(on_need_hide)
 	EventBus.shop_menu_closed.connect(on_need_show)
-	EventBus.nitro_unlocked.connect(show)
+	EventBus.nitro_unlocked.connect(on_nitro_unlocked)
 
 func on_glide_cooldown_changed(amount: float) -> void:
 	glide_cooldown.value = amount
@@ -29,3 +30,6 @@ func on_need_hide() -> void:
 
 func on_need_show() -> void:
 	show()
+
+func on_nitro_unlocked() -> void:
+	nitro_parent.show()

@@ -25,14 +25,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 alignment = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="NitroParent" type="PanelContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Nitro" type="TextureRect" parent="HBoxContainer/PanelContainer"]
+[node name="Nitro" type="TextureRect" parent="HBoxContainer/NitroParent"]
 layout_mode = 2
 texture = ExtResource("4_h43m5")
 
-[node name="UseButton" type="Label" parent="HBoxContainer/PanelContainer/Nitro"]
+[node name="UseButton" type="Label" parent="HBoxContainer/NitroParent/Nitro"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_qhsur")
 layout_mode = 0
@@ -43,7 +44,7 @@ offset_bottom = 77.8333
 theme_override_font_sizes/font_size = 25
 text = "Space"
 
-[node name="NitroCooldown" type="TextureProgressBar" parent="HBoxContainer/PanelContainer/Nitro"]
+[node name="NitroCooldown" type="TextureProgressBar" parent="HBoxContainer/NitroParent/Nitro"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
