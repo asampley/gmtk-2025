@@ -81,8 +81,9 @@ theme = ExtResource("14_jucfl")
 [node name="ComboMeter" parent="CanvasLayer" instance=ExtResource("22_vkvnp")]
 offset_left = 126.0
 offset_top = 352.0
-offset_right = 126.0
-offset_bottom = 352.0
+offset_right = -1154.0
+offset_bottom = -368.0
+mouse_filter = 2
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
 visible = false
@@ -172,6 +173,7 @@ grow_vertical = 0
 visible = false
 offset_right = 265.0
 offset_bottom = 70.8333
+mouse_filter = 2
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -210,12 +212,14 @@ offset_right = -87.0
 offset_bottom = -86.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="StuntsMenu" parent="CanvasLayer" instance=ExtResource("18_gvtgv")]
 offset_left = -466.0
 offset_top = 2.0
 offset_right = 434.0
 offset_bottom = 102.0
+mouse_filter = 2
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
@@ -298,36 +302,100 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Boost Tracks" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.25, 1)
-scroll_offset = Vector2(1070, -172)
-
-[node name="Boost tracks" type="Label" parent="Signs/Boost Tracks"]
-offset_right = 327.0
-offset_bottom = 85.0
+[node name="Boost tracks" type="Label" parent="Signs"]
+offset_left = 1157.0
+offset_top = -217.0
+offset_right = 1484.0
+offset_bottom = -132.0
 text = "Boost tracks increase your speed"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Tricks" type="Parallax2D" parent="Signs"]
-scroll_scale = Vector2(0.4, 1)
-scroll_offset = Vector2(1983, -322)
-
-[node name="Tricks" type="Label" parent="Signs/Tricks"]
+[node name="Tricks2" type="Label" parent="Signs"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_right = 223.0
-offset_bottom = 84.667
+offset_left = 1688.0
+offset_top = -103.0
+offset_right = 2013.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Do tricks
-to earn money!"
+text = "Press Right and Down when in the air"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tricks3" type="Label" parent="Signs"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2607.0
+offset_top = -301.0
+offset_right = 2932.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Do a Frontflip!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tricks4" type="Label" parent="Signs"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 3453.0
+offset_top = -151.0
+offset_right = 3778.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Combos Give you a speedboost"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tricks5" type="Label" parent="Signs"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5556.0
+offset_top = -250.0
+offset_right = 5881.0
+offset_bottom = -121.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Click on the view Combos button to see more patterns!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tricks6" type="Label" parent="Signs"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5696.0
+offset_top = -959.0
+offset_right = 6021.0
+offset_bottom = -830.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bigger combo equals more money"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="FlyInTextManager" type="Node" parent="." node_paths=PackedStringArray("fly_in_text_parent")]
 script = ExtResource("14_hb504")

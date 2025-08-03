@@ -19,7 +19,7 @@ func load_save() -> void:
 	for data: String in save_data_array:
 		if data != "":
 			var regex := RegEx.new()
-			regex.compile("[^a-zA-Z:_\\s+]")
+			regex.compile("[^a-zA-Z0-9:_\\s+]")
 			data = regex.sub(data, "", true)
 			var key_pair := data.split(": ")
 			data_dictionary[key_pair[0].strip_edges()] = key_pair[1].strip_edges()
