@@ -46,6 +46,7 @@ gdscript/warnings/unsafe_call_argument=2
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -64,6 +65,8 @@ auto_rebuild=true
 [gui]
 
 theme/custom="uid://cvdgn5uuf5t4w"
+theme/default_font_antialiasing=0
+theme/default_font_subpixel_positioning=0
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
 
@@ -146,7 +149,6 @@ special_move={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
