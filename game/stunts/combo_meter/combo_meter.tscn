@@ -47,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mkgrf")
-max_score = 100.0
+max_score = 150.0
 
 [node name="red" type="Node2D" parent="."]
 position = Vector2(-40.9999, 4.00006)
