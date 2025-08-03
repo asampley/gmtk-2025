@@ -22,6 +22,7 @@ signal bookmarked_objective_changed()
 signal bookmarked_objective_updated()
 signal objective_task_completed(objective_title: String)
 signal objective_claimed()
+signal objective_completed()
 
 #Doing tricks
 signal generated_fly_in_text(text: String, position: Vector2, direction: Vector2)

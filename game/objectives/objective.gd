@@ -36,11 +36,11 @@ func save() -> String:
 func task_completed() -> void:
 	tasks_completed += 1
 	if tasks_completed >= template.number_of_tasks:
+		if !completed:
+			EventBus.objective_completed.emit()
 		completed = true
-
 		if template.upgrade_unlock:
 			EventBus.upgrade_unlocked.emit(template.upgrade_unlock.upgrade_name);
-
 	updated()
 
 func claim() -> void:
