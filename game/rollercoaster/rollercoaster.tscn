@@ -494,7 +494,7 @@ script = ExtResource("6_pce4i")
 position_smoothing_speed = 100.0
 script = ExtResource("15_8v57q")
 min_zoom = 1.0
-max_zoom = 2.0
+max_zoom = 1.6
 max_speed = 1500.0
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource("16_p2xsc")]
