@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://duxcyga38wgsi"]
+[gd_scene load_steps=6 format=3 uid="uid://duxcyga38wgsi"]
 
 [ext_resource type="Script" uid="uid://dj6afu3tdxkyp" path="res://game/upgrade/upgrade_selector.gd" id="1_5hy0p"]
 [ext_resource type="Texture2D" uid="uid://btl25vexu0nyx" path="res://icon.svg" id="1_dvsfp"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="2_7icgh"]
 [ext_resource type="AudioStream" uid="uid://ddswljrf84jdp" path="res://game/ui/menu_error.mp3" id="3_f3gnx"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="5_f3gnx"]
 
 [node name="UpgradeSelector" type="PanelContainer"]
 size_flags_horizontal = 3
@@ -40,6 +41,8 @@ size_flags_vertical = 8
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
 text = "0"
+script = ExtResource("5_f3gnx")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

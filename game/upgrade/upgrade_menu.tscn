@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://k7r4k1p52ytx"]
+[gd_scene load_steps=6 format=3 uid="uid://k7r4k1p52ytx"]
 
 [ext_resource type="Script" uid="uid://bw0pcemwc0jns" path="res://game/upgrade/upgrade_menu.gd" id="1_g7qji"]
 [ext_resource type="PackedScene" uid="uid://duxcyga38wgsi" path="res://game/upgrade/upgrade_selector.tscn" id="2_pd3uc"]
-[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="3_fkfn1"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="3_a0w04"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="3_fkfn1"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="4_a0w04"]
 
 [node name="UpgradeMenu" type="PanelContainer"]
@@ -40,6 +41,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_type_variation = &"LabelTitle"
 text = "Upgrade Shop"
+script = ExtResource("3_a0w04")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -77,6 +80,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("3_a0w04")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Control" type="Control" parent="VBoxContainer/MarginContainer3/HBoxContainer2"]
 layout_mode = 2

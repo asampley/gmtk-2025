@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=45 format=3 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://gm04nnjeptj4" path="res://game/world/background.tscn" id="3_cieqw"]
 [ext_resource type="PackedScene" uid="uid://c608o4gv4yg2r" path="res://game/world/world.tscn" id="4_cf130"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="6_0rekh"]
 [ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
@@ -89,6 +90,8 @@ theme_override_font_sizes/font_size = 22
 text = "Hold down to go down"
 horizontal_alignment = 1
 autowrap_mode = 3
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Shop Sign" type="Panel" parent="Signs"]
 offset_left = -54.0
@@ -108,6 +111,8 @@ text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="TracksSign" type="Panel" parent="Signs"]
 offset_left = 320.0
@@ -128,6 +133,8 @@ text = "Use WASD or arrows to change tracks
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="WelcomeSign" type="Panel" parent="Signs"]
 offset_left = 16.0
@@ -147,6 +154,8 @@ theme_override_font_sizes/font_size = 70
 text = "Welcome to MOONSHOT!"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Attachment1" type="Panel" parent="Signs/WelcomeSign"]
 z_index = -1
@@ -193,6 +202,8 @@ text = "Hover over upgrades in the shop to see what they do!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="ObjectivesSign" type="Panel" parent="Signs"]
 offset_left = 295.0
@@ -220,6 +231,8 @@ Check back in the shop
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="TrickBoostSign" type="Panel" parent="Signs"]
 offset_left = 1128.0
@@ -239,6 +252,8 @@ text = "Boost tracks increase your speed"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="LLeg" type="Panel" parent="Signs/TrickBoostSign"]
 z_index = -1
@@ -283,6 +298,8 @@ text = "Press RIGHT then DOWN when in the air"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Tricks3Sign" type="Panel" parent="Signs"]
 offset_left = 2520.0
@@ -309,6 +326,8 @@ text = "Do a Frontflip!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="LLeg" type="Panel" parent="Signs/Tricks3Sign"]
 z_index = -1
@@ -354,6 +373,8 @@ text = "This gives you a speedboost from doing combos!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="MoreAirSign" type="Panel" parent="Signs"]
 offset_left = 3320.0
@@ -380,6 +401,8 @@ text = "Sometimes you need more air to do a trick"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="GetFast" type="Panel" parent="Signs"]
 offset_left = 6657.0
@@ -406,6 +429,8 @@ text = "Are you fast enough to go UP here?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="MoreAirSign2" type="Panel" parent="Signs"]
 offset_left = 6064.0
@@ -432,6 +457,8 @@ text = "If you can't make it try another path"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="TricksSign5" type="Panel" parent="Signs"]
 offset_left = 2376.0
@@ -459,6 +486,8 @@ text = "Click on the view Combos button to see more tricks!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Tricks6Sign" type="Panel" parent="Signs"]
 offset_left = 1512.0
@@ -485,6 +514,8 @@ text = "Bigger combo equals more money"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+script = ExtResource("6_0rekh")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="RollercoasterParent" type="Node2D" parent="."]
 position = Vector2(0, 32)
@@ -492,30 +523,26 @@ position = Vector2(0, 32)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InfoUI" parent="CanvasLayer" instance=ExtResource("14_5e03w")]
-texture_filter = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 4.0
-offset_top = 397.0
+offset_top = 425.0
 offset_right = 244.0
-offset_bottom = 565.0
+offset_bottom = 593.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(1, 1)
 theme = ExtResource("14_jucfl")
 
 [node name="ComboMeter" parent="CanvasLayer" instance=ExtResource("22_vkvnp")]
-texture_filter = 2
 offset_left = 125.0
-offset_top = 360.0
+offset_top = 390.0
 offset_right = -1155.0
-offset_bottom = -360.0
+offset_bottom = -330.0
 mouse_filter = 2
 
 [node name="MenusParent" type="Control" parent="CanvasLayer"]
 visible = false
-texture_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -558,33 +585,31 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="BookmarkedObjectiveUI" parent="CanvasLayer" instance=ExtResource("11_3vho3")]
-texture_filter = 2
-custom_minimum_size = Vector2(0, 0)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1279.0
-offset_top = -153.0
-offset_right = -750.0
-offset_bottom = -3.0
+offset_left = -1276.0
+offset_top = -125.0
+offset_right = -944.0
+offset_bottom = -5.0
+grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="FPSCounter" type="Label" parent="CanvasLayer"]
 visible = false
-texture_filter = 2
 offset_left = 1186.0
 offset_top = 1.0
 offset_right = 1238.0
 offset_bottom = 41.8333
 text = "FPS"
 script = ExtResource("6_dakft")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="UtilityButtonsMenu" parent="CanvasLayer" instance=ExtResource("20_urpib")]
-texture_filter = 2
 offset_left = 3.0
 offset_top = 6.0
 offset_right = -1067.0
@@ -593,7 +618,6 @@ mouse_filter = 2
 
 [node name="ComboButtonsViewer" parent="CanvasLayer" instance=ExtResource("13_ln7ps")]
 visible = false
-texture_filter = 2
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -605,13 +629,11 @@ grow_vertical = 0
 
 [node name="Tooltip" parent="CanvasLayer" instance=ExtResource("8_y36n6")]
 visible = false
-texture_filter = 2
 offset_right = 265.0
 offset_bottom = 70.8333
 mouse_filter = 2
 
 [node name="FlyTextParent" type="Control" parent="CanvasLayer"]
-texture_filter = 2
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -628,7 +650,6 @@ mouse_filter = 2
 
 [node name="ResetDataPopup" parent="CanvasLayer" instance=ExtResource("23_cieqw")]
 visible = false
-texture_filter = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -640,7 +661,6 @@ offset_right = 300.0
 offset_bottom = 261.5
 
 [node name="SpecialAbilitiesMenu" parent="CanvasLayer" instance=ExtResource("17_posua")]
-texture_filter = 2
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -653,7 +673,6 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="StuntsMenu" parent="CanvasLayer" instance=ExtResource("18_gvtgv")]
-texture_filter = 2
 offset_left = -423.0
 offset_top = 2.0
 offset_right = 477.0
@@ -662,7 +681,6 @@ mouse_filter = 2
 
 [node name="Game End" parent="CanvasLayer" instance=ExtResource("20_64wtb")]
 visible = false
-texture_filter = 2
 mouse_filter = 2
 
 [node name="ObjectiveManager" type="Node" parent="."]

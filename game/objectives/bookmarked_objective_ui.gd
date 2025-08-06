@@ -21,9 +21,7 @@ func on_bookmarked_objective_changed() -> void:
 	if objective.tasks_completed >= objective.template.number_of_tasks:
 		tasks_completed.hide()
 		completed_icon.show()
-		color_rect.material.set("shader_parameter/number_of_stripes", number_of_stripes)
 	else:
 		tasks_completed.text = str(objective.tasks_completed) + " / " + str(objective.template.number_of_tasks)
 		tasks_completed.show()
 		completed_icon.hide()
-		color_rect.material.set("shader_parameter/number_of_stripes", 0)

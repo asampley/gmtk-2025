@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm1qm3i5wk2ia"]
+[gd_scene load_steps=4 format=3 uid="uid://cm1qm3i5wk2ia"]
 
 [ext_resource type="Script" uid="uid://c6rnbafmqgamo" path="res://game/objectives/objectives_menu.gd" id="1_idrao"]
 [ext_resource type="PackedScene" uid="uid://djsroa7s51myg" path="res://game/objectives/objective_item_prefab.tscn" id="2_213xj"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="3_213xj"]
 
 [node name="ObjectivesMenu" type="PanelContainer" node_paths=PackedStringArray("objective_item_parent")]
 custom_minimum_size = Vector2(400, 500)
@@ -29,6 +30,8 @@ theme_type_variation = &"LabelTitle"
 text = "Objectives"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_213xj")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

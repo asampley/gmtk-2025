@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bki3tklhq664b"]
+[gd_scene load_steps=5 format=3 uid="uid://bki3tklhq664b"]
 
 [ext_resource type="Script" uid="uid://b617qa1py6pcj" path="res://game/ui/reset_data_popup.gd" id="1_kib8y"]
-[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://game/ui/sound_button.gd" id="2_jig22"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="2_jig22"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_nlksg"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="3_jig22"]
 
 [node name="ResetDataPopup" type="PanelContainer"]
@@ -42,6 +43,8 @@ text = "This will delete all save data.
 ARE YOU SURE YOU WANT TO PROCEED?"
 horizontal_alignment = 1
 autowrap_mode = 3
+script = ExtResource("2_nlksg")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://drqjaswvgs5u3"]
+[gd_scene load_steps=13 format=3 uid="uid://drqjaswvgs5u3"]
 
 [ext_resource type="Script" uid="uid://defkhc7ih55sh" path="res://game/stunts/combo_meter/combo_meter.gd" id="1_mkgrf"]
 [ext_resource type="Shader" uid="uid://bqmxdq8kcpvw8" path="res://game/shaders/fire-number.gdshader" id="2_cd2f0"]
 [ext_resource type="Texture2D" uid="uid://lhueon4ofbj2" path="res://game/stunts/combo_meter/red-btn.png" id="3_m3kmn"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="4_mkgrf"]
 [ext_resource type="Texture2D" uid="uid://wm7qo0clndg" path="res://game/stunts/combo_meter/blue-btn.png" id="5_3een6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6gauc"]
@@ -76,16 +77,22 @@ offset_bottom = 125.0
 
 [node name="RedLabel" type="Label" parent="red/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 theme_type_variation = &"ComboLabel"
 text = "0"
 horizontal_alignment = 1
+script = ExtResource("4_mkgrf")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Label" type="Label" parent="red/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme_type_variation = &"ComboLabel"
 text = "Score"
 horizontal_alignment = 1
+script = ExtResource("4_mkgrf")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="blue" type="Node2D" parent="."]
 position = Vector2(40.9999, 4.99994)
@@ -114,15 +121,21 @@ offset_bottom = 125.0
 
 [node name="BlueLabel" type="Label" parent="blue/VBoxContainer"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 theme_type_variation = &"ComboLabel"
 text = "1	"
 horizontal_alignment = 1
+script = ExtResource("4_mkgrf")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [node name="Label2" type="Label" parent="blue/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme_type_variation = &"ComboLabel"
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 80
 text = "Mult"
 horizontal_alignment = 1
+script = ExtResource("4_mkgrf")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
