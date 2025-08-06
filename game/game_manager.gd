@@ -12,7 +12,7 @@ const UPGRADES_SAVE_FOLDER: String = "user://upgrade_folder/"
 
 
 func _ready() -> void:
-	var index := AudioServer.get_bus_index("Master")
+	var index := AudioServer.get_bus_index("sfx")
 	AudioServer.set_bus_mute(index, false)
 	current_rollercoaster_stats = RollercoasterStats.new()
 	current_rollercoaster_stats.initialize(rollercoaster_template)

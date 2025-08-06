@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 			modulate = Color(1, 1, 1, animation_time / animate_duration)
 
 func start_animation() -> void:
-	var index := AudioServer.get_bus_index("Master")
+	var index := AudioServer.get_bus_index("sfx")
 	AudioServer.set_bus_mute(index, true)
 	show()
 	animate = true
