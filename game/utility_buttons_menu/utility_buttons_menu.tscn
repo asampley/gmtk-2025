@@ -18,6 +18,7 @@ script = ExtResource("1_d5aa8")
 
 [node name="ResetSave" type="TextureButton" parent="."]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("2_02mpp")
 script = ExtResource("3_sr2bu")
 sound = ExtResource("3_pjc1h")
@@ -25,6 +26,7 @@ metadata/_custom_type_script = "uid://oeebitnriy20"
 
 [node name="ResetScene" type="TextureButton" parent="."]
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("5_xcrxv")
 script = ExtResource("3_sr2bu")
 sound = ExtResource("3_pjc1h")
@@ -32,6 +34,7 @@ metadata/_custom_type_script = "uid://oeebitnriy20"
 
 [node name="MuteMusic" type="TextureButton" parent="."]
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("3_ccdf6")
 script = ExtResource("3_sr2bu")
@@ -40,6 +43,7 @@ metadata/_custom_type_script = "uid://oeebitnriy20"
 
 [node name="MuteSFX" type="TextureButton" parent="."]
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 texture_normal = ExtResource("4_olkcr")
 script = ExtResource("3_sr2bu")

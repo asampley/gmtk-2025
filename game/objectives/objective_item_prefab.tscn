@@ -50,6 +50,7 @@ autowrap_mode = 3
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_hmrwq")
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("2_3jywm")
 texture_disabled = ExtResource("3_3jywm")
 script = ExtResource("4_3l71y")
@@ -72,6 +73,7 @@ stretch_mode = 4
 [node name="Bookmark" type="TextureButton" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 texture_normal = ExtResource("4_qvuah")
 texture_disabled = ExtResource("5_qvuah")
 script = ExtResource("4_3l71y")

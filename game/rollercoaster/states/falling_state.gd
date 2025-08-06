@@ -49,7 +49,7 @@ func process_input(event: InputEvent) -> State:
 	#elif event.is_action_pressed("special_move"):
 	#	activate_glide()
 	else:
-		return
+		return null
 	var missed_combos: int = 0
 	for combo: ComboTemplate in DataHandler.combo_resources:
 		missed_combos += 1 if !match_combo(combo) else 0
