@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://b14qaa3u1tgxj" path="res://game/template/pickups/trick_fins.tres" id="9_io0hq"]
 [ext_resource type="Resource" uid="uid://dpw8qdlrg1jlb" path="res://game/template/pickups/nitrous.tres" id="10_5hesp"]
 [ext_resource type="Script" uid="uid://g5rinpeubf27" path="res://game/world/moonxit.gd" id="11_ncs2d"]
-[ext_resource type="Script" uid="uid://ce70in2ogv4n2" path="res://game/camera/end_camera.gd" id="12_io0hq"]
+[ext_resource type="Script" path="res://game/camera/end_camera.gd" id="12_io0hq"]
 [ext_resource type="Script" uid="uid://68cenwgblmr6" path="res://game/world/exit_world.gd" id="13_prd21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hesp"]
@@ -65,7 +65,7 @@ position = Vector2(1108, -4216)
 pickup = ExtResource("10_5hesp")
 
 [node name="Moonxit" type="Area2D" parent="."]
-position = Vector2(6978, -25000)
+position = Vector2(6976, -21321)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("11_ncs2d")
