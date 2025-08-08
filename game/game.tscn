@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=46 format=3 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -37,11 +37,9 @@
 [ext_resource type="AudioStream" uid="uid://bgn0sq4egopko" path="res://game/audio/combo_sounds/pickupCoin (2).wav" id="31_urpib"]
 [ext_resource type="AudioStream" uid="uid://fnb3g8pvjlr8" path="res://game/audio/combo_sounds/pickupCoin (3).wav" id="32_cieqw"]
 [ext_resource type="AudioStream" uid="uid://dp5orkhg8uwjv" path="res://game/audio/combo_sounds/pickupCoin (4).wav" id="33_ta815"]
-[ext_resource type="AudioStream" uid="uid://bf2lkkjouh2ly" path="res://game/rollercoaster/states/moving_sound.mp3" id="34_5ywmu"]
 [ext_resource type="AudioStream" uid="uid://cm7bhh3a2psuc" path="res://game/audio/combo_sounds/pickupCoin (5).wav" id="34_64wtb"]
 [ext_resource type="AudioStream" uid="uid://bjoswqv0esvf2" path="res://game/audio/combo_sounds/pickupCoin (6).wav" id="35_0rekh"]
 [ext_resource type="AudioStream" uid="uid://ccbrh74ch6g34" path="res://game/audio/combo_sounds/pickupCoin (7).wav" id="36_281ou"]
-[ext_resource type="Script" path="res://game/audio/moving_sound.gd" id="38_64wtb"]
 [ext_resource type="AudioStream" uid="uid://dwcwds1hs8ux3" path="res://game/audio/objective_sound.mp3" id="39_0rekh"]
 [ext_resource type="Script" uid="uid://ru5s36owg2nq" path="res://game/audio/objective_sound.gd" id="40_281ou"]
 [ext_resource type="Script" uid="uid://y3y8mhdlm4co" path="res://game/ui/ui_audio_player.gd" id="41_ta815"]
@@ -734,12 +732,6 @@ four_buttons = ExtResource("33_ta815")
 five_buttons = ExtResource("34_64wtb")
 six_buttons = ExtResource("35_0rekh")
 seven_buttons = ExtResource("36_281ou")
-
-[node name="MovingSound" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -10.0
-bus = &"sfx"
-script = ExtResource("38_64wtb")
-moving_sound = ExtResource("34_5ywmu")
 
 [node name="ObjectiveSound" type="AudioStreamPlayer" parent="AudioPlayers"]
 volume_db = 5.0

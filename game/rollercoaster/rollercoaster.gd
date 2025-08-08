@@ -82,7 +82,7 @@ func nitro_activate() -> void:
 	if nitro_cooldown <= 0 && stats.nitro_unlocked:
 		nitro_cooldown = stats.nitro_cooldown
 		nitro_remaining_duration_seconds = stats.nitro_duration_seconds
-		EventBus.train_audio_requested.emit(nitro_sound)
+		audio_player.play_sound_effect(nitro_sound)
 		particles.process_material.color_ramp = nitro_colour
 
 func nitro_active() -> bool:

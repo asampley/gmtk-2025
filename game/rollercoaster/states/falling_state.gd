@@ -19,8 +19,6 @@ func enter() -> void:
 	super()
 	combo_sequence = []
 	base_node.audio_player.play_sound_effect(falling_sound)
-	EventBus.start_train_moving_sound.emit()
-	EventBus.stop_train_moving_sound.emit()
 
 func exit() -> void:
 	super()

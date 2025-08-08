@@ -33,7 +33,6 @@ func enter() -> void:
 			return acc
 	, Vector2i.ZERO)
 	update_path(true)
-	EventBus.start_train_moving_sound.emit()
 	sound_effect_index = base_node.audio_player.play_sound_effect(moving_on_rails_sound_effect)
 
 func exit() -> void:

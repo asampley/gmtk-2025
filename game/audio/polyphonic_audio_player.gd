@@ -13,8 +13,7 @@ func play_sound_effect(sound_effect: AudioStream) -> int:
 	if !playing:
 		play()
 	var polyphonic_stream_playback: AudioStreamPlaybackPolyphonic = get_stream_playback()
-	var test := polyphonic_stream_playback.play_stream(sound_effect)
-	return test
+	return polyphonic_stream_playback.play_stream(sound_effect)
 
 func stop_sound_effect(sound_effect_index: int) -> void:
 	if !playing:
