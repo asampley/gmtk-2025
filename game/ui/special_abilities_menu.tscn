@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="4_qhsur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhsur"]
+resource_local_to_scene = true
 shader = ExtResource("3_g6f8x")
 shader_parameter/minimum_alpha = 0.5
 shader_parameter/fade_speed = 2.0
@@ -43,8 +44,12 @@ offset_left = 4.0
 offset_top = 37.0
 offset_right = 61.0
 offset_bottom = 77.8333
-theme_override_font_sizes/font_size = 25
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
 text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_qhsur")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
 
