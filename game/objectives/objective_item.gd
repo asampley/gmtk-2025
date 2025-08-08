@@ -2,6 +2,7 @@ extends PanelContainer
 
 
 @onready var title: Label = %Title
+@onready var reward: Label = %Reward
 @onready var claim: AdvancedButton = %Claim
 @onready var bookmark: AdvancedButton = %Bookmark
 @onready var highlight: TextureRect = %Highlight
@@ -12,6 +13,10 @@ var objective: Objective
 func initialize(objective_in: Objective) -> void:
 	objective = objective_in
 	title.text = objective.template.title
+	if objective.template.reward > 0:
+		reward.text = "$" + str(objective.template.reward)
+	else:
+		reward.text = str(objective.template.upgrade_unlock.upgrade_name)
 	if !objective.completed:
 		claim.disabled = true
 		highlight.hide()

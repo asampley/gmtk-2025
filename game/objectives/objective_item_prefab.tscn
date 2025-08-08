@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djsroa7s51myg"]
+[gd_scene load_steps=10 format=3 uid="uid://djsroa7s51myg"]
 
 [ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
 [ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="2_3jywm"]
@@ -6,6 +6,12 @@
 [ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/advanced_button.gd" id="3_qvuah"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="5_d60pi"]
 [ext_resource type="Shader" uid="uid://8nl8l4xgcmks" path="res://game/shaders/sword_style_sprite_highlight.gdshader" id="6_d60pi"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qvuah"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+vertical = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmrwq"]
 
@@ -35,16 +41,38 @@ theme_override_constants/margin_bottom = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 2
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
 text = "Test"
 autowrap_mode = 3
 script = ExtResource("2_hmrwq")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxLine_qvuah")
+
+[node name="Reward" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
 
 [node name="Claim" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
