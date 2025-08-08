@@ -1,12 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg1rvsupueok8"]
+[gd_scene load_steps=3 format=3 uid="uid://cg1rvsupueok8"]
 
 [ext_resource type="Script" uid="uid://ddxly05pcdid8" path="res://pop_up_text/pop_up_text_manager.gd" id="1_5v8ef"]
+[ext_resource type="PackedScene" uid="uid://cp051v7f73x14" path="res://pop_up_text/pop_up_text_prefab.tscn" id="2_i8ytd"]
 
-[node name="PopUpTextManager" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PopUpTextManager" type="Node"]
 script = ExtResource("1_5v8ef")
+text_popup_prefab_1 = ExtResource("2_i8ytd")

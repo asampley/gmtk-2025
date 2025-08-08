@@ -94,3 +94,8 @@ func apply_nitro(delta: float) -> void:
 
 func on_game_win() -> void:
 	queue_free()
+
+func call_popup_text(text: String, popup_text_type: int, duration: float) -> void:
+	var screen_transform := get_global_transform_with_canvas().get_origin()
+	var spawn_position := screen_transform + Vector2(0, -80)
+	EventBus.popup_text_requested.emit(text, popup_text_type, spawn_position, duration)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwv14rwlke1do"]
+
+[ext_resource type="Script" uid="uid://bbksvf3ryw1bw" path="res://pop_up_text/pop_up_text_requester.gd" id="1_udhdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqajf"]
+size = Vector2(30, 50)
+
+[node name="PopUpTextRequester" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_udhdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eqajf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

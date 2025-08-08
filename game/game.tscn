@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=47 format=3 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="6_0rekh"]
 [ext_resource type="Script" uid="uid://cvfihusxds7lw" path="res://game/menu_parent.gd" id="6_b686c"]
 [ext_resource type="Script" uid="uid://b7vsg5nc2o3gv" path="res://game/fps.gd" id="6_dakft"]
+[ext_resource type="PackedScene" uid="uid://bwv14rwlke1do" path="res://pop_up_text/pop_up_text_requester.tscn" id="7_nrbry"]
 [ext_resource type="PackedScene" uid="uid://k7r4k1p52ytx" path="res://game/upgrade/upgrade_menu.tscn" id="7_u5opy"]
 [ext_resource type="PackedScene" uid="uid://d13n3k3ld307x" path="res://game/upgrade/tooltip.tscn" id="8_y36n6"]
 [ext_resource type="Script" uid="uid://ccevrrxslod5o" path="res://game/objectives/objective_manager.gd" id="9_l8g03"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgt4p78oa2fi" path="res://game/ui/game_end.tscn" id="20_64wtb"]
 [ext_resource type="PackedScene" uid="uid://bkxvtukwghm2e" path="res://game/utility_buttons_menu/utility_buttons_menu.tscn" id="20_urpib"]
 [ext_resource type="Texture2D" uid="uid://b6w1mnkaavxik" path="res://assets/sign_background.png" id="21_ta815"]
+[ext_resource type="PackedScene" uid="uid://cg1rvsupueok8" path="res://pop_up_text/pop_up_text_manager.tscn" id="22_281ou"]
 [ext_resource type="Resource" uid="uid://0hs85aeq2lap" path="res://game/template/objectives/white_pickup.tres" id="22_leid8"]
 [ext_resource type="PackedScene" uid="uid://drqjaswvgs5u3" path="res://game/stunts/combo_meter/combo_meter.tscn" id="22_vkvnp"]
 [ext_resource type="PackedScene" uid="uid://bki3tklhq664b" path="res://game/ui/reset_data_popup.tscn" id="23_cieqw"]
@@ -517,6 +519,13 @@ autowrap_mode = 2
 script = ExtResource("6_0rekh")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
 
+[node name="PopUpTextRequesters" type="Node" parent="."]
+
+[node name="PopUpTextRequester" parent="PopUpTextRequesters" instance=ExtResource("7_nrbry")]
+position = Vector2(389, 2)
+text = "Hold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junction"
+duration = 5.0
+
 [node name="RollercoasterParent" type="Node2D" parent="."]
 position = Vector2(0, 32)
 
@@ -682,6 +691,8 @@ mouse_filter = 2
 [node name="Game End" parent="CanvasLayer" instance=ExtResource("20_64wtb")]
 visible = false
 mouse_filter = 2
+
+[node name="PopUpTextManager" parent="CanvasLayer" instance=ExtResource("22_281ou")]
 
 [node name="ObjectiveManager" type="Node" parent="."]
 script = ExtResource("9_l8g03")
