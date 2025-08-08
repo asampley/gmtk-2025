@@ -58,9 +58,9 @@ func save_data() -> void:
 	if !DirAccess.dir_exists_absolute(OBJECTIVES_SAVE_FOLDER):
 		DirAccess.make_dir_recursive_absolute(OBJECTIVES_SAVE_FOLDER)
 	for objective: Objective in Globals.objectives.values():
-		var save_data := objective.save()
+		var data_to_save := objective.save()
 		var file := FileAccess.open(OBJECTIVES_SAVE_FOLDER + objective.template.title + ".dat", FileAccess.WRITE)
-		file.store_string(save_data)
+		file.store_string(data_to_save)
 		file.close()
 
 func on_requested_save_data_reset() -> void:
