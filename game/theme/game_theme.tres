@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cvdgn5uuf5t4w"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cvdgn5uuf5t4w"]
 
 [ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="1_ju1rf"]
 [ext_resource type="StyleBox" uid="uid://o0apevoeavog" path="res://game/new_style_box_texture.tres" id="2_eo17r"]
 [ext_resource type="FontFile" uid="uid://b3pw6ae3vjjhj" path="res://assets/fonts/Jersey_15/Jersey15-Regular.ttf" id="3_ejh2t"]
 [ext_resource type="FontFile" uid="uid://p7erkbs6xxaf" path="res://assets/fonts/Sixtyfour/Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="3_eo17r"]
+[ext_resource type="FontFile" uid="uid://ekqqtcvprrpw" path="res://assets/fonts/static/NotoSans-Medium.ttf" id="5_ejh2t"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_eo17r"]
 color = Color(1, 1, 1, 1)
@@ -54,7 +55,7 @@ LabelTitle/font_sizes/font_size = 40
 LabelTitle/fonts/font = ExtResource("3_eo17r")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_pbm55")
 TooltipLabel/constants/outline_size = 0
-TooltipLabel/font_sizes/font_size = 25
-TooltipLabel/fonts/font = ExtResource("3_ejh2t")
+TooltipLabel/font_sizes/font_size = 18
+TooltipLabel/fonts/font = ExtResource("5_ejh2t")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_eo17r")
 VSeparator/styles/separator = SubResource("StyleBoxLine_ejh2t")
