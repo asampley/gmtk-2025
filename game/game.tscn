@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://byjcihm70y4mn"]
+[gd_scene load_steps=48 format=3 uid="uid://byjcihm70y4mn"]
 
 [ext_resource type="Script" uid="uid://qp4lti0m82dk" path="res://game/game_manager.gd" id="1_h7iqs"]
 [ext_resource type="Resource" uid="uid://c5lprq1lpedur" path="res://game/template/rollercoaster.tres" id="2_h7iqs"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://cp051v7f73x14" path="res://pop_up_text/pop_up_text_prefab_0.tscn" id="24_7tmf6"]
 [ext_resource type="AudioStream" uid="uid://dhyqbcxbya402" path="res://game/the-return-of-the-8-bit-era-301292.mp3" id="25_8bboj"]
 [ext_resource type="PackedScene" uid="uid://bfuck01nvq6dt" path="res://pop_up_text/pop_up_text_prefab_1.tscn" id="25_sisia"]
-[ext_resource type="Script" path="res://game/audio/train_sounds.gd" id="25_ta815"]
 [ext_resource type="Script" uid="uid://brarsc1dbm8ww" path="res://game/audio/combo_sounds/combo_sounds.gd" id="27_jucfl"]
 [ext_resource type="AudioStream" uid="uid://ba4gshkthuukg" path="res://game/audio/combo_sounds/success.mp3" id="28_5ywmu"]
 [ext_resource type="AudioStream" uid="uid://qrpxt5nt0n42" path="res://game/audio/combo_sounds/failure.mp3" id="29_mhp6k"]
@@ -711,11 +710,6 @@ fly_in_text_parent = NodePath("../CanvasLayer/FlyTextParent")
 text_speed = 30.0
 
 [node name="AudioPlayers" type="Node" parent="."]
-
-[node name="TrainSounds" type="AudioStreamPlayer" parent="AudioPlayers"]
-volume_db = -10.0
-bus = &"sfx"
-script = ExtResource("25_ta815")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("25_8bboj")

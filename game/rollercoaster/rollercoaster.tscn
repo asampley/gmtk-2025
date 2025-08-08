@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://c3kdff65tnyxu"]
+[gd_scene load_steps=77 format=3 uid="uid://c3kdff65tnyxu"]
 
 [ext_resource type="Script" uid="uid://cas1vuvfuctsr" path="res://game/rollercoaster/rollercoaster.gd" id="1_fpfh7"]
 [ext_resource type="AudioStream" uid="uid://hah1nr1k70bg" path="res://game/rollercoaster/nitro_boost.mp3" id="2_33xk4"]
@@ -18,8 +18,10 @@
 [ext_resource type="Script" uid="uid://d1pnsgn8hit3i" path="res://game/rollercoaster/states/station_state.gd" id="9_rsh2y"]
 [ext_resource type="AudioStream" uid="uid://dqymmad0tv36s" path="res://game/rollercoaster/states/landing_sound.wav" id="10_b70cr"]
 [ext_resource type="AudioStream" uid="uid://fk3rboyyo5o2" path="res://game/rollercoaster/states/falling_sound.wav" id="10_yw4u4"]
+[ext_resource type="AudioStream" uid="uid://bki5rl8aeet80" path="res://game/rollercoaster/states/moving_sound (mp3cut.net).mp3" id="11_t1pdu"]
 [ext_resource type="Script" uid="uid://cqxg0n4agnmx4" path="res://game/rollercoaster/camera.gd" id="15_8v57q"]
 [ext_resource type="PackedScene" uid="uid://ditcfcjt55exv" path="res://game/screen_shake/screen_shake.tscn" id="16_p2xsc"]
+[ext_resource type="Script" uid="uid://cdkyxpka68qca" path="res://game/audio/polyphonic_audio_player.gd" id="21_x10rd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0cxb7"]
 shader = ExtResource("2_y8uoc")
@@ -431,7 +433,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow", "camera", "particles")]
+[node name="Rollercoaster" type="CharacterBody2D" node_paths=PackedStringArray("state_machine", "animations", "path", "path_follow", "camera", "particles", "audio_player")]
 collision_layer = 2
 collision_mask = 29
 slide_on_ceiling = false
@@ -449,6 +451,7 @@ path = NodePath("AnimatePath")
 path_follow = NodePath("AnimatePath/AnimatePathFollow")
 camera = NodePath("Camera2D")
 particles = NodePath("GPUParticles2D")
+audio_player = NodePath("PolyphonicAudioPlayer")
 nitro_sound = ExtResource("2_33xk4")
 normal_colour = ExtResource("4_p2xsc")
 nitro_colour = ExtResource("3_wsxgt")
@@ -483,6 +486,7 @@ jumping_state = NodePath("../JumpingState")
 falling_state = NodePath("../FallingState")
 stopped_state = NodePath("../StoppedState")
 station_state = NodePath("../StationState")
+moving_on_rails_sound_effect = ExtResource("11_t1pdu")
 
 [node name="JumpingState" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("moving_on_rails_state", "falling_state")]
 script = ExtResource("5_j853t")
@@ -527,3 +531,8 @@ position = Vector2(34.9969, 35.7039)
 rotation = 0.795398
 progress = 50.0
 loop = false
+
+[node name="PolyphonicAudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = &"sfx"
+script = ExtResource("21_x10rd")

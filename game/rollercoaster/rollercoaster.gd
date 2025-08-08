@@ -6,16 +6,19 @@ extends CharacterBody2D
 @export var animations: AnimatedSprite2D
 @export var path: Path2D
 @export var path_follow: PathFollow2D
+@export var camera: Camera2D
+@export var particles: GPUParticles2D
+@export var audio_player: PolyphonicAudioPlayer
+
+@export_subgroup("Sprite Deforming")
 @export var deformation_limit: float = 4
 @export var deformation_divider: float = 100000
 @export var deformation_duration_seconds: float = 0.1
-@export var camera: Camera2D
-@export var particles: GPUParticles2D
 
+@export_subgroup("Nitro")
 @export var nitro_sound: AudioStream
 @export var normal_colour: GradientTexture1D
 @export var nitro_colour: GradientTexture1D
-
 
 var stats: RollercoasterStats
 var glide_cooldown: float = 0
@@ -81,7 +84,6 @@ func nitro_activate() -> void:
 		nitro_remaining_duration_seconds = stats.nitro_duration_seconds
 		EventBus.train_audio_requested.emit(nitro_sound)
 		particles.process_material.color_ramp = nitro_colour
-		print("Nitro activated (cooldown %ds)" % stats.nitro_cooldown)
 
 func nitro_active() -> bool:
 	return nitro_remaining_duration_seconds > 0

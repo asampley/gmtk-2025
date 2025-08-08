@@ -91,8 +91,8 @@ func _sign_string(x: int) -> String:
 
 func effect(tile: Vector2i) -> TrackEffect:
 	var tile_data := get_cell_tile_data(tile)
-
+	
 	if tile_data == null:
 		return null
-
+	
 	return tile_data.get_custom_data("effect")

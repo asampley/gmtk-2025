@@ -18,13 +18,13 @@ var glide_duration_seconds: float
 func enter() -> void:
 	super()
 	combo_sequence = []
-	EventBus.train_audio_requested.emit(falling_sound)
+	base_node.audio_player.play_sound_effect(falling_sound)
 	EventBus.start_train_moving_sound.emit()
 	EventBus.stop_train_moving_sound.emit()
 
 func exit() -> void:
 	super()
-	EventBus.train_audio_requested.emit(landing_sound)
+	base_node.audio_player.play_sound_effect(landing_sound)
 	EventBus.combo_reset.emit()
 	EventBus.screen_shake_increased.emit(base_node.velocity.length())
 	base_node.deform(Vector2(0,1))
@@ -46,6 +46,7 @@ func process_input(event: InputEvent) -> State:
 		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
 	elif event.is_action_pressed("stunt_key_4"):
 		combo_sequence.append(Globals.ComboButtons.DOWN)
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
 	#elif event.is_action_pressed("special_move"):
 	#	activate_glide()
 	else:

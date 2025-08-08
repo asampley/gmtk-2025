@@ -5,6 +5,7 @@ extends State
 @export var falling_state: State
 @export var stopped_state: State
 @export var station_state: State
+@export var moving_on_rails_sound_effect: AudioStream
 
 var tile_pos: Vector2i = Vector2i.MAX
 var in_direction: Vector2i
@@ -12,6 +13,7 @@ var out_direction: Vector2i
 var transition: State
 var track: Track
 var stopped_time: float = 0
+var sound_effect_index: int
 
 
 func prepare_state(collision_track: Track, collision_point: Vector2) -> void:
@@ -32,23 +34,25 @@ func enter() -> void:
 	, Vector2i.ZERO)
 	update_path(true)
 	EventBus.start_train_moving_sound.emit()
+	sound_effect_index = base_node.audio_player.play_sound_effect(moving_on_rails_sound_effect)
 
 func exit() -> void:
 	super()
 	track = null
 	tile_pos = Vector2i.MAX
-	EventBus.stop_train_moving_sound.emit()
+	base_node.audio_player.stop_sound_effect(sound_effect_index)
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("jump"):
 		return jumping_state
 	if event.is_action_pressed("special_move"):
-		print("ACTIVATE NITRO")
 		base_node.nitro_activate()
-	if ["move_up", "move_down", "move_left", "move_right"].any(func(k: String) -> bool: return event.is_action_pressed(k)):
+	if ["move_up", "move_down", "move_left", "move_right"].any(func(k: String) -> bool: 
+			return event.is_action_pressed(k)):
 		var follow := base_node.path_follow
 		var curve := base_node.path.curve
 		var near := curve.sample_baked(follow.progress + 0.05)
+		
 		# If we are before the branch, update out_direction
 		if (follow.global_position - near).dot(follow.global_position - curve.get_point_position(1)) > 0:
 			var state := update_path(false)
@@ -64,6 +68,7 @@ func process_physics(delta: float) -> State:
 	var effect := track.effect(tile_pos)
 	if effect:
 		effect.effect(track, tile_pos, base_node, delta)
+		effect.sound_effect
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
 	
