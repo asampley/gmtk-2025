@@ -515,12 +515,13 @@ script = ExtResource("6_pce4i")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_speed = 100.0
 script = ExtResource("15_8v57q")
+logarithmic_zoom_scaling = true
 min_zoom = 1.0
 max_zoom = 2.0
 max_speed = 1500.0
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource("16_p2xsc")]
-shake_multiplier = 0.001
+shake_divisor = 100.0
 max_shake = 20.0
 
 [node name="AnimatePath" type="Path2D" parent="."]
