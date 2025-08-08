@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var path_follow: PathFollow2D
 @export var deformation_limit: float = 4
 @export var deformation_divider: float = 100000
-@export var deformation_duration: float = 0.1
+@export var deformation_duration_seconds: float = 0.1
 @export var camera: Camera2D
 @export var particles: GPUParticles2D
 
@@ -20,7 +20,7 @@ extends CharacterBody2D
 var stats: RollercoasterStats
 var glide_cooldown: float = 0
 var nitro_cooldown: float = 0
-var nitro_remaining_duration: float = 0
+var nitro_remaining_duration_seconds: float = 0
 
 
 func initialize() -> void:
@@ -46,9 +46,9 @@ func _physics_process(delta: float) -> void:
 	if nitro_cooldown > 0:
 		nitro_cooldown -= delta
 		EventBus.nitro_cooldown_changed.emit(nitro_cooldown / stats.nitro_cooldown)
-	if nitro_remaining_duration > 0:
-		nitro_remaining_duration -= delta
-		if nitro_remaining_duration <= 0:
+	if nitro_remaining_duration_seconds > 0:
+		nitro_remaining_duration_seconds -= delta
+		if nitro_remaining_duration_seconds <= 0:
 			particles.process_material.color_ramp = normal_colour
 			print("No more boost")
 	EventBus.speed_update.emit(velocity.length())
@@ -68,8 +68,8 @@ func deform(direction: Vector2) -> void:
 	var deformation_scale := deformation_direction * deformation_strength
 	var tween := create_tween()
 	tween.stop()
-	tween.tween_property(animations.material, "shader_parameter/deformation", -deformation_scale, deformation_duration)
-	tween.tween_property(animations.material, "shader_parameter/deformation", Vector2.ZERO, deformation_duration * 2)
+	tween.tween_property(animations.material, "shader_parameter/deformation", -deformation_scale, deformation_duration_seconds)
+	tween.tween_property(animations.material, "shader_parameter/deformation", Vector2.ZERO, deformation_duration_seconds * 2)
 	tween.play()
 
 func on_shop_menu_closed() -> void:
@@ -78,13 +78,13 @@ func on_shop_menu_closed() -> void:
 func nitro_activate() -> void:
 	if nitro_cooldown <= 0 && stats.nitro_unlocked:
 		nitro_cooldown = stats.nitro_cooldown
-		nitro_remaining_duration = stats.nitro_duration
+		nitro_remaining_duration_seconds = stats.nitro_duration_seconds
 		EventBus.train_audio_requested.emit(nitro_sound)
 		particles.process_material.color_ramp = nitro_colour
 		print("Nitro activated (cooldown %ds)" % stats.nitro_cooldown)
 
 func nitro_active() -> bool:
-	return nitro_remaining_duration > 0
+	return nitro_remaining_duration_seconds > 0
 
 # By default not applied, left up to the states
 func apply_nitro(delta: float) -> void:
@@ -95,7 +95,7 @@ func apply_nitro(delta: float) -> void:
 func on_game_win() -> void:
 	queue_free()
 
-func call_popup_text(text: String, popup_text_type: int, duration: float) -> void:
+func call_popup_text(text: String, popup_text_type: int, duration_seconds: float) -> void:
 	var screen_transform := get_global_transform_with_canvas().get_origin()
 	var spawn_position := screen_transform + Vector2(0, -80)
-	EventBus.popup_text_requested.emit(text, popup_text_type, spawn_position, duration)
+	EventBus.popup_text_requested.emit(text, popup_text_type, spawn_position, duration_seconds)

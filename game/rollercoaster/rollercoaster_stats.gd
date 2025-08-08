@@ -7,10 +7,10 @@ var jump_force: float
 var base_combo_multiplier: float
 var combo_boost: float
 var nitro_acceleration: float
-var nitro_duration: float
+var nitro_duration_seconds: float
 var nitro_cooldown: float
 var glide_movement_transfer: float
-var glide_duration: float
+var glide_duration_seconds: float
 var glide_cooldown: float
 
 
@@ -20,9 +20,9 @@ func initialize(rollercoaster_template: RollercoasterTemplate) -> void:
 	base_combo_multiplier += rollercoaster_template.base_combo_multiplier
 	combo_boost = rollercoaster_template.combo_boost
 	glide_movement_transfer = rollercoaster_template.glide_movement_transfer
-	glide_duration = rollercoaster_template.glide_duration
+	glide_duration_seconds = rollercoaster_template.glide_duration_seconds
 	glide_cooldown = rollercoaster_template.glide_cooldown
-	nitro_duration = rollercoaster_template.nitro_duration
+	nitro_duration_seconds = rollercoaster_template.nitro_duration_seconds
 	nitro_cooldown = rollercoaster_template.nitro_cooldown
 
 
@@ -33,10 +33,10 @@ func apply_upgrade(upgrade: Upgrade, tier: int) -> void:
 	jump_force += upgrade_tier.add_jump_force
 	combo_boost += upgrade_tier.combo_boost
 	nitro_acceleration += upgrade_tier.nitrous_acceleration
-	nitro_duration += upgrade_tier.nitrous_duration
+	nitro_duration_seconds += upgrade_tier.nitrous_duration_seconds
 	nitro_cooldown *= upgrade_tier.nitrous_cooldown_multiplier
 	glide_movement_transfer += upgrade_tier.glide_movement_transfer
-	glide_duration += upgrade_tier.glide_duration
+	glide_duration_seconds += upgrade_tier.glide_duration_seconds
 	glide_cooldown *= upgrade_tier.glide_cooldown_multiplier
 
 	print("nitro cooldown: ", nitro_cooldown)

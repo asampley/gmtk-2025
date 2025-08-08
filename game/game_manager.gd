@@ -4,7 +4,7 @@ extends Node2D
 @export var rollercoaster_template: RollercoasterTemplate
 @export var rollercoaster_parent: Node2D
 @export var spawn_position: Node2D
-
+ 
 var current_rollercoaster_stats: RollercoasterStats
 var upgrades: Array[Upgrade] = []
 

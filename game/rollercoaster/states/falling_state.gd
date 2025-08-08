@@ -13,7 +13,7 @@ var combo_count: int
 var airtime: float
 var gliding: bool = false
 var gliding_gravity_min: float = 100
-var glide_duration: float
+var glide_duration_seconds: float
 
 func enter() -> void:
 	super()
@@ -70,8 +70,8 @@ func process_physics(delta: float) -> State:
 	if gliding:
 		var reduced_gravity := maxf(gravity - base_node.stats.glide_movement_transfer * Globals.time_scale_squared, gliding_gravity_min * Globals.time_scale_squared)
 		base_node.velocity.y += reduced_gravity * delta
-		glide_duration -= delta * Globals.time_scale
-		if glide_duration <= 0:
+		glide_duration_seconds -= delta * Globals.time_scale
+		if glide_duration_seconds <= 0:
 			gliding = false
 			print( base_node.stats.glide_cooldown * Globals.time_scale)
 			base_node.glide_cooldown = base_node.stats.glide_cooldown * Globals.time_scale
@@ -125,4 +125,4 @@ func boost_velocity() -> void:
 
 func activate_glide() -> void:
 	gliding = true
-	glide_duration = base_node.stats.glide_duration
+	glide_duration_seconds = base_node.stats.glide_duration_seconds

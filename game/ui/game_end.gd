@@ -1,6 +1,6 @@
 extends Control
 
-@export var animate_duration: float
+@export var animate_duration_seconds: float
 
 var animate: bool
 var animation_time: float
@@ -13,11 +13,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if animate:
 		animation_time += delta
-		if animation_time > animate_duration:
+		if animation_time > animate_duration_seconds:
 			animate = false
 			modulate = Color(1, 1, 1, 1)
 		elif animation_time > 0:
-			modulate = Color(1, 1, 1, animation_time / animate_duration)
+			modulate = Color(1, 1, 1, animation_time / animate_duration_seconds)
 
 func start_animation() -> void:
 	var index := AudioServer.get_bus_index("sfx")

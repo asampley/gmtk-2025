@@ -10,7 +10,7 @@ func _ready() -> void:
 	EventBus.popup_text_requested.connect(on_popup_text_requested)
 
 func on_popup_text_requested(text: String, type: int, \
-		screen_position: Vector2, duration: float) -> void:
+		screen_position: Vector2, duration_seconds: float) -> void:
 	print(screen_position)
 	var text_popup: Control
 	match type:
@@ -19,4 +19,4 @@ func on_popup_text_requested(text: String, type: int, \
 		1:
 			text_popup = text_popup_prefab_1.instantiate()
 	add_child(text_popup)
-	text_popup.initialize(text, screen_position, duration)
+	text_popup.initialize(text, screen_position, duration_seconds)

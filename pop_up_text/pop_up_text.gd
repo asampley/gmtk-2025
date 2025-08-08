@@ -5,10 +5,10 @@ extends Control
 var screen_position: Vector2
 
 
-func initialize(text_in: String, screen_position_in: Vector2, duration: float) -> void:
+func initialize(text_in: String, screen_position_in: Vector2, duration_seconds: float) -> void:
 	text.text = text_in
 	screen_position = screen_position_in
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration_seconds).timeout
 	queue_free()
 
 func _on_text_resized() -> void:

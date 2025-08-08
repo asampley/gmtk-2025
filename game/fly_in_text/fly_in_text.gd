@@ -6,7 +6,7 @@ var new_shader: Shader = preload("res://game/shaders/directional_move.gdshader")
 
 var speed: float
 var direction: Vector2
-var duration: float = 2
+var duration_seconds: float = 2
 var fading := false
 
 
@@ -15,7 +15,7 @@ func initialize(text_in: String, speed_in: float, direction_in: Vector2) -> void
 	text = text_in
 	speed = speed_in
 	direction = direction_in
-	await get_tree().create_timer(duration).timeout
+	await get_tree().create_timer(duration_seconds).timeout
 	fading = true
 
 func _process(delta: float) -> void:

@@ -527,7 +527,6 @@ metadata/_custom_type_script = "uid://60ce8sfif45j"
 position = Vector2(389, 2)
 text = "Hold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junctionHold WASD or arrow keys to change tracks at a junction"
 popup_text_type = 1
-duration = 5.0
 
 [node name="RollercoasterParent" type="Node2D" parent="."]
 position = Vector2(0, 32)
