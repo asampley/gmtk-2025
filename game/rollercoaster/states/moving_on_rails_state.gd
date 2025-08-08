@@ -14,7 +14,6 @@ var transition: State
 var track: Track
 var stopped_time: float = 0
 var sound_effect_index: int
-var track_effect_to_sound_index_dict: Dictionary[TrackEffect, int] = {}
 var entered_track_effect: bool
 
 

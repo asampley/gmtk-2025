@@ -35,7 +35,6 @@ signal combo_reset()
 signal station_stop()
 signal station_exit()
 
-
 #UI
 signal money_amount_changed(money: int)
 signal speed_update(speed: float)
