@@ -26,7 +26,9 @@ resources_spreadsheet_view/freeze_first_column=true
 config/name="gmtk-2025"
 run/main_scene="uid://byjcihm70y4mn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/image="uid://k68wknuao4g"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2
 
 [autoload]
 
