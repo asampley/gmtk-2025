@@ -9,7 +9,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhsur"]
 shader = ExtResource("3_g6f8x")
-shader_parameter/fadeSpeed = 3.0
+shader_parameter/minimum_alpha = 0.5
+shader_parameter/fade_speed = 2.0
 
 [node name="SpecialAbilitiesMenu" type="Control"]
 layout_mode = 3
