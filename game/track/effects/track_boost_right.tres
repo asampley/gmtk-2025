@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_o43b2")
 acceleration = Vector2(1000, 0)
+stop_at_goal = false
+goal_velocity = Vector2(0, 0)
 metadata/_custom_type_script = "uid://bda2qm4k5poqm"

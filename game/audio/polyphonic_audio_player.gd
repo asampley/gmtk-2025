@@ -10,6 +10,8 @@ func _ready() -> void:
 	stream.polyphony = custom_max_polyphony
 
 func play_sound_effect(sound_effect: AudioStream) -> int:
+	if sound_effect == null:
+		return -1
 	if !playing:
 		play()
 	var polyphonic_stream_playback: AudioStreamPlaybackPolyphonic = get_stream_playback()

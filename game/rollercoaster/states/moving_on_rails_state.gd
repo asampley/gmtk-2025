@@ -67,7 +67,7 @@ func process_physics(delta: float) -> State:
 	var effect := track.effect(tile_pos)
 	if effect:
 		effect.effect(track, tile_pos, base_node, delta)
-		effect.sound_effect
+		base_node.audio_player.play_sound_effect(effect.sound_effect)
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
 	
@@ -137,7 +137,7 @@ func update_path(estimate_progress: bool) -> State:
 	curve.add_point(tile_as_global + in_direction * track.tile_set.tile_size * 0.5)
 	curve.add_point(tile_as_global)
 	curve.add_point(tile_as_global + out_direction * track.tile_set.tile_size * 0.5)
-
+	
 	if estimate_progress:
 		print("Attaching with progress %s" % curve.get_closest_offset(self.global_position))
 		base_node.path_follow.progress = curve.get_closest_offset(self.global_position)
