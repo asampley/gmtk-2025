@@ -2,8 +2,8 @@ extends PanelContainer
 
 
 @onready var title: Label = %Title
-@onready var claim: TextureButton = %Claim
-@onready var bookmark: TextureButton = %Bookmark
+@onready var claim: SoundButton = %Claim
+@onready var bookmark: SoundButton = %Bookmark
 @onready var highlight: TextureRect = %Highlight
 
 var objective: Objective

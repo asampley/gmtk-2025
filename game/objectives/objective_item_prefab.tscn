@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://djsroa7s51myg"]
+[gd_scene load_steps=9 format=3 uid="uid://djsroa7s51myg"]
 
 [ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
 [ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="2_3jywm"]
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_hmrwq"]
-[ext_resource type="Texture2D" uid="uid://bh1kg80u83ygo" path="res://game/objectives/checkmark_grey.png" id="3_3jywm"]
-[ext_resource type="Script" uid="uid://oeebitnriy20" path="res://utilities/node_overrides/sound_texture_button.gd" id="4_3l71y"]
-[ext_resource type="Texture2D" uid="uid://c6yu2yr7llgxx" path="res://game/objectives/target.png" id="4_qvuah"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="3_qvuah"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="5_d60pi"]
-[ext_resource type="Texture2D" uid="uid://bpssuu4j6h3tx" path="res://game/objectives/target_grey.png" id="5_qvuah"]
 [ext_resource type="Shader" uid="uid://8nl8l4xgcmks" path="res://game/shaders/sword_style_sprite_highlight.gdshader" id="6_d60pi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmrwq"]
@@ -49,16 +46,16 @@ autowrap_mode = 3
 script = ExtResource("2_hmrwq")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
 
-[node name="Claim" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="Claim" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_hmrwq")
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("2_3jywm")
-texture_disabled = ExtResource("3_3jywm")
-script = ExtResource("4_3l71y")
+theme_override_font_sizes/font_size = 30
+text = "Claim"
+script = ExtResource("3_qvuah")
 sound = ExtResource("5_d60pi")
-metadata/_custom_type_script = "uid://oeebitnriy20"
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
 [node name="Highlight" type="TextureRect" parent="MarginContainer/HBoxContainer/Claim"]
 unique_name_in_owner = true
@@ -71,17 +68,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3jywm")
 expand_mode = 3
-stretch_mode = 4
 
-[node name="Bookmark" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+[node name="Bookmark" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("4_qvuah")
-texture_disabled = ExtResource("5_qvuah")
-script = ExtResource("4_3l71y")
+theme_override_font_sizes/font_size = 30
+text = "Bookmark"
+script = ExtResource("3_qvuah")
 sound = ExtResource("5_d60pi")
-metadata/_custom_type_script = "uid://oeebitnriy20"
+metadata/_custom_type_script = "uid://d32h6unvtwvf"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Claim" to="." method="_on_claim_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Bookmark" to="." method="_on_bookmark_pressed"]
