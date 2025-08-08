@@ -716,7 +716,7 @@ autoplay = true
 bus = &"music"
 
 [node name="UIAudioPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
-bus = &"sfx"
+bus = &"ui"
 script = ExtResource("41_ta815")
 
 [node name="ComboSounds" type="AudioStreamPlayer" parent="AudioPlayers"]

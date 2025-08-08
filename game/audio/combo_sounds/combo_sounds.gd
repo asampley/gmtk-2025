@@ -1,6 +1,9 @@
 extends AudioStreamPlayer
 
 
+@export var custom_max_polyphony: int = 32
+
+@export_group("Sound Effects")
 @export var success_sound: AudioStream
 @export var failure_sound: AudioStream
 @export var one_button: AudioStream
@@ -13,32 +16,46 @@ extends AudioStreamPlayer
 
 
 func _ready() -> void:
+	stream = AudioStreamPolyphonic.new()
+	stream.polyphony = custom_max_polyphony
 	EventBus.combo_button_pressed.connect(on_combo_button_pressed)
 	EventBus.combo_completed.connect(on_combo_completed)
 	EventBus.combo_failed.connect(on_combo_failed)
 
 func on_combo_button_pressed(_combo_button: Globals.ComboButtons, length: int) -> void:
+	var sound_effect: AudioStream
 	match length:
 		1:
-			stream = one_button
+			sound_effect = one_button
 		2:
-			stream = two_buttons
+			sound_effect = two_buttons
 		3:
-			stream = three_buttons
+			sound_effect = three_buttons
 		4:
-			stream = four_buttons
+			sound_effect = four_buttons
 		5:
-			stream = five_buttons
+			sound_effect = five_buttons
 		6:
-			stream = six_buttons
+			sound_effect = six_buttons
 		7:
-			stream = seven_buttons
-	play()
+			sound_effect = seven_buttons
+	if !playing:
+		play()
+	var polyphonic_stream_playback: AudioStreamPlaybackPolyphonic = get_stream_playback()
+	polyphonic_stream_playback.play_stream(sound_effect) 
 
 func on_combo_completed(_combo_name: String, _score: float, _mult: float) -> void:
-	stream = success_sound
-	play()
+	if !playing:
+		play()
+	var polyphonic_stream_playback: AudioStreamPlaybackPolyphonic = get_stream_playback()
+	polyphonic_stream_playback.play_stream(success_sound) 
+	#stream = success_sound
+	#play()
 
 func on_combo_failed() -> void:
-	stream = failure_sound
-	play()
+	if !playing:
+		play()
+	var polyphonic_stream_playback: AudioStreamPlaybackPolyphonic = get_stream_playback()
+	polyphonic_stream_playback.play_stream(success_sound) 
+	#stream = failure_sound
+	#play()
