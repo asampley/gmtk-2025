@@ -14,6 +14,8 @@ var transition: State
 var track: Track
 var stopped_time: float = 0
 var sound_effect_index: int
+var track_effect_to_sound_index_dict: Dictionary[TrackEffect, int] = {}
+var entered_track_effect: bool
 
 
 func prepare_state(collision_track: Track, collision_point: Vector2) -> void:
@@ -67,7 +69,11 @@ func process_physics(delta: float) -> State:
 	var effect := track.effect(tile_pos)
 	if effect:
 		effect.effect(track, tile_pos, base_node, delta)
-		base_node.audio_player.play_sound_effect(effect.sound_effect)
+		if !entered_track_effect:
+			base_node.audio_player.play_sound_effect(effect.sound_effect)
+			entered_track_effect = true
+	else:
+		entered_track_effect = false
 	var curve := base_node.path.curve
 	var follow := base_node.path_follow
 	
