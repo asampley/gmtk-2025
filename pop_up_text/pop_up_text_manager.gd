@@ -2,6 +2,7 @@ class_name PopUpTextManager
 extends Node
 
 
+@export var text_popup_prefab_0: PackedScene
 @export var text_popup_prefab_1: PackedScene
 
 
@@ -14,6 +15,8 @@ func on_popup_text_requested(text: String, type: int, \
 	var text_popup: Control
 	match type:
 		0:
+			text_popup = text_popup_prefab_0.instantiate()
+		1:
 			text_popup = text_popup_prefab_1.instantiate()
 	add_child(text_popup)
 	text_popup.initialize(text, screen_position, duration)

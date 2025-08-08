@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp051v7f73x14"]
 
-[ext_resource type="Script" uid="uid://6c57puox4po3" path="res://pop_up_text/pop_up_text.gd" id="1_m5of4"]
-[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_asqh2"]
+[ext_resource type="Script" uid="uid://6c57puox4po3" path="res://pop_up_text/pop_up_text.gd" id="1_8jl8m"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_ga7oy"]
 
 [node name="PopUpTextPrefab" type="PanelContainer"]
 layout_direction = 4
@@ -19,7 +19,8 @@ grow_vertical = 0
 pivot_offset = Vector2(158, 46.625)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_m5of4")
+mouse_filter = 2
+script = ExtResource("1_8jl8m")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,7 +35,7 @@ custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 2
-script = ExtResource("2_asqh2")
+script = ExtResource("2_ga7oy")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
 
 [connection signal="resized" from="MarginContainer/Text" to="." method="_on_text_resized"]

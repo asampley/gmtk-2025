@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cg1rvsupueok8"]
 
 [ext_resource type="Script" uid="uid://ddxly05pcdid8" path="res://pop_up_text/pop_up_text_manager.gd" id="1_5v8ef"]
-[ext_resource type="PackedScene" uid="uid://cp051v7f73x14" path="res://pop_up_text/pop_up_text_prefab.tscn" id="2_i8ytd"]
+[ext_resource type="PackedScene" uid="uid://cp051v7f73x14" path="res://pop_up_text/pop_up_text_prefab_0.tscn" id="2_i8ytd"]
 
 [node name="PopUpTextManager" type="Node"]
 script = ExtResource("1_5v8ef")

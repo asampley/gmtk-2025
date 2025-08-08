@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfuck01nvq6dt"]
+
+[ext_resource type="Texture2D" uid="uid://h6ahi8pyimrc" path="res://pop_up_text/text_box.png" id="1_0uojn"]
+[ext_resource type="Script" uid="uid://6c57puox4po3" path="res://pop_up_text/pop_up_text.gd" id="1_8jl8m"]
+[ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_ga7oy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47r3v"]
+texture = ExtResource("1_0uojn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="PopUpTextPrefab" type="PanelContainer"]
+layout_direction = 4
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -298.0
+offset_top = -76.625
+offset_right = 18.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(158, 46.625)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_47r3v")
+script = ExtResource("1_8jl8m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Text" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_ga7oy")
+metadata/_custom_type_script = "uid://60ce8sfif45j"
+
+[connection signal="resized" from="MarginContainer/Text" to="." method="_on_text_resized"]
