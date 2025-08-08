@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bw0pcemwc0jns" path="res://game/upgrade/upgrade_menu.gd" id="1_g7qji"]
 [ext_resource type="PackedScene" uid="uid://duxcyga38wgsi" path="res://game/upgrade/upgrade_selector.tscn" id="2_pd3uc"]
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="3_a0w04"]
-[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="3_fkfn1"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/advanced_button.gd" id="3_fkfn1"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="4_a0w04"]
 
 [node name="UpgradeMenu" type="PanelContainer"]

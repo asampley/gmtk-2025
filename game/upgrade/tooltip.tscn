@@ -4,20 +4,29 @@
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_16yfs"]
 
 [node name="Tooltip" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 122.0
+offset_bottom = 20.4167
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_type_variation = &"TooltipPanelContainer"
 script = ExtResource("1_ahqtw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
 
 [node name="Description" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
 text = "This is a tooltip."
 script = ExtResource("2_16yfs")
 metadata/_custom_type_script = "uid://60ce8sfif45j"
+
+[connection signal="resized" from="MarginContainer/Description" to="." method="_on_description_resized"]

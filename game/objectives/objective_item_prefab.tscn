@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://e5dflt3f7iqv" path="res://game/objectives/objective_item.gd" id="1_28l77"]
 [ext_resource type="Texture2D" uid="uid://77tirad0ehit" path="res://game/objectives/checkmark.png" id="2_3jywm"]
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="2_hmrwq"]
-[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="3_qvuah"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/advanced_button.gd" id="3_qvuah"]
 [ext_resource type="AudioStream" uid="uid://dn08s8u513k3u" path="res://game/ui/menu_click.wav" id="5_d60pi"]
 [ext_resource type="Shader" uid="uid://8nl8l4xgcmks" path="res://game/shaders/sword_style_sprite_highlight.gdshader" id="6_d60pi"]
 

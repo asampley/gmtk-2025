@@ -24,3 +24,7 @@ func on_tooltip_requested(description_text: String, mouse_position: Vector2) -> 
 
 func on_tooltip_hidden() -> void:
 	hide()
+
+func _on_description_resized() -> void:
+	size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	size_flags_vertical = Control.SIZE_SHRINK_CENTER

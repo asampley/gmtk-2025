@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcs7yacbfq5ff"]
 
 [ext_resource type="Script" uid="uid://b3djeedaj5tni" path="res://game/ui/stunts_menu.gd" id="1_63t88"]
-[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/sound_button.gd" id="1_7106x"]
+[ext_resource type="Script" uid="uid://d32h6unvtwvf" path="res://utilities/node_overrides/advanced_button.gd" id="1_7106x"]
 [ext_resource type="PackedScene" uid="uid://cvev8bvwgsb3b" path="res://game/ui/combo_viewer_prefab.tscn" id="3_tgetc"]
 [ext_resource type="Shader" uid="uid://c3yoqu5pj4qwc" path="res://game/shaders/hologram_style_highlight.gdshader" id="5_i2ib0"]
 [ext_resource type="Script" uid="uid://60ce8sfif45j" path="res://utilities/node_overrides/auto_linear_label.gd" id="5_v1ntj"]

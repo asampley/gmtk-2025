@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cvdgn5uuf5t4w"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cvdgn5uuf5t4w"]
 
 [ext_resource type="Texture2D" uid="uid://dhxem8ccp5x61" path="res://game/theme/blue_panel.png" id="1_ju1rf"]
 [ext_resource type="StyleBox" uid="uid://o0apevoeavog" path="res://game/new_style_box_texture.tres" id="2_eo17r"]
@@ -16,6 +16,14 @@ texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo17r"]
+bg_color = Color(0, 0, 0, 0.784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 0.784314)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ejh2t"]
 color = Color(1, 1, 1, 1)
@@ -45,4 +53,8 @@ LabelTitle/constants/outline_size = 15
 LabelTitle/font_sizes/font_size = 40
 LabelTitle/fonts/font = ExtResource("3_eo17r")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_pbm55")
+TooltipLabel/constants/outline_size = 0
+TooltipLabel/font_sizes/font_size = 25
+TooltipLabel/fonts/font = ExtResource("3_ejh2t")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_eo17r")
 VSeparator/styles/separator = SubResource("StyleBoxLine_ejh2t")

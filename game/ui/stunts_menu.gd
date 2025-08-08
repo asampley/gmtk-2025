@@ -3,7 +3,7 @@ extends Control
 
 @export var combo_viewer_prefab: PackedScene
 @onready var stunts_parent: HBoxContainer = %StuntsParent
-@onready var open_stunts_button: SoundButton = %OpenStuntsButton
+@onready var open_stunts_button: AdvancedButton = %OpenStuntsButton
 @onready var highlight: PanelContainer = %Highlight
 
 
