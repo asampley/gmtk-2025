@@ -44,7 +44,7 @@ func process_input(event: InputEvent) -> State:
 		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
 	elif event.is_action_pressed("stunt_key_4"):
 		combo_sequence.append(Globals.ComboButtons.DOWN)
-		EventBus.combo_button_pressed.emit(Globals.ComboButtons.UP, combo_sequence.size())
+		EventBus.combo_button_pressed.emit(Globals.ComboButtons.DOWN, combo_sequence.size())
 	#elif event.is_action_pressed("special_move"):
 	#	activate_glide()
 	else:
